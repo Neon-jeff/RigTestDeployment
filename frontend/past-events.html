@@ -1,0 +1,267 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG Africa | Events</title>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss" />
+		{% endcompress %}
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="{% static 'assets/icons/favicon/apple-touch-icon.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="{% static 'assets/icons/favicon/android-chrome-512x512.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="{%static 'assets/icons/favicon/android-chrome-192x192.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="{%static 'assets/icons/favicon/favicon-32x32.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="{%static 'assets/icons/favicon/favicon-16x16.png'%}"
+		/>
+		<link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
+		<!-- js -->
+		<!-- <script src="/assets/js/event.js" defer></script> -->
+		<script src="{%static '/assets/js/app.js'%}" defer></script>
+	</head>
+	<body class="past-events-page">
+		<!-- ----------------- NAVBAR----------------------------- -->
+		<nav class="navbar">
+			<a href="/index.html" class="navbar__logo">
+				<img src="{%static 'assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
+			</a>
+			<section class="navigation main-nav hide-nav">
+				<a href="about.html" class="navigation__link">about us</a>
+				<a href="partners.html" class="navigation__link">partner</a>
+				<a href="contact.html" class="navigation__link">RIGX</a>
+				<a href="#" class="navigation__link">RIG school</a>
+				<a href="{% url 'events' %}" class="navigation__link">events</a>
+				<a href="#" class="navigation__link">shops</a>
+				<a href="#" class="navigation__link">affiliate</a>
+			</section>
+			<button class="btn btn-primary">donate</button>
+			<img
+				src="{% static  '/assets/icons/search-icon.png'%}"
+				alt="search"
+				title="Search"
+				class="icon search-icon"
+			/>
+			<img
+				src="{% static '/assets/icons/icon-hamburger.svg'%}"
+				alt=""
+				class="icon nav-toggle hidden"
+			/>
+		</nav>
+		<main class="main">
+			<!-- ---------------- TOP BAR SECTION -------------- -->
+			<section class="top-bar">
+				<h4 class="tertiary-heading">
+					Upcoming Events
+					<img
+						src="{% static '/assets/icons/right-arrow.svg'%}"
+						alt=""
+						aria-hidden="true"
+						class="icon"
+					/>
+				</h4>
+				<form class="search-form">
+					<img
+						src="{% static '/assets/icons/search-icon.png'%}"
+						aria-label="click to search"
+						alt="search"
+						class="icon toggle-form"
+					/>
+					<label class="search-form__label hidden event-search">
+						<span class="search-form__close event-close">x</span>
+						<input
+							class="search-form__input"
+							placeholder="search events"
+							type="text"
+						/>
+					</label>
+				</form>
+			</section>
+			<!-- EVENTS NAV -->
+			{%for month, list in context.items%}
+			{%if not list.0|length == 0 %}
+			<section class="events__nav">
+				<div class="date__nav">
+					<button type="button" class="btn back">
+						<img
+							src="{% static '/assets/icons/right-arrow.svg'%}"
+							alt="previous events"
+							class="icon"
+						/>
+					</button>
+					<h3 class="secondary-heading">{{month}}, 2023</h3>
+				</div>
+			</section>
+
+			<!-- ------------ ALL PAST EVENTS --------- -->
+			{%for event in list.0%}
+			<section class="events">
+
+				<div class="event__txt">
+					<small class="event__date">
+						<img src="{%static 'assets/icons/calendar-color.svg'%}" alt="" class="icon" />
+						<span
+							>{{event.event_start_date}} to {{event.event_end_date}}
+							<span class="online"
+								><img
+									src="{%static 'assets/icons/globe.svg'%}"
+									alt=""
+									class="icon"
+								/>Online</span
+							>
+						</span>
+					</small>
+					<h3 class="secondary-heading event-title">{{event.event_name}}</h3>
+					<p class="event__detail">
+						{{event.description}}
+					</p>
+				</div>
+
+				<article class="events-section">
+					{% for day in event.event_ref.all%}
+					<div class="event">
+						<img
+							src="{{event.event_flyer.url}}"
+							alt=""
+							class="event__img"
+						/>
+						<div class="event__txt">
+							<h3 class="secondary-heading event-title">
+								{{day.day_name}} {{event.event_name}}
+							</h3>
+							<p class="event__detail">
+								Ministering: Prophet Tomi Arayomi, Pastor Chingtok, DDK, Nosa
+								and TY Bello on the line up today!It has been a power packed
+								conference so far! Tonight we round up with amazing ministers
+								with a Word from the Lord!
+							</p>
+							<button class="btn btn-primary">watch event</button>
+						</div>
+					</div>
+					{%endfor%}
+				</article>
+
+			</section>
+			{%endfor%}
+			{%endif%}
+			{%endfor%}
+			<!-- TODO ADD PAGINATION -->
+
+			<!-- ----------- CALL-TO-ACTION ------------ -->
+			<section class="cta__wrapper">
+				<div class="cta">
+					<div class="cta__txt">
+						<h6 class="tertiary-heading cta__txt--heading">
+							Subscribe to our newsletter
+						</h6>
+						<p class="paragraph cta__txt--info">
+							Stay up-to-date with our latest events, offers and launches.
+						</p>
+						<form action="#" class="cta__form">
+							<input
+								type="email"
+								name="email"
+								id="email"
+								title="Enter Your Email Here"
+								class="cta__form--input"
+								placeholder="Email Address"
+							/>
+							<button class="btn form-btn cta__form--btn">
+								<img src="assets/icons/send-white.png" alt="" class="icon" />
+							</button>
+						</form>
+					</div>
+					<div class="cta__img">
+						<img
+							src="assets/images/mobile-mockup.png"
+							class="main-img"
+							alt=""
+						/>
+					</div>
+				</div>
+			</section>
+		</main>
+		<!-- -------------- FOOTER --------------->
+		<footer class="footer">
+			<div class="footer__logo">
+				<img src="/assets/icons/rig-white.png" alt="" class="logo rig-logo" />
+				<img src="/assets/icons/rig-text.png" alt="" class="logo rig-txt" />
+			</div>
+			<div class="footer__main">
+				<div class="footer__links">
+					<section class="navigation">
+						<div class="nav-group">
+							<a href="contact.html" class="navigation__link">about us</a>
+							<a href="#" class="navigation__link">partner</a>
+							<a href="#" class="navigation__link">RIGX</a>
+							<a href="#" class="navigation__link">RIG school</a>
+						</div>
+						<div class="nav-group">
+							<a href="/events.html" class="navigation__link active">events</a>
+							<a href="shop-books.html" class="navigation__link">shops</a>
+							<a href="#" class="navigation__link">affiliate</a>
+						</div>
+					</section>
+					<button class="btn btn-primary">donate</button>
+				</div>
+				<section class="footer__socials">
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/twitter-white.png"
+							alt="follow us on twitter"
+							class="icon socail-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/youtube-white.png"
+							alt="subscribe to our channel"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/instagram-white.png"
+							alt="twitter"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/facebook-white.png"
+							alt="follow with us on facebook"
+							class="icon social-icon"
+						/>
+					</a>
+				</section>
+				<p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+			</div>
+		</footer>
+	</body>
+</html>

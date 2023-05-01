@@ -1,0 +1,87 @@
+// ============= FONTS =========
+// NUNITO SANS
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
+
+// SACRAMENTO
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+// Gabriela font
+@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
+
+html {
+	scroll-behavior: smooth;
+	font-size: 62.5%;
+	width: 100%;
+}
+
+body {
+	font-size: 1.6rem;
+	width: 100%;
+	overflow-x: hidden;
+	position: relative;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a,
+a:link {
+	text-decoration: none;
+	color: unset;
+}
+
+img {
+	object-fit: contain;
+	-o-object-fit: contain;
+}
+
+textarea {
+	resize: none;
+}
+
+// scrollreveal animation class
+html.sr .load-hidden {
+	visibility: hidden;
+}
+
+// animations
+
+@keyframes loopHorizontal {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes popIn {
+	0% {
+		scale: 0;
+		translate: 100%;
+	}
+
+	50% {
+		scale: 1.1;
+		translate: 0;
+	}
+
+	100% {
+		scale: 1;
+	}
+}

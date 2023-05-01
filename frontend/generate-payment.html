@@ -1,0 +1,49 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% compress css %}
+	<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+	{% endcompress %}
+</head>
+<body >
+    <div class="main-cont">
+        <div class="image-cont">
+            <div class="image-holder">
+                <img src="{%static 'assets/images/img-bg.jpg'%}" alt="">
+            </div>
+            <h2>RigAfrica Donations</h2>
+        </div>
+        <div class="form-cont">
+
+            <a href="{%url 'dashboard'%}"rel="noopener noreferrer">
+                Back to dashboard
+            </a>
+            <h2>Generate Payment Invoice</h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                <label for="">
+                    Account Information
+                    <input type="text" value="2022358200 Heritage Bank" disabled>
+                </label>
+                 <label for="">
+                   Donation Amount
+                    <input type="text" value="10,000" disabled>
+                </label>
+                <label for="">
+                    Email
+                    <input type="email" name="email" required>
+                </label>
+                <small>Payment status will be updated when confirmed</small>
+                <button type="submit">Generate Invoice</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

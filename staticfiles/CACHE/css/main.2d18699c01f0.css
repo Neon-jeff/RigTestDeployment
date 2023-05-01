@@ -1,0 +1,1265 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gabriela&display=swap");
+/* line 8, static/assets/sass/base/_base.scss */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  width: 100%; }
+
+/* line 14, static/assets/sass/base/_base.scss */
+body {
+  font-size: 1.6rem;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  font-family: 'Rubik', sans-serif; }
+
+/* line 22, static/assets/sass/base/_base.scss */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* line 30, static/assets/sass/base/_base.scss */
+a,
+a:link {
+  text-decoration: none;
+  color: unset; }
+
+/* line 36, static/assets/sass/base/_base.scss */
+img {
+  object-fit: contain;
+  -o-object-fit: contain; }
+
+/* line 41, static/assets/sass/base/_base.scss */
+textarea {
+  resize: none; }
+
+/* line 46, static/assets/sass/base/_base.scss */
+html.sr .load-hidden {
+  visibility: hidden; }
+
+@keyframes loopHorizontal {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(-100%); } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(-360deg); } }
+
+/* line 2, static/assets/sass/base/_typography.scss */
+.primary-heading {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin: 2rem;
+  text-transform: capitalize; }
+
+/* line 9, static/assets/sass/base/_typography.scss */
+.secondary-heading {
+  font-size: 2rem;
+  line-height: 1;
+  margin-block: 1rem;
+  text-transform: capitalize; }
+
+/* line 16, static/assets/sass/base/_typography.scss */
+.tertiary-heading {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-block: 1rem;
+  text-transform: capitalize; }
+
+/* line 24, static/assets/sass/base/_typography.scss */
+.paragraph {
+  margin-block: 1rem;
+  line-height: 1.5;
+  font-size: 1.5rem; }
+
+@media screen and (max-width: 650px) {
+  /* line 32, static/assets/sass/base/_typography.scss */
+  .primary-heading {
+    font-size: 2rem; }
+  /* line 36, static/assets/sass/base/_typography.scss */
+  .secondary-heading,
+  .tertiary-heading {
+    font-size: 1.8rem; } }
+
+/* line 2, static/assets/sass/components/_grid.scss */
+.grid {
+  display: grid;
+  width: 100%; }
+
+/* line 7, static/assets/sass/components/_grid.scss */
+.col-3 {
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  justify-content: space-between;
+  gap: 2rem; }
+
+/* line 13, static/assets/sass/components/_grid.scss */
+.card {
+  padding: 2rem;
+  border-radius: 0.5rem; }
+
+/* line 18, static/assets/sass/components/_grid.scss */
+.split-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 4rem;
+  gap: 2rem;
+  width: 90%;
+  margin: 2rem auto; }
+  /* line 28, static/assets/sass/components/_grid.scss */
+  .split-2__txt {
+    width: 60%; }
+  /* line 32, static/assets/sass/components/_grid.scss */
+  .split-2__img {
+    width: 35%; }
+    /* line 35, static/assets/sass/components/_grid.scss */
+    .split-2__img .main-img {
+      width: 100%; }
+
+@media screen and (max-width: 650px) {
+  /* line 43, static/assets/sass/components/_grid.scss */
+  .split-2 {
+    flex-direction: column;
+    padding: 4rem;
+    width: 100%; }
+    /* line 48, static/assets/sass/components/_grid.scss */
+    .split-2__txt {
+      width: 100%; }
+    /* line 52, static/assets/sass/components/_grid.scss */
+    .split-2__img {
+      width: 80%; } }
+
+@use '../abstracts/variables' as *;
+/* line 3, static/assets/sass/components/_navbar.scss */
+.navbar {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  background: rgba(217, 217, 217, 0.2);
+  border: 1px solid rgba(30, 30, 30, 0.5);
+  box-shadow: 0px 0.4rem 2.5rem rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  position: fixed;
+  left: 2rem;
+  right: 2rem;
+  top: 4rem; }
+  /* line 21, static/assets/sass/components/_navbar.scss */
+  .navbar__logo {
+    display: inline-block;
+    margin-right: auto;
+    justify-self: start;
+    width: 15%; }
+  /* line 28, static/assets/sass/components/_navbar.scss */
+  .navbar .logo {
+    width: 100%; }
+
+/* line 33, static/assets/sass/components/_navbar.scss */
+.navigation {
+  display: flex;
+  gap: 2rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-inline: 2rem;
+  flex-wrap: wrap; }
+
+/* line 42, static/assets/sass/components/_navbar.scss */
+.search-icon {
+  display: inline-block;
+  margin-left: 2rem;
+  cursor: pointer; }
+
+@media screen and (max-width: 650px) {
+  /* line 51, static/assets/sass/components/_navbar.scss */
+  .header .navbar {
+    position: relative;
+    left: 0;
+    right: 0; }
+  /* line 57, static/assets/sass/components/_navbar.scss */
+  .header .navigation {
+    background-color: #1e293b;
+    flex-direction: column;
+    position: absolute;
+    top: 6rem;
+    padding: 2rem 4rem;
+    border-radius: 1rem; }
+  /* line 66, static/assets/sass/components/_navbar.scss */
+  .header .navbar__logo {
+    width: 38%; } }
+
+@use '../abstracts/variables' as *;
+/* line 3, static/assets/sass/components/_buttons.scss */
+.btn {
+  min-width: max-content;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: unset;
+  outline: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 15, static/assets/sass/components/_buttons.scss */
+  .btn a {
+    color: inherit; }
+
+/* line 20, static/assets/sass/components/_buttons.scss */
+.btn-primary {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  text-transform: capitalize;
+  background-color: #ec992f;
+  color: #fff; }
+
+/* line 3, static/assets/sass/components/_utilities.scss */
+.icon {
+  height: 2rem;
+  aspect-ratio: 1/1; }
+
+/* line 8, static/assets/sass/components/_utilities.scss */
+.primary-color {
+  color: #ec992f; }
+
+/* line 12, static/assets/sass/components/_utilities.scss */
+.primary-bg {
+  background-color: #ec992f; }
+
+/* line 16, static/assets/sass/components/_utilities.scss */
+.hidden {
+  display: none !important; }
+
+/* line 20, static/assets/sass/components/_utilities.scss */
+.active {
+  border-bottom: 2px solid #ec992f; }
+
+@use '../abstracts/variables' as *;
+/* line 4, static/assets/sass/layouts/_header.scss */
+.newsline {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 6rem;
+  padding: 2rem 4rem;
+  background-color: #fff;
+  height: 4rem;
+  margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50; }
+  /* line 19, static/assets/sass/layouts/_header.scss */
+  .newsline__txt {
+    display: flex;
+    align-items: baseline;
+    gap: 0.2rem; }
+    /* line 24, static/assets/sass/layouts/_header.scss */
+    .newsline__txt--heading {
+      text-transform: uppercase;
+      font-weight: 400; }
+    /* line 29, static/assets/sass/layouts/_header.scss */
+    .newsline__txt--link {
+      text-transform: capitalize;
+      color: #ec992f !important; }
+  /* line 35, static/assets/sass/layouts/_header.scss */
+  .newsline__link--group {
+    display: flex;
+    gap: 2rem; }
+  /* line 40, static/assets/sass/layouts/_header.scss */
+  .newsline__link {
+    height: 2rem; }
+
+/* line 45, static/assets/sass/layouts/_header.scss */
+.header {
+  position: static;
+  background-image: url("/assets/images/hero-bg.png?bf5dbfe84e05");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: screen;
+  background-color: #081727;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  top: 4rem; }
+  /* line 57, static/assets/sass/layouts/_header.scss */
+  .header__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: #fff;
+    height: 100%;
+    background-image: linear-gradient(#28313b, rgba(72, 84, 97, 0.46));
+    padding: 4rem; }
+  /* line 67, static/assets/sass/layouts/_header.scss */
+  .header .search-form {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 15rem;
+    left: 50%;
+    z-index: 50; }
+    /* line 75, static/assets/sass/layouts/_header.scss */
+    .header .search-form__label {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      background-color: rgba(72, 84, 97, 0.5);
+      outline: 2px solid #485461;
+      border-radius: 0.5rem;
+      margin-left: 1rem; }
+    /* line 85, static/assets/sass/layouts/_header.scss */
+    .header .search-form__input, .header .search-form__input:focus {
+      background-color: transparent;
+      border: unset;
+      color: #fff;
+      outline: unset;
+      height: 100%;
+      padding: 1rem; }
+    /* line 95, static/assets/sass/layouts/_header.scss */
+    .header .search-form__input::placeholder {
+      color: #ec992f;
+      text-transform: capitalize;
+      font-weight: bold; }
+    /* line 101, static/assets/sass/layouts/_header.scss */
+    .header .search-form__close {
+      display: inline-block;
+      color: #fff;
+      padding-inline: 1rem;
+      cursor: pointer; }
+    /* line 108, static/assets/sass/layouts/_header.scss */
+    .header .search-form .toggle-form {
+      cursor: pointer;
+      filter: invert(80%); }
+
+/* line 116, static/assets/sass/layouts/_header.scss */
+.hero {
+  display: block;
+  margin-block: auto 0;
+  width: 100%; }
+  /* line 121, static/assets/sass/layouts/_header.scss */
+  .hero__txt {
+    width: 50%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  /* line 129, static/assets/sass/layouts/_header.scss */
+  .hero__info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8rem; }
+    /* line 134, static/assets/sass/layouts/_header.scss */
+    .hero__info--stats {
+      display: flex;
+      gap: 4rem; }
+  /* line 140, static/assets/sass/layouts/_header.scss */
+  .hero .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  /* line 146, static/assets/sass/layouts/_header.scss */
+  .hero__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 152, static/assets/sass/layouts/_header.scss */
+    .hero__logo .rig-logo {
+      height: 4rem; }
+    /* line 156, static/assets/sass/layouts/_header.scss */
+    .hero__logo .rig-txt {
+      height: 8rem;
+      position: absolute;
+      animation: rotate 15s linear infinite;
+      z-index: 5; }
+
+@media screen and (max-width: 650px) {
+  /* line 168, static/assets/sass/layouts/_header.scss */
+  .header .hide-nav {
+    display: none !important;
+    height: 0; }
+  /* line 173, static/assets/sass/layouts/_header.scss */
+  .header__wrapper {
+    padding: 0; }
+  /* line 177, static/assets/sass/layouts/_header.scss */
+  .header .nav-toggle.hidden {
+    display: block;
+    filter: invert(100%);
+    margin-left: 2rem; }
+  /* line 183, static/assets/sass/layouts/_header.scss */
+  .newsline {
+    display: none; }
+  /* line 187, static/assets/sass/layouts/_header.scss */
+  .hero__txt {
+    width: 80%;
+    margin-block: auto 6rem; }
+  /* line 192, static/assets/sass/layouts/_header.scss */
+  .hero__info {
+    margin: 4rem 1rem;
+    gap: 4rem;
+    flex-direction: column;
+    align-items: flex-end; }
+    /* line 198, static/assets/sass/layouts/_header.scss */
+    .hero__info .logo {
+      height: 6rem; }
+    /* line 202, static/assets/sass/layouts/_header.scss */
+    .hero__info--stats {
+      align-self: center; }
+    /* line 206, static/assets/sass/layouts/_header.scss */
+    .hero__info .stat__info {
+      font-size: 1.4rem; } }
+
+@use '../abstracts/variables' as *;
+/* line 4, static/assets/sass/layouts/footer.scss */
+.footer {
+  display: flex;
+  padding: 2rem 6rem;
+  background-color: #2f1f09;
+  color: #fff;
+  position: relative; }
+  /* line 11, static/assets/sass/layouts/footer.scss */
+  .footer__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    /* line 17, static/assets/sass/layouts/footer.scss */
+    .footer__logo .rig-logo {
+      height: 4rem; }
+    /* line 21, static/assets/sass/layouts/footer.scss */
+    .footer__logo .rig-txt {
+      height: 8rem;
+      position: absolute;
+      animation: rotate 15s linear infinite;
+      z-index: 5; }
+  /* line 30, static/assets/sass/layouts/footer.scss */
+  .footer__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 4rem;
+    gap: 1rem; }
+  /* line 39, static/assets/sass/layouts/footer.scss */
+  .footer__links {
+    display: flex;
+    align-items: center; }
+  /* line 44, static/assets/sass/layouts/footer.scss */
+  .footer .navigation,
+  .footer .paragraph {
+    font-size: 1.2rem; }
+  /* line 50, static/assets/sass/layouts/footer.scss */
+  .footer__socials {
+    display: flex;
+    gap: 2rem; }
+
+/* line 3, static/assets/sass/layouts/_partners.scss */
+.partners-page .main {
+  background-color: #cbd5e1; }
+
+/* line 7, static/assets/sass/layouts/_partners.scss */
+.partners-page .header {
+  background-image: url("/assets/images/map-bg.png?bf5dbfe84e05");
+  background-color: white; }
+  /* line 11, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header__wrapper {
+    padding-top: 0;
+    background-image: unset;
+    background-color: #ec992f;
+    color: black; }
+  /* line 19, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin-inline: auto; }
+    /* line 26, static/assets/sass/layouts/_partners.scss */
+    .partners-page .header .hero__main {
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      /* line 31, static/assets/sass/layouts/_partners.scss */
+      .partners-page .header .hero__main--quote {
+        width: 40%; }
+    /* line 36, static/assets/sass/layouts/_partners.scss */
+    .partners-page .header .hero__heading {
+      width: 70%;
+      display: inline-block;
+      text-align: center;
+      margin-inline: auto; }
+    /* line 43, static/assets/sass/layouts/_partners.scss */
+    .partners-page .header .hero__img--group {
+      width: 80%;
+      grid-template-columns: repeat(3, 10rem);
+      grid-template-rows: repeat(3, 6rem);
+      gap: 1rem;
+      margin: 4rem; }
+  /* line 52, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .img-wrapper {
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem; }
+    /* line 57, static/assets/sass/layouts/_partners.scss */
+    .partners-page .header .img-wrapper .img {
+      object-fit: fill;
+      border-radius: 1rem;
+      height: 100%;
+      width: 100%; }
+  /* line 65, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .box1 {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2; }
+  /* line 70, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .box2 {
+    grid-row: 1 / span 3;
+    grid-column: 2 / 3; }
+  /* line 75, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .box3 {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4; }
+  /* line 79, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .box4 {
+    grid-column: 1 / 2;
+    grid-row: 3 / span 1; }
+  /* line 83, static/assets/sass/layouts/_partners.scss */
+  .partners-page .header .box5 {
+    grid-row: 2 / span 2;
+    grid-column: 3 / span 1;
+    background-color: #d9d9d9; }
+
+/* line 90, static/assets/sass/layouts/_partners.scss */
+.partners-page .event-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; }
+
+/* line 96, static/assets/sass/layouts/_partners.scss */
+.partners-page .split-2__txt {
+  width: 44%; }
+
+/* line 99, static/assets/sass/layouts/_partners.scss */
+.partners-page .split-2__img {
+  width: 52%; }
+
+@use '../abstracts/variables' as *;
+/* line 8, static/assets/sass/layouts/_home.scss */
+.welcome {
+  margin-top: 6rem; }
+  /* line 11, static/assets/sass/layouts/_home.scss */
+  .welcome__txt--title {
+    font-family: 'Sacramento', cursive;
+    color: #ec992f;
+    margin-left: 8rem;
+    font-size: 8rem;
+    font-weight: 400; }
+  /* line 19, static/assets/sass/layouts/_home.scss */
+  .welcome__txt--heading {
+    margin-block: 0 2rem;
+    margin-left: 8rem; }
+  /* line 24, static/assets/sass/layouts/_home.scss */
+  .welcome__main {
+    padding-top: 0;
+    margin-top: 0; }
+  /* line 29, static/assets/sass/layouts/_home.scss */
+  .welcome__txt {
+    align-self: flex-start; }
+  /* line 33, static/assets/sass/layouts/_home.scss */
+  .welcome__img {
+    margin-top: -10rem; }
+
+/* line 39, static/assets/sass/layouts/_home.scss */
+.partners {
+  width: 90%;
+  z-index: 2;
+  margin-bottom: 2rem; }
+  /* line 45, static/assets/sass/layouts/_home.scss */
+  .partners__wrapper {
+    height: calc($large * 4);
+    background-image: url("/assets/images/partners-bg.svg?bf5dbfe84e05");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative; }
+    /* line 55, static/assets/sass/layouts/_home.scss */
+    .partners__wrapper::after {
+      content: '';
+      display: block;
+      height: 100%;
+      inset: 0 0 auto;
+      z-index: 1;
+      position: absolute;
+      clip-path: polygon(0 43%, 100% 0, 100% 100%, 0% 100%);
+      background-color: rgba(236, 153, 47, 0.8); }
+  /* line 67, static/assets/sass/layouts/_home.scss */
+  .partners .col-3 {
+    grid-gap: 6rem; }
+  /* line 71, static/assets/sass/layouts/_home.scss */
+  .partners__heading {
+    text-align: center;
+    margin-bottom: 4rem; }
+  /* line 76, static/assets/sass/layouts/_home.scss */
+  .partners__card {
+    background: linear-gradient(222.92deg, rgba(255, 255, 255, 0.16) 0%, rgba(248, 248, 248, 0) 100%);
+    box-shadow: -15px 17px 27px 1px rgba(13, 13, 13, 0.15); }
+    /* line 84, static/assets/sass/layouts/_home.scss */
+    .partners__card--heading {
+      color: #fff; }
+  /* line 89, static/assets/sass/layouts/_home.scss */
+  .partners .icon {
+    height: 4rem;
+    margin-left: 1rem; }
+
+/* line 96, static/assets/sass/layouts/_home.scss */
+.events {
+  width: 80%;
+  margin-block: 8rem 10rem;
+  margin-inline: auto; }
+  /* line 101, static/assets/sass/layouts/_home.scss */
+  .events__txt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+    margin-block: 4rem; }
+  /* line 109, static/assets/sass/layouts/_home.scss */
+  .events .card {
+    padding: 0; }
+  /* line 113, static/assets/sass/layouts/_home.scss */
+  .events__card {
+    width: 100%; }
+  /* line 116, static/assets/sass/layouts/_home.scss */
+  .events .event {
+    width: 100%; }
+
+/* line 122, static/assets/sass/layouts/_home.scss */
+.prophecy-section.split-2 {
+  background-color: #2f1f09;
+  color: #fff;
+  margin: 8rem 0;
+  width: 100%;
+  position: relative; }
+  /* line 129, static/assets/sass/layouts/_home.scss */
+  .prophecy-section.split-2 .main-img {
+    position: absolute;
+    width: 36%;
+    bottom: 0;
+    left: 2rem; }
+
+/* line 138, static/assets/sass/layouts/_home.scss */
+.about {
+  margin-bottom: 6rem; }
+  /* line 141, static/assets/sass/layouts/_home.scss */
+  .about__txt {
+    align-self: flex-start; }
+  /* line 145, static/assets/sass/layouts/_home.scss */
+  .about__img {
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75); }
+
+/* line 153, static/assets/sass/layouts/_home.scss */
+.testimonies {
+  width: 100%;
+  text-align: center;
+  padding: 4rem;
+  margin-bottom: 6rem;
+  position: relative; }
+  /* line 160, static/assets/sass/layouts/_home.scss */
+  .testimonies::after {
+    display: block;
+    content: url("/assets/images/map-bg.png?bf5dbfe84e05");
+    width: 100%;
+    top: 2rem;
+    bottom: 2rem;
+    position: absolute;
+    z-index: -1;
+    isolation: isolate;
+    animation: loopHorizontal 15s linear infinite; }
+  /* line 172, static/assets/sass/layouts/_home.scss */
+  .testimonies__heading {
+    font-size: 2.5rem; }
+  /* line 176, static/assets/sass/layouts/_home.scss */
+  .testimonies__main {
+    margin: 4rem auto;
+    width: 90%; }
+  /* line 181, static/assets/sass/layouts/_home.scss */
+  .testimonies__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px 6px rgba(142, 142, 142, 0.15);
+    border-radius: 2rem; }
+    /* line 191, static/assets/sass/layouts/_home.scss */
+    .testimonies__card--name {
+      margin-bottom: 0;
+      font-weight: 500; }
+
+/* line 199, static/assets/sass/layouts/_home.scss */
+.cta {
+  width: 100%;
+  height: 80%;
+  padding: 4rem 2rem;
+  margin-top: auto;
+  border-radius: 1rem;
+  background-color: #ec6a20;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  position: relative; }
+  /* line 211, static/assets/sass/layouts/_home.scss */
+  .cta::after {
+    display: block;
+    content: 'Be in the Know';
+    font-family: 'Gabriela', serif;
+    font-size: 5rem;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.4);
+    width: 100%;
+    top: 8rem;
+    left: 2rem;
+    right: 2rem;
+    position: absolute;
+    z-index: 1;
+    animation: loopHorizontal 15s linear infinite; }
+  /* line 228, static/assets/sass/layouts/_home.scss */
+  .cta__wrapper {
+    width: 80%;
+    height: calc($large * 3);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin: 4rem auto; }
+  /* line 237, static/assets/sass/layouts/_home.scss */
+  .cta__txt {
+    width: 60%;
+    display: flex;
+    flex-direction: column; }
+    /* line 242, static/assets/sass/layouts/_home.scss */
+    .cta__txt--info {
+      margin-block: 4rem 1rem; }
+  /* line 248, static/assets/sass/layouts/_home.scss */
+  .cta__form {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 1.5rem;
+    padding: 0.5rem; }
+    /* line 257, static/assets/sass/layouts/_home.scss */
+    .cta__form--input {
+      border: unset;
+      outline: unset;
+      width: 70%;
+      padding: 1rem; }
+    /* line 264, static/assets/sass/layouts/_home.scss */
+    .cta__form .btn {
+      border-radius: 1.5rem;
+      background-color: rgba(255, 178, 102, 0.8); }
+    /* line 269, static/assets/sass/layouts/_home.scss */
+    .cta__form--btn,
+    .cta__form .icon {
+      height: 100%; }
+  /* line 275, static/assets/sass/layouts/_home.scss */
+  .cta__img {
+    width: 35%;
+    position: absolute;
+    right: 4rem;
+    bottom: 0;
+    z-index: 2; }
+    /* line 282, static/assets/sass/layouts/_home.scss */
+    .cta__img .main-img {
+      width: 100%; }
+
+@media screen and (max-width: 650px) {
+  /* line 291, static/assets/sass/layouts/_home.scss */
+  .events__txt {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem; }
+  /* line 298, static/assets/sass/layouts/_home.scss */
+  .partners {
+    width: 80%; }
+    /* line 301, static/assets/sass/layouts/_home.scss */
+    .partners__wrapper {
+      height: auto;
+      padding-block: 4rem; }
+      /* line 305, static/assets/sass/layouts/_home.scss */
+      .partners__wrapper::after {
+        clip-path: none; }
+  /* line 312, static/assets/sass/layouts/_home.scss */
+  .prophecy-section.split-2 {
+    flex-direction: column-reverse;
+    padding: 0; }
+    /* line 316, static/assets/sass/layouts/_home.scss */
+    .prophecy-section.split-2 .split-2__img {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end; }
+    /* line 322, static/assets/sass/layouts/_home.scss */
+    .prophecy-section.split-2 .main-img {
+      transform: rotateY(180deg);
+      position: static;
+      width: 80%; }
+    /* line 328, static/assets/sass/layouts/_home.scss */
+    .prophecy-section.split-2 .prophecy-section__txt {
+      padding: 2rem; }
+  /* line 334, static/assets/sass/layouts/_home.scss */
+  .cta {
+    padding: 2rem;
+    justify-content: space-between; }
+    /* line 339, static/assets/sass/layouts/_home.scss */
+    .cta__wrapper {
+      width: 100%;
+      height: auto;
+      align-items: flex-end; }
+    /* line 345, static/assets/sass/layouts/_home.scss */
+    .cta__txt {
+      width: 60%; }
+      /* line 348, static/assets/sass/layouts/_home.scss */
+      .cta__txt--info {
+        margin-block: 1rem;
+        line-height: 1;
+        font-size: 1.3rem; }
+    /* line 356, static/assets/sass/layouts/_home.scss */
+    .cta__form {
+      width: 100%;
+      border-radius: 1.5rem;
+      padding: 0.5rem; }
+      /* line 361, static/assets/sass/layouts/_home.scss */
+      .cta__form--input {
+        width: 70%;
+        padding: 1rem; }
+      /* line 366, static/assets/sass/layouts/_home.scss */
+      .cta__form .btn {
+        border-radius: 1.5rem; }
+    /* line 371, static/assets/sass/layouts/_home.scss */
+    .cta__img {
+      width: 38%;
+      position: absolute;
+      right: 0;
+      bottom: 0; } }
+
+@use '../abstracts/variables' as *;
+/* line 4, static/assets/sass/layouts/_contact.scss */
+.contact-page {
+  background-color: rgba(72, 84, 97, 0.2); }
+  /* line 7, static/assets/sass/layouts/_contact.scss */
+  .contact-page .navbar {
+    width: 90%;
+    position: static; }
+  /* line 12, static/assets/sass/layouts/_contact.scss */
+  .contact-page .secondary-heading {
+    font-size: 2.8rem;
+    margin-bottom: 0; }
+  /* line 17, static/assets/sass/layouts/_contact.scss */
+  .contact-page .main {
+    margin-top: 4rem;
+    margin-inline: auto;
+    width: 80%; }
+  /* line 23, static/assets/sass/layouts/_contact.scss */
+  .contact-page .events__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 4rem; }
+  /* line 30, static/assets/sass/layouts/_contact.scss */
+  .contact-page .top-bar {
+    margin: 0;
+    padding: 1rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgba(72, 84, 97, 0.2); }
+    /* line 36, static/assets/sass/layouts/_contact.scss */
+    .contact-page .top-bar .social-icon {
+      margin-right: 1rem;
+      filter: invert(90%); }
+  /* line 42, static/assets/sass/layouts/_contact.scss */
+  .contact-page .contact-main {
+    margin-block: 2rem;
+    display: flex;
+    gap: 4rem; }
+    /* line 47, static/assets/sass/layouts/_contact.scss */
+    .contact-page .contact-main .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 45%; }
+      /* line 53, static/assets/sass/layouts/_contact.scss */
+      .contact-page .contact-main .form__item, .contact-page .contact-main .form__input--wrapper {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        align-items: center; }
+      /* line 61, static/assets/sass/layouts/_contact.scss */
+      .contact-page .contact-main .form__input, .contact-page .contact-main .form__input:focus {
+        border: unset;
+        outline: 2px solid rgba(72, 84, 97, 0.2);
+        padding: 1rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.8); }
+    /* line 72, static/assets/sass/layouts/_contact.scss */
+    .contact-page .contact-main .btn {
+      max-width: 40%;
+      margin: 2rem 6rem; }
+    /* line 77, static/assets/sass/layouts/_contact.scss */
+    .contact-page .contact-main textarea {
+      height: 12rem; }
+    /* line 81, static/assets/sass/layouts/_contact.scss */
+    .contact-page .contact-main option {
+      width: inherit; }
+  /* line 86, static/assets/sass/layouts/_contact.scss */
+  .contact-page .contact__img--group {
+    width: fit-content;
+    margin: 6rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1; }
+  /* line 96, static/assets/sass/layouts/_contact.scss */
+  .contact-page .pattern {
+    width: 25rem; }
+  /* line 100, static/assets/sass/layouts/_contact.scss */
+  .contact-page .center-img {
+    width: 20rem;
+    z-index: 2;
+    left: -1rem;
+    bottom: 1rem; }
+  /* line 107, static/assets/sass/layouts/_contact.scss */
+  .contact-page .top-img {
+    width: 10rem;
+    z-index: 3;
+    top: 0;
+    left: -1rem; }
+  /* line 114, static/assets/sass/layouts/_contact.scss */
+  .contact-page .bottom-img {
+    width: 10rem;
+    z-index: 3;
+    bottom: -1rem;
+    left: 8rem; }
+  /* line 121, static/assets/sass/layouts/_contact.scss */
+  .contact-page .center-img,
+  .contact-page .top-img,
+  .contact-page .bottom-img {
+    border-radius: 50%;
+    position: absolute; }
+  /* line 128, static/assets/sass/layouts/_contact.scss */
+  .contact-page .rig-branch__group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4rem;
+    align-items: center;
+    margin-block: 2rem 6rem; }
+  /* line 137, static/assets/sass/layouts/_contact.scss */
+  .contact-page .rig-branch {
+    width: 100%;
+    display: inline-block; }
+  /* line 142, static/assets/sass/layouts/_contact.scss */
+  .contact-page .rig-img {
+    width: inherit;
+    object-fit: cover;
+    cursor: pointer; }
+
+@use '../abstracts/variables' as *;
+/* line 4, static/assets/sass/layouts/_events.scss */
+.navbar {
+  width: 90%; }
+
+/* line 8, static/assets/sass/layouts/_events.scss */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem; }
+  /* line 18, static/assets/sass/layouts/_events.scss */
+  .top-bar .tertiary-heading {
+    display: flex;
+    align-items: center; }
+  /* line 23, static/assets/sass/layouts/_events.scss */
+  .top-bar .search-form {
+    display: flex;
+    align-items: center; }
+    /* line 27, static/assets/sass/layouts/_events.scss */
+    .top-bar .search-form__label {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      background-color: rgba(72, 84, 97, 0.2);
+      outline: 2px solid #485461;
+      border-radius: 0.5rem;
+      margin-left: 1rem; }
+    /* line 37, static/assets/sass/layouts/_events.scss */
+    .top-bar .search-form__input, .top-bar .search-form__input:focus {
+      background-color: transparent;
+      border: unset;
+      outline: unset;
+      height: 100%;
+      padding: 1rem; }
+    /* line 46, static/assets/sass/layouts/_events.scss */
+    .top-bar .search-form__close {
+      display: inline-block;
+      color: #fff;
+      padding-inline: 1rem;
+      cursor: pointer; }
+    /* line 53, static/assets/sass/layouts/_events.scss */
+    .top-bar .search-form .toggle-form {
+      cursor: pointer;
+      filter: invert(80%); }
+
+/* line 60, static/assets/sass/layouts/_events.scss */
+.empty-event {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-transform: capitalize; }
+
+/* line 69, static/assets/sass/layouts/_events.scss */
+.events-page {
+  background-color: rgba(72, 84, 97, 0.2); }
+  /* line 72, static/assets/sass/layouts/_events.scss */
+  .events-page .navbar {
+    background-color: rgba(72, 84, 97, 0.6);
+    color: #fff;
+    top: 0; }
+  /* line 78, static/assets/sass/layouts/_events.scss */
+  .events-page .main {
+    margin-inline: auto;
+    width: 70%;
+    padding-top: 12rem; }
+  /* line 84, static/assets/sass/layouts/_events.scss */
+  .events-page .events__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 4rem; }
+  /* line 91, static/assets/sass/layouts/_events.scss */
+  .events-page .date__nav {
+    display: flex;
+    align-items: center; }
+    /* line 95, static/assets/sass/layouts/_events.scss */
+    .events-page .date__nav .btn {
+      margin-right: 1rem; }
+      /* line 98, static/assets/sass/layouts/_events.scss */
+      .events-page .date__nav .btn .icon {
+        transform: rotateY(180deg);
+        filter: invert(80%); }
+  /* line 105, static/assets/sass/layouts/_events.scss */
+  .events-page .events {
+    width: 100%; }
+    /* line 108, static/assets/sass/layouts/_events.scss */
+    .events-page .events .events-section {
+      margin-bottom: 4rem; }
+    /* line 112, static/assets/sass/layouts/_events.scss */
+    .events-page .events .event {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.8);
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-radius: 0.5rem; }
+      /* line 120, static/assets/sass/layouts/_events.scss */
+      .events-page .events .event__img {
+        width: 15rem;
+        object-fit: contain; }
+      /* line 125, static/assets/sass/layouts/_events.scss */
+      .events-page .events .event__txt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem; }
+      /* line 132, static/assets/sass/layouts/_events.scss */
+      .events-page .events .event__date {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        gap: 0.5rem; }
+  /* line 155, static/assets/sass/layouts/_events.scss */
+  .events-page .cta::after {
+    display: none; }
+
+/* line 161, static/assets/sass/layouts/_events.scss */
+.past-events-page {
+  font-size: 1.4rem;
+  background-color: rgba(72, 84, 97, 0.2); }
+  /* line 165, static/assets/sass/layouts/_events.scss */
+  .past-events-page .navbar {
+    background-color: rgba(72, 84, 97, 0.6);
+    color: #fff;
+    top: 0; }
+  /* line 171, static/assets/sass/layouts/_events.scss */
+  .past-events-page .main {
+    margin-inline: auto;
+    width: 70%;
+    padding-top: 12rem; }
+  /* line 177, static/assets/sass/layouts/_events.scss */
+  .past-events-page .events__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem; }
+  /* line 184, static/assets/sass/layouts/_events.scss */
+  .past-events-page .date__nav {
+    display: flex;
+    align-items: center; }
+    /* line 188, static/assets/sass/layouts/_events.scss */
+    .past-events-page .date__nav .btn {
+      margin-right: 1rem; }
+      /* line 191, static/assets/sass/layouts/_events.scss */
+      .past-events-page .date__nav .btn .icon {
+        transform: rotateY(180deg);
+        filter: invert(80%); }
+  /* line 198, static/assets/sass/layouts/_events.scss */
+  .past-events-page .events {
+    width: 100%;
+    margin-block: 2rem; }
+    /* line 202, static/assets/sass/layouts/_events.scss */
+    .past-events-page .events .events-section {
+      margin-bottom: 2rem;
+      background-color: rgba(255, 255, 255, 0.8); }
+    /* line 207, static/assets/sass/layouts/_events.scss */
+    .past-events-page .events .event {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border-bottom: 2px solid rgba(72, 84, 97, 0.2); }
+      /* line 214, static/assets/sass/layouts/_events.scss */
+      .past-events-page .events .event__img {
+        height: 15rem;
+        width: 15rem;
+        object-fit: cover; }
+      /* line 220, static/assets/sass/layouts/_events.scss */
+      .past-events-page .events .event .secondary-heading {
+        margin: 0; }
+      /* line 224, static/assets/sass/layouts/_events.scss */
+      .past-events-page .events .event__txt {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: rgba(255, 255, 255, 0.8);
+        gap: 1rem;
+        padding: 1rem; }
+      /* line 233, static/assets/sass/layouts/_events.scss */
+      .past-events-page .events .event__date {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        gap: 0.5rem; }
+  /* line 243, static/assets/sass/layouts/_events.scss */
+  .past-events-page .cta::after {
+    display: none; }
+
+@use '../abstracts/variables' as *;
+/* line 4, static/assets/sass/layouts/shop.scss */
+.shop-page {
+  background-color: rgba(72, 84, 97, 0.2); }
+  /* line 7, static/assets/sass/layouts/shop.scss */
+  .shop-page .navbar {
+    background-color: rgba(72, 84, 97, 0.6);
+    color: #fff;
+    top: 0; }
+  /* line 13, static/assets/sass/layouts/shop.scss */
+  .shop-page .top-bar {
+    background-color: transparent; }
+  /* line 17, static/assets/sass/layouts/shop.scss */
+  .shop-page .search-form__label {
+    background-color: rgba(255, 255, 255, 0.8); }
+  /* line 21, static/assets/sass/layouts/shop.scss */
+  .shop-page .search-form__close {
+    color: rgba(72, 84, 97, 0.6); }
+  /* line 25, static/assets/sass/layouts/shop.scss */
+  .shop-page .main {
+    margin-inline: auto;
+    width: 80%;
+    padding-top: 12rem; }
+  /* line 31, static/assets/sass/layouts/shop.scss */
+  .shop-page .shop-category,
+  .shop-page .shop-category:focus {
+    border: unset;
+    outline: 2px solid #ec992f;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.8); }
+  /* line 41, static/assets/sass/layouts/shop.scss */
+  .shop-page .shop {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 6rem; }
+    /* line 47, static/assets/sass/layouts/shop.scss */
+    .shop-page .shop__heading {
+      font-size: 2.5rem; }
+    /* line 51, static/assets/sass/layouts/shop.scss */
+    .shop-page .shop__card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 2rem;
+      background-color: #fff;
+      box-shadow: 2px 2px 10px 6px rgba(142, 142, 142, 0.15);
+      border-radius: 0.5rem;
+      text-align: left; }
+      /* line 61, static/assets/sass/layouts/shop.scss */
+      .shop-page .shop__card--heading {
+        margin-bottom: 0;
+        font-weight: 500; }
+      /* line 66, static/assets/sass/layouts/shop.scss */
+      .shop-page .shop__card--img {
+        width: 100%; }
+      /* line 70, static/assets/sass/layouts/shop.scss */
+      .shop-page .shop__card--info {
+        font-size: 1.4rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+        -webkit-box-orient: vertical; }
+    /* line 83, static/assets/sass/layouts/shop.scss */
+    .shop-page .shop .card-price {
+      font-size: 2rem;
+      font-weight: bold; }
+    /* line 88, static/assets/sass/layouts/shop.scss */
+    .shop-page .shop .card-footer {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto; }
+      /* line 96, static/assets/sass/layouts/shop.scss */
+      .shop-page .shop .card-footer .icon {
+        margin-right: 1rem; }
+  /* line 102, static/assets/sass/layouts/shop.scss */
+  .shop-page .main-btn {
+    text-transform: uppercase;
+    margin: 4rem auto;
+    width: 50%; }

@@ -1,0 +1,172 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG Africa | Register</title>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+		{% endcompress %}
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="{%static 'assets/icons/favicon/apple-touch-icon.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="{%static 'assets/icons/favicon/android-chrome-512x512.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="{% static 'assets/icons/favicon/android-chrome-192x192.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="{%static 'assets/icons/favicon/favicon-32x32.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="{% static 'assets/icons/favicon/favicon-16x16.png'%}"
+		/>
+		<link rel="manifest" href="{% static 'assets/icons/favicon/site.webmanifest'%}" />
+		<!-- js -->
+		<script src="{%static '/assets/js/app.js'%}" defer></script>
+	<script src="{%static '/assets/js/auth.js'%}" defer></script>
+		<!-- SCROLLREVEAL -->
+		<script src="https://unpkg.com/scrollreveal"></script>
+	</head>
+	<body class="auth-page signup">
+		<section class="container">
+			<header class="header">
+				<!-- --------------- NAVBAR -------------------- -->
+				<nav class="navbar">
+					<a href="/index.html" class="navbar__logo">
+						<img src="{%static '/assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
+					</a>
+
+					<button class="btn btn-primary">
+						<a href="{%url 'login'%}">login</a>
+					</button>
+					<img
+						src="{% static '/assets/icons/icon-hamburger.svg'%}"
+						alt=""
+						class="icon nav-toggle"
+					/>
+				</nav>
+			</header>
+
+			<!-- -------------- MAIN SECTION ------------ -->
+
+			<main class="main">
+				<img
+					src="{% static '/assets/images/rig-partner-portal-logo.png'%}"
+					alt=""
+					class="logo main__img"
+				/>
+				<h4 class="secondary-heading primary-color">Create an Account</h4>
+				<small class="paragraph">Sign up to partner with us</small>
+				<form class="auth__form form" method="post" action="{%url 'register' acc=type%}">
+					{% csrf_token %}
+					<label class="form__item">
+
+						<input type="text" placeholder="Username" name='username' class="form__input" required/>
+					</label>
+					<label class="form__item">
+						<input type="text" placeholder="First Name" name="first_name" class="form__input" required/>
+					</label>
+					<label class="form__item">
+						<input type="text" placeholder="Last Name" name="last_name" class="form__input" required />
+					</label>
+					<label class="form__item">
+						<input type="email" placeholder="Email" class="form__input" name="email" required />
+					</label>
+					<label class="form__item">
+						<input
+							type="password"
+							placeholder="Password"
+							class="form__input pswd-input"
+							name="password"
+							required
+						/>
+						<img
+							src="{%static '/assets/icons/eye-slash.svg'%}"
+							alt="show password"
+							class="icon pswd-icon show-pswd"
+						/>
+						<img
+							src="{%static '/assets/icons/eye.png'%}"
+							alt="hide password"
+							class="icon pswd-icon hide-pswd hidden"
+						/>
+					</label>
+					<small class="remember info">
+						<img src="{% static '/assets/icons/info.png'%}" alt="remember me" class="icon" />
+						at least 6 letters including a number and a symbol
+					</small>
+					<hr />
+					<section class="partner-info">
+						<h4 class="secondary-heading">partnership summary</h4>
+							{%if type == 'vip'%}
+							<p class="paragraph">
+							Your current selected partnership type:
+							<span id="partner-type">VIP</span>
+							</p>
+						<p class="paragraph">
+							Partnership Amount:
+							<span class="partnership-amount">N10,000.00</span>
+						</p>
+						<p class="paragraph primary-color">
+							Monthly donation:
+							<span class="partnership-amount">N10,000</span>/Monthly
+						</p>
+							{%elif type == 'exe'%}
+													<p class="paragraph">
+							Your current selected partnership type:
+							<span id="partner-type">EXECUTIVE</span>
+						</p>
+						<p class="paragraph">
+							Partnership Amount:
+							<span class="partnership-amount">N30,000.00</span>
+						</p>
+						<p class="paragraph primary-color">
+							Monthly donation:
+							<span class="partnership-amount">N30,000</span>/Monthly
+						</p>
+						{%elif type == 'amb'%}
+												<p class="paragraph">
+							Your current selected partnership type:
+							<span id="partner-type">AMBASSADOR</span>
+						</p>
+						<p class="paragraph">
+							Partnership Amount:
+							<span class="partnership-amount">N150,000.00</span>
+						</p>
+						<p class="paragraph primary-color">
+							Monthly donation:
+							<span class="partnership-amount">N150,000</span>/Monthly
+						</p>
+							{%endif%}
+						<a href="{% url 'landing'%}" class="change-partnership">Change Plan</a>
+					</section>
+					<button class="btn btn-primary submit-btn">Partner Now</button>
+					<p class="paragraph bottom-txt">
+						Already have an account?
+						<a href="{%url 'login'%}" class="primary-color">Login</a>
+					</p>
+				</form>
+			</main>
+		</section>
+	</body>
+</html>

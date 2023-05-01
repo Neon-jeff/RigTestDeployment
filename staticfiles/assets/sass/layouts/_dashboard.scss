@@ -1,0 +1,446 @@
+// STYLES FOR THE PARTNERS DASHBOARD PAGE
+@import '../abstracts/variables' ;
+@import '../abstracts/mixins';
+
+.dashboard-page {
+	background-color: #f7f8fa;
+	@include desktop-display;
+	.profile-card-small{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		background-color: rgb(235, 231, 231);
+		padding-top: 10px ;
+		// gap: 10px;
+		.user-info{
+			display: flex;
+			align-items: center;
+
+			gap: 10px;
+
+			.image-cont{
+			width: 40px;
+			height: 40px;
+			border-radius: 200px;
+
+			.user-info__avatar {
+			// max-width: 6rem;
+			height: 100%;
+			min-width: 100%;
+			border-radius: 200px;
+			object-fit: cover;
+
+		}
+
+	}
+		}
+}
+	.profile-card {
+		display: flex;
+		flex-direction: column;
+		padding-block: 1rem;
+		align-items: center;
+
+		.user-info {
+			display: flex;
+			gap: 0.5rem;
+		}
+		.image-cont{
+			width: 70px;
+			height: 70px;
+			border-radius: 200px;
+
+			.user-info__avatar {
+			// max-width: 6rem;
+			height: 100%;
+			min-width: 100%;
+			border-radius: 200px;
+			object-fit: cover;
+
+		}
+
+		}
+
+
+		&--email {
+			font-size: 1.2rem;
+			padding-left: 25px;
+		}
+	}
+
+	.main {
+		padding: 0;
+		margin: 14rem $tiny 0;
+		position: relative;
+	}
+
+	// ==================== DASHBOARD CONTAINER =================
+	.dashboard-wrapper {
+		grid-template-columns: 20rem auto;
+		gap: $small;
+		// margin-top: $medium;
+		padding: $small;
+		position: relative;
+	}
+
+	// ======================= SIDEBAR ====================
+	.sidebar {
+		background-color: $backgroundColor;
+		display: flex;
+		flex-direction: column;
+		margin-top: $small;
+		padding-bottom: $medium;
+		position: sticky;
+		width: inherit;
+		height: 65vh;
+		height: 65dvh;
+
+		// SIDEBAR NAV
+		&__nav {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			padding-left: $tiny;
+			margin-bottom: auto;
+
+			&--item {
+				display: flex;
+				gap: $tiny;
+				align-items: center;
+				justify-content: flex-start;
+				margin-top: 0.5rem;
+				padding: 1rem;
+				border-top-left-radius: 1rem;
+				border-bottom-left-radius: 1rem;
+			}
+		}
+
+		.active-tab {
+			background-color: #f7f8fa;
+
+			.icon {
+				filter: invert(73%) sepia(27%) saturate(2131%) hue-rotate(338deg)
+					brightness(97%) contrast(91%);
+			}
+		}
+
+		// SIDEBAR PROFILE CARD
+		.profile-card {
+			background-color: rgba($accentColor, 0.1);
+			margin: $tiny;
+			padding: 0.5rem;
+			border-radius: 0.5rem;
+
+			.user-info {
+				&__avatar {
+					width: 2rem;
+					aspect-ratio: 1/1;
+				}
+
+				&__name {
+					font-size: 1.6rem;
+				}
+			}
+
+			&--email {
+				margin-bottom: $tiny;
+			}
+		}
+	}
+
+	// ================ MAIN CONTAINER ==============
+	.main-content {
+		.topbar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.profile-card {
+				flex-direction: row;
+				align-items: center;
+				gap: 1rem;
+
+				.user-info {
+					flex-direction: column;
+
+					&__name {
+						margin: 0;
+					}
+
+					&__avatar {
+						width: $small;
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.main-card {
+			width: 100%;
+			padding-right: $small;
+		}
+
+		.dashboard {
+			grid-template-columns: 30% 36% 32%;
+			gap: $tiny;
+			padding: $small 0;
+			border-bottom: 2px solid rgba($accentColor, 0.1);
+			margin-bottom: $small;
+
+			&__card {
+				background-color: $backgroundColor;
+				border: 2px solid rgba($accentColor, 0.1);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 1rem 0;
+
+				.tertiary-heading {
+					font-size: 1.6rem;
+				}
+			}
+
+			&__card:nth-of-type(2) {
+				border: 3px solid $primaryColor;
+				scale: 1.1;
+			}
+		}
+
+		// PAYMENT HISTORY SECTION
+		.history__heading--wrapper {
+			display: flex;
+			justify-content: space-between;
+			padding: 1rem $small;
+			margin-right: $small;
+		}
+
+		.history {
+			&__wrapper {
+				background-color: $backgroundColor;
+				padding: $tiny;
+				border-radius: 1rem;
+			}
+
+			&__item {
+				display: flex;
+				justify-content: space-between;
+				border-bottom: 2px solid rgba($accentColor, 0.1);
+				width: 100%;
+				padding: 1rem $small;
+			}
+		}
+
+		// ============ UPDATE PROFILE FORM ==============
+		.form {
+			margin-block: $small;
+			padding: 0;
+
+			&__group {
+				grid-template-columns: repeat(2, 1fr);
+				gap: $tiny;
+				margin-block: $tiny;
+				width: 100%;
+			}
+
+			&__item {
+				width: inherit;
+				display: flex;
+				flex-direction: column;
+
+				.label {
+					text-transform: capitalize;
+					font-size: 1.4rem;
+					color: rgba($accentColor, 0.8);
+					display: inline-block;
+					margin: 0.5rem 1rem;
+				}
+
+				&--input {
+					width: 100%;
+					height: $small;
+					border: unset;
+					outline: 2px solid rgba($accentColor, 0.1);
+					border-radius: 0.5rem;
+					padding: 1rem;
+					background-color: rgba($backgroundColor, 0.4);
+				}
+			}
+
+			hr {
+				border: 1px solid rgba($accentColor, 0.1);
+				margin-bottom: $small;
+			}
+
+			.btn {
+				margin: $small auto;
+			}
+		}
+	}
+
+	// PREVIOUS PAYMENT PAGINATION
+	.pagination {
+		display: flex;
+		gap: 2px;
+		margin: 0 auto;
+
+		&__wrapper {
+			display: flex;
+			justify-content: space-between;
+			margin: $tiny 0;
+			width: 100%;
+		}
+
+		.btn {
+			font-size: 1.2rem;
+			border-radius: 0;
+
+			.icon {
+				height: 1rem;
+				filter: invert(80%);
+			}
+
+			.previous {
+				transform: rotateY(180deg);
+			}
+		}
+
+		&-btn-group {
+			gap: 1rem;
+
+			.active-btn {
+				background-color: $primaryColor;
+			}
+		}
+	}
+
+	.profile-section {
+		width: 90%;
+	}
+
+	// ================= MEDIA QUERIES =============
+
+	@media screen and (max-width: 850px) {
+		.navbar {
+			background-color: rgba($backgroundColor, 0.4);
+		}
+
+		.profile-section {
+			width: 100%;
+		}
+
+		.main-content {
+			.main-card {
+				padding: 0;
+			}
+
+			.dashboard {
+				gap: 1rem;
+
+				.secondary-heading,
+				.tertiary-heading {
+					font-size: 1.2rem;
+					text-align: center;
+				}
+			}
+		}
+
+		.dashboard-wrapper {
+			padding-inline: $tiny;
+		}
+
+		.topbar {
+			gap: 1rem;
+
+			.btn-primary {
+				font-size: 1.4rem;
+				padding: 1rem;
+			}
+		}
+	}
+
+	@media screen and (max-width: 650px) {
+		@include mobile-display;
+
+		.hide-sidebar {
+			display: none !important;
+		}
+
+		.mobile-nav-toggle {
+			width: 100%;
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+
+			.secondary-heading {
+				width: 100%;
+				background-color: rgba($backgroundColor, 1);
+				padding: 1rem;
+			}
+		}
+
+		.sidebar {
+			position: absolute;
+			left: 0;
+			height: fit-content;
+			width: 20rem;
+			background-color: transparent;
+			margin: 0;
+			top: 0;
+			padding: 0;
+			z-index: 5;
+			transition: all ease-in-out 2s;
+
+			&__nav--item {
+				background-color: rgba($backgroundColor, 1);
+				border-radius: 2px;
+				box-shadow: 0px 0.4rem 2.5rem rgba(0, 0, 0, 0.25);
+			}
+
+			.active-tab {
+				background-color: rgba($backgroundColor, 1);
+			}
+		}
+
+		.dashboard-wrapper {
+			grid-template-columns: 1fr;
+			padding: $tiny;
+		}
+
+		.topbar {
+			flex-direction: row-reverse;
+		}
+
+		.profile-section {
+			width: 80%;
+			margin-inline: auto;
+
+			.topbar {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
+
+		.main-content {
+			.form__group {
+				grid-template-columns: 1fr;
+			}
+
+			hr {
+				margin-top: $small;
+			}
+
+			.history__heading--wrapper,
+			.history__item {
+				padding-inline: 1rem;
+			}
+		}
+	}
+
+	@media screen and (max-width: 450px) {
+		.profile-section {
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,120 @@
+@import '../abstracts/variables' ;
+
+@import '../abstracts/mixins' ;
+
+// =============== FOOTER SECTION =============
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	padding: $tiny $medium;
+	background-color: $secondaryColor;
+	color: $backgroundColor;
+	position: relative;
+
+	@include desktop-display(flex);
+
+	&__logo {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.rig-logo {
+			height: $small;
+		}
+
+		.rig-txt {
+			height: $big;
+			position: absolute;
+			animation: rotate 15s linear infinite;
+			z-index: 5;
+		}
+	}
+
+	// FOOTER MAIN CONTENT
+	&__main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-inline: $small;
+		gap: 1rem;
+	}
+
+	&__links {
+		display: flex;
+		align-items: center;
+	}
+
+	.navigation,
+	.paragraph {
+		font-size: 1.2rem;
+	}
+
+	.nav-group {
+		display: flex;
+		gap: 1rem;
+	}
+
+	&__btn-group {
+		display: flex;
+		align-items: center;
+		gap: $small;
+	}
+
+	// SOCIAL ICONS
+	&__socials {
+		display: flex;
+		gap: $tiny;
+
+		.icon {
+			transition: all ease-in-out 0.2s;
+		}
+
+		.icon:hover {
+			scale: 1.15;
+		}
+	}
+}
+
+// ==================== MEDIA QUERIES ================
+@media screen and (max-width: 800px) {
+	.footer {
+		padding: $small;
+		justify-content: flex-start;
+
+		@include mobile-display(flex);
+
+		&__main {
+			margin: $tiny;
+		}
+
+		&__logo {
+			margin-right: auto;
+
+			.rig-logo {
+				height: $tiny;
+			}
+
+			.rig-txt {
+				height: $small;
+			}
+		}
+
+		&__links {
+			flex-direction: column-reverse;
+		}
+
+		.navigation {
+			align-items: flex-start;
+			margin-block: $tiny;
+			gap: $small;
+		}
+
+		.nav-group {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+}

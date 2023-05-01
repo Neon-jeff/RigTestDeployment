@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+/* line 36, static/assets/sass/main.scss */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  width: 100%; }
+
+/* line 42, static/assets/sass/main.scss */
+body {
+  font-size: 1.6rem;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  font-family: 'Rubik', sans-serif; }
+
+/* line 50, static/assets/sass/main.scss */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/* line 58, static/assets/sass/main.scss */
+a,
+a:link {
+  text-decoration: none;
+  color: unset; }
+
+/* line 64, static/assets/sass/main.scss */
+img {
+  object-fit: contain;
+  -o-object-fit: contain; }
+
+/* line 69, static/assets/sass/main.scss */
+textarea {
+  resize: none; }
+
+/* line 74, static/assets/sass/main.scss */
+html.sr .load-hidden {
+  visibility: hidden; }
+
+@keyframes loopHorizontal {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(-100%); } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(360deg); }
+  100% {
+    transform: rotate(-360deg); } }
+
+/* line 118, static/assets/sass/main.scss */
+.navbar {
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  background: rgba(217, 217, 217, 0.2);
+  border: 1px solid rgba(30, 30, 30, 0.5);
+  box-shadow: 0px 0.4rem 2.5rem rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  position: fixed;
+  left: 2rem;
+  right: 2rem;
+  top: 4rem; }
+  /* line 136, static/assets/sass/main.scss */
+  .navbar__logo {
+    display: inline-block;
+    margin-right: auto;
+    justify-self: start;
+    width: 15%; }
+  /* line 143, static/assets/sass/main.scss */
+  .navbar .logo {
+    width: 100%; }
+
+/* line 148, static/assets/sass/main.scss */
+.navigation {
+  display: flex;
+  gap: 2rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin-inline: 2rem;
+  flex-wrap: wrap; }
+
+/* line 157, static/assets/sass/main.scss */
+.search-icon {
+  display: inline-block;
+  margin-left: 2rem;
+  cursor: pointer; }
+
+@media screen and (max-width: 650px) {
+  /* line 166, static/assets/sass/main.scss */
+  .header .navbar {
+    position: relative;
+    left: 0;
+    right: 0; }
+  /* line 172, static/assets/sass/main.scss */
+  .header .navigation {
+    background-color: #1e293b;
+    flex-direction: column;
+    position: absolute;
+    top: 6rem;
+    padding: 2rem 4rem;
+    border-radius: 1rem; }
+  /* line 181, static/assets/sass/main.scss */
+  .header .navbar__logo {
+    width: 38%; } }
+
+/* line 187, static/assets/sass/main.scss */
+.btn {
+  min-width: max-content;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: unset;
+  outline: unset;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 199, static/assets/sass/main.scss */
+  .btn a {
+    color: inherit; }
+
+/* line 204, static/assets/sass/main.scss */
+.btn-primary {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  text-transform: capitalize;
+  background-color: #ec992f;
+  color: #fff; }
+
+/* line 213, static/assets/sass/main.scss */
+.grid {
+  display: grid;
+  width: 100%; }
+
+/* line 218, static/assets/sass/main.scss */
+.col-3 {
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  justify-content: space-between;
+  gap: 2rem; }
+
+/* line 224, static/assets/sass/main.scss */
+.card {
+  padding: 2rem;
+  border-radius: 0.5rem; }
+
+/* line 229, static/assets/sass/main.scss */
+.split-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 4rem;
+  gap: 2rem;
+  width: 90%;
+  margin: 2rem auto; }
+  /* line 239, static/assets/sass/main.scss */
+  .split-2__txt {
+    width: 60%; }
+  /* line 243, static/assets/sass/main.scss */
+  .split-2__img {
+    width: 35%; }
+    /* line 246, static/assets/sass/main.scss */
+    .split-2__img .main-img {
+      width: 100%; }
+
+@media screen and (max-width: 650px) {
+  /* line 254, static/assets/sass/main.scss */
+  .split-2 {
+    flex-direction: column;
+    padding: 4rem;
+    width: 100%; }
+    /* line 259, static/assets/sass/main.scss */
+    .split-2__txt {
+      width: 100%; }
+    /* line 263, static/assets/sass/main.scss */
+    .split-2__img {
+      width: 80%; } }
+
+/* line 271, static/assets/sass/main.scss */
+.icon {
+  height: 2rem;
+  aspect-ratio: 1/1; }
+
+/* line 276, static/assets/sass/main.scss */
+.primary-color {
+  color: #ec992f; }
+
+/* line 280, static/assets/sass/main.scss */
+.primary-bg {
+  background-color: #ec992f; }
+
+/* line 284, static/assets/sass/main.scss */
+.hidden {
+  display: none !important; }
+
+/* line 288, static/assets/sass/main.scss */
+.active {
+  border-bottom: 2px solid #ec992f; }

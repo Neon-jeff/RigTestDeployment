@@ -1,0 +1,52 @@
+// THIS PAGE BRINGS EVERYTHING TOGETHER
+
+
+// Listing the Variables
+
+
+$primaryColor: #ec992f;
+$secondaryColor: #2f1f09;
+$accentColor: rgb(72, 84, 97);
+
+$brightOrange: #ec6a20;
+$paleOrange: #ffb266;
+
+$backgroundColor: #fff;
+$textColor: #1e293b;
+
+// SIZES
+$tiny: 2rem;
+$small: 4rem;
+$medium: 6rem;
+$big: 8rem;
+$large: 10rem;
+
+
+// base
+@import 'base/base' ;
+@import 'base/typography' ;
+
+// // abstracts
+// @import 'abstracts/mixins' ;
+// @import 'abstracts/variables' ;
+
+// utilities
+@import 'components/grid' ;
+@import 'components/navbar' ;
+@import 'components/buttons' ;
+@import 'components/utilities' ;
+
+// layouts
+@import 'layouts/header' ;
+@import 'layouts/footer.scss' ;
+@import 'layouts/about' ;
+@import 'layouts/auth' ;
+@import 'layouts/contact' ;
+@import 'layouts/dashboard' ;
+@import 'layouts/events' ;
+@import 'layouts/home' ;
+@import 'layouts/modal' ;
+@import 'layouts/partners' ;
+@import 'layouts/rigx' ;
+@import 'layouts/shop.scss' ;
+@import 'layouts/_payment.scss' ;

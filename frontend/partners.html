@@ -1,0 +1,376 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG Africa | Partners</title>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+		{% endcompress %}		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/icons/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="assets/icons/favicon/android-chrome-512x512.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="assets/icons/favicon/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/icons/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/icons/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
+		<!-- js -->
+		<script src="/assets/js/app.js" defer></script>
+		<script src="/assets/js/observer.js" defer></script>
+
+		<!-- SCROLLREVEAL -->
+		<script src="https://unpkg.com/scrollreveal"></script>
+	</head>
+	<body class="partners-page">
+		<header class="header" style="background-image: url({% static '/assets/images/partners-event-img.png' %}');">
+			<section class="header__wrapper">
+				<!-- ----------------- NAVBAR----------------------------- -->
+				<nav class="navbar">
+					<a href="/index.html" class="navbar__logo">
+						<img src="{%static '/assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
+					</a>
+					<section class="navigation main-nav hide-nav">
+						<a href="about.html" class="navigation__link">about us</a>
+						<a href="contact.html" class="navigation__link">contact us</a>
+						<a href="partners.html" class="navigation__link active">partner</a>
+						<a href="rigx.html" class="navigation__link">RIGX</a>
+						<a href="#" class="navigation__link">RIG school</a>
+						<a href="events.html" class="navigation__link">events</a>
+						<a href="shop-books.html" class="navigation__link">shops</a>
+						<a href="#" class="navigation__link">affiliate</a>
+						<span class="navigation__link show-modal">donation</span>
+					</section>
+					<button class="btn btn-primary">
+						<a href="sign-in.html">login</a>
+					</button>
+					<img
+						src="{%static '/assets/icons/icon-hamburger.svg'%}"
+						alt=""
+						class="icon nav-toggle"
+					/>
+				</nav>
+				<!-- SEARCH FORM -->
+				<!-- <form class="search-form">
+					<label class="search-form__label hidden event-search">
+						<span class="search-form__close event-close">x</span>
+						<input
+							class="search-form__input"
+							placeholder="Search"
+							type="text"
+						/>
+					</label>
+				</form> -->
+				<!-- ------------------------ HERO SECTION -------------------- -->
+				<section class="hero">
+					<img
+						src="{%static '/assets/images/rig-partner-programme-logo.png'%}"
+						alt=""
+						class="logo partners__logo"
+					/>
+				</section>
+			</section>
+		</header>
+		<main class="main">
+			<p class="description paragraph">
+				RIG Nation has an exciting programme that allows its Partners to be
+				actively involved in our vision to raise up 7,000 apostles and prophets
+				in six continents.
+			</p>
+
+			<!-- -------------- PARTNERS SECTION ------------ -->
+
+			<section class="partners__container">
+				<h4 class="partners__heading">Become a Partner</h4>
+				<article class="grid col-3 partners">
+					<div class="partners__card">
+						<h5 class="primary-color partners__type">VIP</h5>
+						<h5 class="secondary-heading partners__card--amount">N10,000.00</h5>
+						<p class="paragraph partners__card--info">Monthly payment</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Invites to exclusive ministry update meetings.
+						</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to the Partners’ Portal which includes the latest news on
+							the ministry and events coming up.
+						</p>
+						<a href="{%url 'register' acc='vip' %}" class="signup-link">sign up</a>
+					</div>
+					<div class="partners__card">
+						<h5 class="primary-color partners__type">Executive</h5>
+						<h5 class="secondary-heading partners__card--amount">N30,000.00</h5>
+						<p class="paragraph partners__card--info">Monthly payment</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="/assets/icons/verify.svg"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Invites to exclusive ministry update meetings.
+						</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to the Partners’ Portal which includes the latest news on
+							the ministry and events coming up.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to the Partners’ Prophetic Academy.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to Propheticost, our monthly prophetic ministry event.
+						</p>
+						<a href="{%url 'register' acc='exe'%}" class="signup-link">sign up</a>
+					</div>
+					<div class="partners__card">
+						<h5 class="primary-color partners__type">Ambassador</h5>
+						<h5 class="secondary-heading partners__card--amount">
+							N150,000.00
+						</h5>
+						<p class="paragraph partners__card--info">Monthly payment</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Invites to exclusive ministry update meetings.
+						</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to the Partners’ Portal which includes the latest news on
+							the ministry and events coming up.
+						</p>
+
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to the Partners’ Prophetic Academy.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Access to Propheticost, our monthly prophetic ministry event.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Exclusive discounts on RIG Nation books and courses.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Exclusive bonus features offered by region.
+						</p>
+						<p class="paragraph partners__card--feature">
+							<img
+								src="{%static '/assets/icons/verify.svg'%}"
+								aria-hidden="true"
+								alt=""
+								class="icon"
+							/>
+							Exclusive meetings with Prophet Tomi Arayomi.
+						</p>
+						<a href="{%url 'register' acc='amb' %}" class="signup-link">sign up</a>
+					</div>
+				</article>
+			</section>
+		</main>
+		<!-- -------------- FOOTER --------------->
+<footer class="footer">
+			<div class="footer__logo display-on-desktop">
+				<img src="{%static 'assets/icons/rig-white.png'%}" alt="" class="logo rig-logo" />
+				<img src="{%static 'assets/icons/rig-text.png'%}" alt="" class="logo rig-txt" />
+			</div>
+			<div class="footer__main">
+				<div class="footer__links">
+					<section class="navigation">
+						<div class="nav-group">
+							<a href="contact.html" class="navigation__link">contact us</a>
+							<a href="about.html" class="navigation__link">about us</a>
+
+							<a href="rigx.html" class="navigation__link">RIGX</a>
+							<a href="#" class="navigation__link">RIG school</a>
+						</div>
+						<div class="nav-group">
+							<a href="partners.html" class="navigation__link">partner</a>
+							<a href="events.html" class="navigation__link">events</a>
+							<a href="shop-books.html" class="navigation__link">shops</a>
+							<a href="#" class="navigation__link">affiliate</a>
+						</div>
+					</section>
+					<div class="footer__btn-group">
+						<div class="footer__logo display-on-mobile">
+							<img
+								src="{%static 'assets/icons/rig-white.png'%}"
+								alt=""
+								class="logo rig-logo"
+							/>
+							<img
+								src="{%static 'assets/icons/rig-text.png'%}"
+								alt=""
+								class="logo rig-txt"
+							/>
+						</div>
+						<button class="btn btn-secondary show-modal">donate</button>
+						<button class="btn btn-primary">
+							<a href="sign-in.html">login</a>
+						</button>
+					</div>
+				</div>
+				<section class="footer__socials">
+					<a
+						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/youtube-white.png'%}"
+							alt="subscribe to our channel"
+							class="icon social-icon"
+						/>
+					</a>
+					<a
+						href="https://www.instagram.com/rignationafrica/"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/instagram-white.png'%}"
+							alt="foolow us on instagram"
+							class="icon social-icon"
+						/>
+					</a>
+					<a
+						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/facebook-white.png'%}"
+							alt="follow with us on facebook"
+							class="icon social-icon"
+						/>
+					</a>
+				</section>
+				<p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+			</div>
+		</footer>
+		<!-- --------------------- DONATE MODAL ---------------- -->
+		<dialog class="backdrop donation__wrapper hidden">
+			<div class="donation__container">
+				<div class="modal donation">
+					<span class="modal__close close-donation">
+						<img src="{%static 'assets/icons/close-circle.png'%}" alt="" class="icon" />
+					</span>
+					<h4 class="secondary-heading">donate to rig africa</h4>
+					<div class="donation__group">
+						<a href="#" target="_blank" class="card donation__card">
+							<div class="donation__card--logo">
+								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
+							</div>
+							<h4 class="secondary-heading donation__card--heading">
+								online donation
+							</h4>
+							<p class="paragraph">Tithes, offerings or random giving.</p>
+						</a>
+						<a href="partners.html" class="card donation__card">
+							<div class="donation__card--logo">
+								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
+							</div>
+							<h4 class="secondary-heading donation__card--heading">
+								become a partner
+							</h4>
+							<p class="paragraph">
+								Join our vision to raise 4000 active prophets.
+							</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</dialog>
+	</body>
+</html>

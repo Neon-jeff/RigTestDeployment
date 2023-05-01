@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG Africa | Contact Us</title>
+		<link rel="stylesheet" href="assets/sass/main.scss" />
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/icons/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="assets/icons/favicon/android-chrome-512x512.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="assets/icons/favicon/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/icons/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/icons/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
+		<!-- js -->
+		<script src="/assets/js/app.js" defer></script>
+		<!-- SCROLLREVEAL -->
+		<script src="https://unpkg.com/scrollreveal"></script>
+	</head>
+	<body class="contact-page">
+		<!-- ----------------- NAVBAR----------------------------- -->
+		<nav class="navbar">
+			<a href="/index.html" class="navbar__logo">
+				<img src="assets/icons/rig-nav-logo.png" alt="" class="logo" />
+			</a>
+			<section class="navigation main-nav hide-nav">
+				<a href="about.html" class="navigation__link">about us</a>
+				<a href="partners.html" class="navigation__link">partner</a>
+				<a href="#" class="navigation__link">RIGX</a>
+				<a href="contact.html" class="navigation__link">RIG school</a>
+				<a href="events.html" class="navigation__link">events</a>
+				<a href="#" class="navigation__link">shops</a>
+				<a href="#" class="navigation__link">affiliate</a>
+			</section>
+			<button class="btn btn-primary">donate</button>
+			<img
+				src="/assets/icons/search-icon.png"
+				alt="search"
+				title="Search"
+				class="icon search-icon toggle-form"
+			/>
+			<img
+				src="/assets/icons/icon-hamburger.svg"
+				alt=""
+				class="icon nav-toggle hidden"
+			/>
+			<!-- TODO add a search form here -->
+		</nav>
+		<main class="main">
+			<h1 class="secondary-heading title primary-color">contact us</h1>
+			<section class="top-bar">
+				<h4 class="tertiary-heading">We are here to help you grow in faith</h4>
+				<section class="socials">
+					<a href="#" class="socials--link">
+						<img
+							src="assets/icons/twitter-white.png"
+							alt="follow us on twitter"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="socials--link">
+						<img
+							src="assets/icons/youtube-white.png"
+							alt="subscribe to our channel"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="socials--link">
+						<img
+							src="assets/icons/instagram-white.png"
+							alt="twitter"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="socials--link">
+						<img
+							src="assets/icons/facebook-white.png"
+							alt="follow with us on facebook"
+							class="icon social-icon"
+						/>
+					</a>
+				</section>
+			</section>
+			<section class="contact-main">
+				<form class="form">
+					<select
+						aria-placeholder="How may we help you?"
+						name="contact type"
+						id="contact-type"
+						class="form__input form-item"
+					>
+						<option value="">How may we help you?</option>
+						<option value="prayer">Make a prayer request</option>
+						<option value="testimony">Share a testimony</option>
+					</select>
+					<div class="form__item">
+						<label class="form__input--wrapper">
+							<!-- <span class="form__input--label">first name</span> -->
+							<input
+								type="text"
+								name="first name"
+								required
+								placeholder="First Name"
+								class="form__input"
+							/>
+						</label>
+						<label class="form__input--wrapper">
+							<!-- <span class="form__input--label">last name</span> -->
+							<input
+								type="text"
+								name="last name"
+								required
+								placeholder="Last Name"
+								class="form__input"
+							/>
+						</label>
+					</div>
+					<label class="form__item">
+						<!-- <span class="form__input--label">email address</span> -->
+						<input
+							type="email"
+							placeholder="Email Address"
+							name="email"
+							id="email"
+							required
+							class="form__input"
+						/>
+					</label>
+					<label class="form__item">
+						<!-- <span class="form__input--label">location</span> -->
+						<input
+							type="text"
+							placeholder="Location (City, Country)"
+							name="location"
+							id="location"
+							class="form__input"
+						/>
+					</label>
+					<label class="form__item">
+						<!-- <span class="form__input--label">location</span> -->
+						<input
+							type="text"
+							placeholder="Subject"
+							name="Subject"
+							id="subject"
+							required
+							class="form__input"
+						/>
+					</label>
+					<label class="form__item">
+						<!-- <span class="form__input--label">location</span> -->
+						<textarea
+							name="message body"
+							id="message"
+							class="form__input"
+							placeholder="Type your message here"
+							required
+						></textarea>
+					</label>
+					<button class="btn btn-primary">submit</button>
+				</form>
+				<article class="contact__img--wrapper">
+					<h2 class="secondary-heading primary-color">
+						one family, united in FAITH
+					</h2>
+					<div class="contact__img--group">
+						<img src="assets/images/pattern.svg" alt="" class="pattern" />
+						<img
+							src="assets/images/contact-img1.png"
+							alt=""
+							class="center-img load-hidden"
+						/>
+						<img
+							src="assets/images/contact-img3.png"
+							alt=""
+							class="top-img load-hidden"
+						/>
+						<img
+							src="assets/images/contact-img2.png"
+							alt=""
+							class="bottom-img load-hidden"
+						/>
+					</div>
+				</article>
+			</section>
+			<article class="rig-branch__wrapper">
+				<h2 class="secondary-heading primary-color">We are in 7 countries</h2>
+				<p class="paragraph">
+					Visit the Rig nation in your region or closest to you
+				</p>
+				<!-- RIG BRANCH CARDS -->
+				<div class="rig-branch__group">
+					<div class="rig-branch nation">
+						<img src="assets/icons/rig-nation.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch uk">
+						<img src="assets/icons/rig-uk.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch usa">
+						<img src="assets/icons/rig-usa.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch asia">
+						<img src="assets/icons/rig-asia.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch canada">
+						<img src="assets/icons/rig-canada.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch europe">
+						<img src="assets/icons/rig-europe.png" alt="" class="rig-img" />
+					</div>
+					<div class="rig-branch latam">
+						<img src="assets/icons/rig-latam.png" alt="" class="rig-img" />
+					</div>
+				</div>
+			</article>
+		</main>
+		<!-- -------------- FOOTER --------------->
+		<footer class="footer">
+			<div class="footer__logo">
+				<img src="/assets/icons/rig-white.png" alt="" class="logo rig-logo" />
+				<img src="/assets/icons/rig-text.png" alt="" class="logo rig-txt" />
+			</div>
+			<div class="footer__main">
+				<div class="footer__links">
+					<section class="navigation">
+						<div class="nav-group">
+							<a href="contact.html" class="navigation__link active"
+								>about us</a
+							>
+							<a href="#" class="navigation__link">partner</a>
+							<a href="#" class="navigation__link">RIGX</a>
+							<a href="#" class="navigation__link">RIG school</a>
+						</div>
+						<div class="nav-group">
+							<a href="events.html" class="navigation__link">events</a>
+							<a href="shop-books.html" class="navigation__link">shops</a>
+							<a href="#" class="navigation__link">affiliate</a>
+						</div>
+					</section>
+					<button class="btn btn-primary">donate</button>
+				</div>
+				<section class="footer__socials">
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/twitter-white.png"
+							alt="follow us on twitter"
+							class="icon socail-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/youtube-white.png"
+							alt="subscribe to our channel"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/instagram-white.png"
+							alt="twitter"
+							class="icon social-icon"
+						/>
+					</a>
+					<a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/facebook-white.png"
+							alt="follow with us on facebook"
+							class="icon social-icon"
+						/>
+					</a>
+				</section>
+				<p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+			</div>
+		</footer>
+	</body>
+</html>

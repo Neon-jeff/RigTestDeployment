@@ -1,0 +1,108 @@
+// STYLES FOR THE PARTNERS PAGE
+@import '../abstracts/variables' ;
+
+.partners-page {
+	.header {
+		background-image: url('/static/assets/images/partner-page-bg.png');
+		background-color: rgb(255, 255, 255);
+
+		&__wrapper {
+			padding-top: 0;
+			// background-image: unset;
+			background-color: rgb(236, 153, 47);
+			background-image: url('/static/assets/images/partner-page-bg.png');
+			background-size: cover;
+			color: black;
+			// background-blend-mode: screen;
+		}
+
+		.hero {
+
+			// height: 100vh;
+			// width: 100vw;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			// width: 80%;
+			margin: auto;
+			height: 100%;
+		}
+	}
+
+	.description {
+		margin: $small;
+		text-align: center;
+	}
+
+	.partners__container {
+		background-color: #1e293b;
+		padding-block: $small;
+		width: 100%;
+		margin: 0;
+	}
+
+	.partners {
+		width: 80%;
+		margin: $small auto;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: $small;
+
+		&__logo {
+			width: 80%;
+		}
+
+		&__heading {
+			font-family: 'Gabriela', serif;
+			font-size: 6rem;
+			font-weight: normal;
+			color: transparent;
+			-webkit-text-stroke: 2px rgba($backgroundColor, 0.8);
+		}
+
+		&__card {
+			background-image: linear-gradient(
+				222.92deg,
+				rgba(255, 255, 255, 0.16) 0%,
+				rgba(248, 248, 248, 0) 100%
+			);
+			height: fit-content;
+			border-radius: 1rem;
+			border-top: 2px solid $backgroundColor;
+			padding: $tiny;
+
+			&--amount {
+				color: $backgroundColor;
+				margin-block: $tiny;
+			}
+
+			&--feature {
+				font-size: 1.4rem;
+				width: 100%;
+				display: flex;
+				align-items: center;
+			}
+
+			&--feature:not(:last-of-type) {
+				border-bottom: 2px solid rgba($backgroundColor, 0.4);
+				margin-bottom: 1rem;
+			}
+
+			.icon {
+				width: 1.6rem;
+				margin-right: 1rem;
+			}
+
+			.signup-link {
+				color: $primaryColor;
+				text-transform: capitalize;
+				font-size: 2rem;
+				display: inline-block;
+				margin-top: $tiny;
+			}
+		}
+
+		&__card:nth-child(2) {
+			border: 2px solid $backgroundColor;
+		}
+	}
+}

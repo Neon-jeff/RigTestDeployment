@@ -1,0 +1,219 @@
+@use '../abstracts/variables' as *;
+
+// NEWSLINE (TOP OF PAGE)
+.newsline {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	flex-wrap: wrap;
+	gap: $medium;
+	padding: $tiny $small;
+	background-color: $backgroundColor;
+	height: 5rem;
+	margin-bottom: $tiny;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 50;
+
+	&__txt {
+		display: flex;
+		align-items: baseline;
+		gap: 0.2rem;
+
+		&--heading {
+			text-transform: uppercase;
+			font-weight: 400;
+		}
+
+		&--link {
+			text-transform: capitalize;
+			color: $primaryColor !important;
+		}
+	}
+
+	&__link--group {
+		display: flex;
+		gap: $tiny;
+	}
+
+	&__link {
+		height: $tiny;
+		transition: cubic-bezier(0.6, -0.28, 0.735, 0.045) 0.2s;
+	}
+
+	&__link:hover {
+		scale: 1.15;
+		// rotate: 10deg;
+	}
+}
+
+.header {
+	// position: static;
+	background-image: url('/static/assets/images/hero-bg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-blend-mode: screen;
+	background-color: rgb(8, 23, 39);
+	height: 100vh;
+	height: 100dvh;
+	width: 100%;
+	top: $small;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		color: $backgroundColor;
+		height: 100%;
+		background-image: linear-gradient(rgb(40, 49, 59), rgba(72, 84, 97, 0.46));
+		padding: $small;
+	}
+
+	.search-form {
+		display: flex;
+		align-items: center;
+		position: fixed;
+		top: 15rem;
+		margin-right: $big;
+		z-index: 20;
+
+		&__label {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			background-color: rgba($accentColor, 0.5);
+			outline: 2px solid $accentColor;
+			border-radius: 0.5rem;
+			margin-left: 1rem;
+		}
+
+		&__input,
+		&__input:focus {
+			background-color: transparent;
+			border: unset;
+			color: $backgroundColor;
+			outline: unset;
+			height: 100%;
+			padding: 1rem;
+		}
+
+		&__input::placeholder {
+			color: $primaryColor;
+			text-transform: capitalize;
+			font-weight: bold;
+		}
+
+		&__close {
+			display: inline-block;
+			color: $backgroundColor;
+			padding-inline: 1rem;
+			cursor: pointer;
+		}
+
+		.toggle-form {
+			cursor: pointer;
+			filter: invert(80%);
+		}
+	}
+}
+
+// ============= HERO SECTION ==============
+.hero {
+	display: block;
+	margin-block: auto 0;
+	width: 100%;
+
+	&__txt {
+		width: 50%;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__info {
+		display: flex;
+		justify-content: space-between;
+		margin-top: $big;
+
+		&--stats {
+			display: flex;
+			gap: $small;
+		}
+	}
+
+	.stat {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__logo {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		.rig-logo {
+			height: $small;
+		}
+
+		.rig-txt {
+			height: $big;
+			position: absolute;
+			animation: rotate 15s linear infinite;
+			z-index: 5;
+		}
+	}
+}
+
+// ================ MEDIA QUERIES ======================
+@media screen and (max-width: 800px) {
+	.hide-nav {
+		display: none !important;
+		height: 0;
+	}
+
+	.header__wrapper {
+		padding: 0;
+	}
+
+	.newsline {
+		height: fit-content;
+		padding: 1rem $tiny;
+		justify-content: center;
+		// position: static;
+		width: 100%;
+
+		&__link--group {
+			display: none;
+		}
+	}
+
+	.hero__txt {
+		width: 80%;
+		margin-block: auto $medium;
+	}
+
+	.hero__logo {
+		display: none;
+	}
+
+	.hero__info {
+		margin: $small 1rem;
+		gap: $small;
+		flex-direction: column;
+		align-items: flex-end;
+
+		&--stats {
+			align-self: center;
+		}
+
+		.stat__info {
+			font-size: 1.4rem;
+		}
+	}
+}

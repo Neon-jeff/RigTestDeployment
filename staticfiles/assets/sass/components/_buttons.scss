@@ -1,0 +1,58 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+	min-width: max-content;
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	border-radius: 0.5rem;
+	border: unset;
+	outline: unset;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	a {
+		color: inherit;
+	}
+}
+
+.btn-primary {
+	font-size: 2rem;
+	padding: 1rem 2rem;
+	text-transform: capitalize;
+	background-color: $primaryColor;
+	color: $backgroundColor;
+	transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+	transform-origin: left;
+}
+
+.btn-primary:hover {
+	background-color: $brightOrange;
+	scale: 1.05;
+}
+
+.btn-primary:active {
+	translate: 1rem;
+	scale: 1.05;
+}
+
+.btn-secondary {
+	font-size: 2rem;
+	padding: 0.5rem 1rem;
+	text-transform: capitalize;
+	background-color: transparent;
+	border: 2px solid $primaryColor;
+	color: $backgroundColor;
+	transition: all cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+}
+
+.btn-secondary:hover {
+	border: 2px solid $brightOrange;
+}
+
+@media screen and (max-width: 650px) {
+	.btn-primary {
+		font-size: 1.6rem;
+	}
+}

@@ -1,0 +1,7 @@
+.env
+node_modules/
+media/assets/
+db.sqlite3
+*.log
+.cache
+__pycache__/

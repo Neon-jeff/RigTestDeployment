@@ -1,0 +1,427 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG Africa | Dashboard</title>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+		{% endcompress %}
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="{%static 'assets/icons/favicon/apple-touch-icon.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="{%static 'assets/icons/favicon/android-chrome-512x512.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="{% static 'assets/icons/favicon/android-chrome-192x192.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="{%static 'assets/icons/favicon/favicon-32x32.png'%}"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="{% static 'assets/icons/favicon/favicon-16x16.png'%}"
+		/>
+		<link rel="manifest" href="{% static 'assets/icons/favicon/site.webmanifest'%}" />
+		<!-- js -->
+		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+		<script>
+
+		</script>
+		<script src="{%static '/assets/js/dashboard.js'%}" defer></script>
+		<script src="{%static '/assets/js/app.js'%}" defer></script>
+	</head>
+	<body class="dashboard-page">
+		<!-- ----------------- NAVBAR----------------------------- -->
+		<nav class="navbar">
+			<a href="/index.html" class="navbar__logo">
+				<img src="{%static 'assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
+			</a>
+			<section class="navigation main-nav hide-nav">
+				<a href="about.html" class="navigation__link">about us</a>
+				<a href="contact.html" class="navigation__link">contact us</a>
+				<a href="partners.html" class="navigation__link">partner</a>
+				<a href="rigx.html" class="navigation__link">RIGX</a>
+				<a href="#" class="navigation__link">RIG school</a>
+				<a href="events.html" class="navigation__link">events</a>
+				<a href="shop-books.html" class="navigation__link">shops</a>
+				<a href="#" class="navigation__link">affiliate</a>
+				<span class="navigation__link show-modal">donation</span>
+			</section>
+			<button class="btn btn-primary"><a href="sign-in.html">login</a></button>
+			<img
+				src="{% static '/assets/icons/icon-hamburger.svg'%}"
+				alt=""
+				class="icon nav-toggle"
+			/>
+		</nav>
+		<main class="main">
+			<div class="display-on-mobile mobile-nav-toggle">
+				<img
+					src="{%static 'assets/icons/icon-hamburger.svg'%}"
+					alt=""
+					class="icon sidebar-toggle"
+				/>
+				<h2 class="secondary-heading primary-color">Dashboard</h2>
+			</div>
+			<!-- --------------------- DONATE MODAL ---------------- -->
+			<dialog class="backdrop donation__wrapper hidden">
+				<div class="donation__container">
+					<div class="modal donation">
+						<span class="modal__close close-donation">
+							<img src="{%static 'assets/icons/close-circle.png'%}" alt="" class="icon" />
+						</span>
+						<h4 class="secondary-heading">donate to rig africa</h4>
+						<div class="donation__group">
+							<a href="#" target="_blank" class="card donation__card">
+								<div class="donation__card--logo">
+									<img
+										src="{%static '/assets/icons/donate.svg'%}"
+										alt="donate"
+										class="icon"
+									/>
+								</div>
+								<h4 class="secondary-heading donation__card--heading">
+									online donation
+								</h4>
+								<p class="paragraph">Tithes, offerings or random giving.</p>
+							</a>
+							<a href="partners.html" class="card donation__card">
+								<div class="donation__card--logo">
+									<img
+										src="{%static '/assets/icons/donate.svg'%}"
+										alt="donate"
+										class="icon"
+									/>
+								</div>
+								<h4 class="secondary-heading donation__card--heading">
+									become a partner
+								</h4>
+								<p class="paragraph">
+									Join our vision to raise 4000 active prophets.
+								</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</dialog>
+
+			<section class="grid dashboard-wrapper">
+				<!-- ------------- SIDEBAR ------------------- -->
+				<aside class="sidebar hide-sidebar">
+					<!-- ----------------- SIDEBAR NAV ------------- -->
+					<nav class="sidebar__nav">
+						<a href="{%url 'dashboard'%}" class="sidebar__nav--item active-tab">
+							<img
+								src="{%static 'assets/icons/dashboard-icon.png'%}"
+								alt="dashboard"
+								aria-hidden="true"
+								class="icon display-on-desktop"
+							/>
+							<span class="secondary-heading primary-color">dashboard</span>
+						</a>
+						<a href="{%url 'profile' %}" class="sidebar__nav--item">
+							<img
+								src="{%static 'assets/icons/profile-circle.png'%}"
+								alt="profile"
+								aria-hidden="true"
+								class="icon display-on-desktop"
+							/>
+							<span class="secondary-heading">profile</span>
+						</a>
+						<a href="{%url 'create-invoice'%}" class="sidebar__nav--item display-on-desktop">
+							<img
+								src="{%static 'assets/icons/card-payment.png'%}"
+								alt="payments"
+								aria-hidden="true"
+								class="icon"
+							/>
+							<span class="secondary-heading">payments</span>
+						</a>
+					</nav>
+					<!-- -------------- SIDEBAR PROFILE CARD -------------- -->
+					<div class="profile-card-small display-on-desktop">
+						<div class="user-info">
+							<div class="image-cont">
+							{%if not request.user.user_ref.profile_image %}
+							<img
+								src="{%static 'assets/icons/avatar.png'%}"
+								alt="profile picture"
+								class="user-info__avatar"
+							/>
+							{% else %}
+								<img
+								src="{{request.user.user_ref.profile_image.url}}"
+								alt="profile picture"
+								class="user-info__avatar"
+							/>
+							{% endif %}
+							</div>
+							<h3 class="secondary-heading user-info__name">{{request.user.first_name}} {{request.user.last_name}}</h3>
+						</div>
+						<p class="profile-card--email">{{request.user.email}}</p>
+					</div>
+				</aside>
+				<!-- ---------- MAIN DASHBOARD SECTION --------- -->
+				<main class="main-content">
+					<div class="topbar">
+						<button class="btn btn-primary">{{request.user.user_ref.account_type}} Partner</button>
+						<!-- -------------- TOPBAR PROFILE CARD -------------- -->
+						<div class="profile-card">
+							<div class="image-cont">
+							{%if not request.user.user_ref.profile_image %}
+							<img
+								src="{%static 'assets/icons/avatar.png'%}"
+								alt="profile picture"
+								class="user-info__avatar"
+							/>
+							{% else %}
+								<img
+								src="{{request.user.user_ref.profile_image.url}}"
+								alt="profile picture"
+								class="user-info__avatar"
+							/>
+							{% endif %}
+							</div>
+							<div class="user-info">
+								<h3 class="secondary-heading user-info__name">
+									{{request.user.first_name}} {{request.user.last_name}}
+								</h3>
+								<p class="profile-card--email">{{request.user.email}}</p>
+							</div>
+						</div>
+					</div>
+					<!-- --------------- MAIN CONTENT SECTION ---------- -->
+					<section class="main-card">
+						<!-- ------------- DASHBOARD CARDS ------- -->
+						<div class="dashboard grid">
+							<!-- -------------- AMOUNT -->
+							<div class="card dashboard__card">
+								<h4 class="tertiary-heading">amount</h4>
+								<h2 class="secondary-heading" id="amount">10,000</h2>
+							</div>
+							<!-- -------------- PAYMENT DATE ---------- -->
+							<div class="card dashboard__card">
+								<h4 class="tertiary-heading">upcoming payment</h4>
+								<h2
+									class="secondary-heading primary-color"
+									id="next-payment-date"
+								>
+									24 April, 2023
+								</h2>
+							</div>
+							<!-- -------------- PREVIOUS PAYMENT DATE ---------- -->
+							<div class="card dashboard__card">
+								<h4 class="tertiary-heading">previous payment</h4>
+								<h2
+									class="secondary-heading primary-color"
+									id="previous-payment-date"
+								>
+									23 March, 2023
+								</h2>
+							</div>
+						</div>
+						<!-- ------------- PAYMENT HISTORY --------- -->
+						<section class="dashboard-history">
+							<h4 class="tertiary-heading primary-color">
+								Transaction History
+							</h4>
+							<div class="history__wrapper">
+								<div class="history__heading--wrapper">
+									<h3 class="secondary-heading">amount</h3>
+									<h3 class="secondary-heading">status</h3>
+									<h3 class="secondary-heading">date</h3>
+
+								</div>
+								<!-- --------- HISTORY ITEMS ------------ -->
+								<div class="history">
+									{% for donation in donations  %}
+									<div class="history__item">
+										<span class="amount">N {{request.user.user_ref.donation_amount}}</span>
+
+										{% if donation.verified  %}
+											<span style="color: green;" class="amount">Verified</span>
+											{%else%}
+											<span style="color: darkorange;" class="amount">Pending</span>
+										{% endif %}
+
+										<span class="date">{{donation.pay_date}}</span>
+									</div>
+									{% endfor %}
+								</div>
+							</div>
+							<!-- TODO PAGINATION HERE -->
+							<div class="pagination__wrapper">
+								<div class="pagination">
+									<!-- previous btn -->
+									<button class="btn pagination-btn previous-btn">
+										<img
+											src="{%static 'assets/icons/right-arrow.svg'%}"
+											alt="previous"
+											class="icon previous"
+										/>
+									</button>
+
+									<button class="btn pagination-btn">1</button>
+									<button class="btn pagination-btn">2</button>
+									<button class="btn pagination-btn">3</button>
+									<button class="btn pagination-btn">...</button>
+									<button class="btn pagination-btn">8</button>
+									<button class="btn pagination-btn">9</button>
+									<button class="btn pagination-btn">10</button>
+
+									<!-- next btn -->
+									<button class="btn pagination-btn next-btn">
+										<img
+											src="{%static 'assets/icons/right-arrow.svg'%}"
+											alt="next"
+											class="icon"
+										/>
+									</button>
+								</div>
+								<div class="display-on-desktop pagination-btn-group">
+									<button class="btn previous-btn inactive-btn">
+										Previous
+									</button>
+									<button class="btn next-btn active-btn">Next</button>
+								</div>
+							</div>
+						</section>
+					</section>
+				</main>
+			</section>
+		</main>
+		<!-- -------------- FOOTER --------------->
+		<footer class="footer">
+			<div class="footer__logo display-on-desktop">
+				<img src="{%static 'assets/icons/rig-white.png'%}" alt="" class="logo rig-logo" />
+				<img src="{%static 'assets/icons/rig-text.png'%}" alt="" class="logo rig-txt" />
+			</div>
+			<div class="footer__main">
+				<div class="footer__links">
+					<section class="navigation">
+						<div class="nav-group">
+							<a href="contact.html" class="navigation__link">contact us</a>
+							<a href="about.html" class="navigation__link">about us</a>
+
+							<a href="rigx.html" class="navigation__link">RIGX</a>
+							<a href="#" class="navigation__link">RIG school</a>
+						</div>
+						<div class="nav-group">
+							<a href="partners.html" class="navigation__link">partner</a>
+							<a href="events.html" class="navigation__link">events</a>
+							<a href="shop-books.html" class="navigation__link">shops</a>
+							<a href="#" class="navigation__link">affiliate</a>
+						</div>
+					</section>
+					<div class="footer__btn-group">
+						<div class="footer__logo display-on-mobile">
+							<img
+								src="{%static 'assets/icons/rig-white.png'%}"
+								alt=""
+								class="logo rig-logo"
+							/>
+							<img
+								src="{%static 'assets/icons/rig-text.png'%}"
+								alt=""
+								class="logo rig-txt"
+							/>
+						</div>
+						<button class="btn btn-secondary show-modal">donate</button>
+						<button class="btn btn-primary">
+							<a href="sign-in.html">login</a>
+						</button>
+					</div>
+				</div>
+				<section class="footer__socials">
+					<a
+						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/youtube-white.png'%}"
+							alt="subscribe to our channel"
+							class="icon social-icon"
+						/>
+					</a>
+					<a
+						href="https://www.instagram.com/rignationafrica/"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/instagram-white.png'%}"
+							alt="foolow us on instagram"
+							class="icon social-icon"
+						/>
+					</a>
+					<a
+						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+						target="_blank"
+						class="footer__socials--link"
+					>
+						<img
+							src="{%static '/assets/icons/facebook-white.png'%}"
+							alt="follow with us on facebook"
+							class="icon social-icon"
+						/>
+					</a>
+				</section>
+				<p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+			</div>
+		</footer>
+		<!-- --------------------- DONATE MODAL ---------------- -->
+		<dialog class="backdrop donation__wrapper hidden">
+			<div class="donation__container">
+				<div class="modal donation">
+					<span class="modal__close close-donation">
+						<img src="{%static 'assets/icons/close-circle.png'%}" alt="" class="icon" />
+					</span>
+					<h4 class="secondary-heading">donate to rig africa</h4>
+					<div class="donation__group">
+						<a href="#" target="_blank" class="card donation__card">
+							<div class="donation__card--logo">
+								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
+							</div>
+							<h4 class="secondary-heading donation__card--heading">
+								online donation
+							</h4>
+							<p class="paragraph">Tithes, offerings or random giving.</p>
+						</a>
+						<a href="partners.html" class="card donation__card">
+							<div class="donation__card--logo">
+								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
+							</div>
+							<h4 class="secondary-heading donation__card--heading">
+								become a partner
+							</h4>
+							<p class="paragraph">
+								Join our vision to raise 4000 active prophets.
+							</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</dialog>
+	</body>
+</html>

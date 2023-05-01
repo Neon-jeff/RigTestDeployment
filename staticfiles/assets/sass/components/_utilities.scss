@@ -1,0 +1,28 @@
+// GENERAL UTILITIES SETTINGS
+
+.icon {
+	height: 2rem;
+	aspect-ratio: 1/1;
+}
+
+.primary-color {
+	color: #ec992f;
+}
+
+.primary-bg {
+	background-color: #ec992f;
+}
+
+// navbar styles on scroll
+.header-bg {
+	background-color: rgba(72, 84, 97, 0.8);
+	color: #e0dfdf;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.active {
+	border-bottom: 2px solid #ec992f;
+}

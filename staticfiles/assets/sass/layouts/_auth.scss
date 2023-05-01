@@ -1,0 +1,178 @@
+// =============== sTYLESHEEET FOR LOGIN AND REGISTER PAGE
+@use '../abstracts/variables' as *;
+
+.auth-page {
+	background-image: url('/static/assets/images/auth-bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	.container {
+		min-height: 90vh;
+		width: 100%;
+		background-image: url('/static/assets/images/auth-bg.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+	}
+
+	.header {
+
+		width: 100%;
+		height: fit-content;
+		display: block;
+		background-image: url('/static/assets/images/auth-bg.png');
+		position: relative;
+	}
+
+	.main {
+
+		width: 45%;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-block: $medium;
+
+		&__img {
+			width: 100%;
+			display: inline-block;
+			margin-block: $big $small;
+		}
+
+		a {
+			color: $primaryColor;
+		}
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		gap: $tiny;
+		padding: $small $tiny $tiny;
+		margin-bottom: $tiny;
+		width: 100%;
+		background-color: $backgroundColor;
+		border: 1px solid #cccccc;
+		box-shadow: 0px 82px 33px rgba(34, 41, 55, 0.01),
+			0px 46px 28px rgba(34, 41, 55, 0.03), 0px 20px 20px rgba(34, 41, 55, 0.04),
+			0px 5px 11px rgba(34, 41, 55, 0.05), 0px 0px 0px rgba(34, 41, 55, 0.05);
+		border-radius: 1rem;
+
+		&__item {
+			width: 100%;
+			display: flex;
+			padding-inline: 1rem;
+			gap: 1rem;
+			align-items: center;
+			outline: 2px solid rgba($accentColor, 0.2);
+			background-color: rgba($backgroundColor, 0.8);
+			border-radius: 0.5rem;
+		}
+
+		&__input,
+		&__input:focus {
+			border: unset;
+			outline: unset;
+			background-color: transparent;
+			padding: 1rem;
+			width: 100%;
+		}
+	}
+
+	.submit-btn {
+		width: 60%;
+		margin-top: $tiny;
+		margin-inline: auto;
+	}
+
+	.pswd-icon {
+		cursor: pointer;
+	}
+
+	.remember {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	input[type='checkbox'] {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		appearance: none;
+		-webkit-appearance: none;
+		background-color: $primaryColor;
+		height: $tiny;
+		width: $tiny;
+		outline: none;
+		border-radius: 0.6rem;
+		cursor: pointer;
+
+		&::after {
+			content: url('/assets/icons/tick-square.png');
+			display: none;
+			margin: 0;
+			height: $tiny;
+			width: $tiny;
+		}
+	}
+
+	input[type='checkbox']:hover {
+		background-color: $paleOrange;
+	}
+
+	input[type='checkbox']:checked {
+		background-color: $backgroundColor;
+	}
+
+	input[type='checkbox']:checked::after {
+		display: inline-block;
+	}
+
+	// =============== MEDIA QUERIES =======================
+	@media screen and (max-width: 650px) {
+		.main {
+			width: 90%;
+		}
+	}
+}
+
+.signup {
+	hr {
+		background-color: rgba($accentColor, 0.2);
+	}
+
+	.info {
+		font-size: 1.4rem;
+		padding-left: 1rem;
+
+		.icon {
+			width: 1rem;
+		}
+	}
+
+	.partner-info {
+		text-align: center;
+
+		.secondary-heading {
+			font-weight: normal;
+			text-decoration: underline;
+			margin-bottom: $tiny;
+		}
+
+		.change-partnership {
+			color: $textColor;
+			text-decoration: underline;
+		}
+	}
+
+	.bottom-txt {
+		margin-inline: auto;
+
+		a {
+			text-decoration: underline;
+		}
+	}
+}
