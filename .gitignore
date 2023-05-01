@@ -1,6 +1,6 @@
 .env
 node_modules/
-media/assets/
+media/
 db.sqlite3
 *.log
 .cache
