@@ -48,29 +48,37 @@
 	</head>
 	<body class="shop-page">
 		<!-- ----------------- NAVBAR----------------------------- -->
-		<nav class="navbar">
-			<a href="/index.html" class="navbar__logo">
-				<img src="{%static 'assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
-			</a>
-			<section class="navigation main-nav hide-nav">
-				<a href="contact.html" class="navigation__link">about us</a>
-				<a href="{%url 'landing'%}" class="navigation__link">partner</a>
-				<a href="#" class="navigation__link">RIGX</a>
-				<a href="#" class="navigation__link">RIG school</a>
-				<a href="{%url 'events'%}" class="navigation__link">events</a>
-				<a href="{%url 'book-shop'%}" class="navigation__link active">shops</a>
-				<a href="shop-merch.html" class="navigation__link">affiliate</a>
-			</section>
+						<nav class="navbar">
+				<a href="{% url 'site-home' %}" class="navbar__logo">
+					<img src="{% static 'assets/icons/rig-nav-logo.png' %}" alt="" class="logo" />
+				</a>
+				<section class="navigation main-nav hide-nav">
+					<a href="{% url 'about' %}" class="navigation__link">about us</a>
+					<a href="contact.html" class="navigation__link">contact us</a>
+					<a href="{% url 'landing' %}" class="navigation__link">partner</a>
+					<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+					<a href="rig-school.html" class="navigation__link">RIG school</a>
+					<a href="{% url 'events' %}" class="navigation__link">events</a>
+					<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+					<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
+					<span class="navigation__link show-modal"><a href="{% url 'create-invoice' %}">donation</a></span>
+				</section>
+				<button class="btn btn-primary">
 
-			<button class="btn btn-primary">
-				<a href="{%url 'login'%}">login</a>
-			</button>
-			<img
-				src="{%static '/assets/icons/icon-hamburger.svg'%}"
-				alt=""
-				class="icon nav-toggle"
-			/>
-		</nav>
+					{% if request.user.is_authenticated  %}
+					<a href="{% url 'logout' %}">logout</a>
+					{% else %}
+					<a href="{% url 'login' %}">login</a>
+					{% endif %}
+
+
+				</button>
+				<img
+					src="{% static '/assets/icons/icon-hamburger.svg' %}"
+					alt=""
+					class="icon nav-toggle"
+				/>
+			</nav>
 		<main class="main">
 			<!-- ---------------- TOP BAR SECTION -------------- -->
 			<section class="top-bar">

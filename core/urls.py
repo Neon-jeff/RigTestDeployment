@@ -25,7 +25,10 @@ urlpatterns = [
     path('partners/',include('partners.urls')),
     path('',TemplateView.as_view(template_name='index.html'),name='site-home'),
     path('shop',include('shop.urls')),
-     path("__reload__/", include("django_browser_reload.urls"))
+    path("rigx/", include('rigx.urls')),
+    path("about/", TemplateView.as_view(template_name='about.html'), name="about"),
+    path("contact-us/", TemplateView.as_view(template_name='contact.html'), name="contact"),
+    path("__reload__/", include("django_browser_reload.urls"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

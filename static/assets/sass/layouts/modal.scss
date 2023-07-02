@@ -89,10 +89,7 @@
 	z-index: 20;
 	height: 100vh;
 	height: 100svh;
-	top: $tiny;
-	bottom: 0;
-	left: 0;
-	right: 0;
+	inset: 0;
 	border: unset;
 	background-color: rgba($accentColor, 0.2);
 	animation-name: popIn;
@@ -111,8 +108,10 @@
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: left;
-		background-color: rgba($primaryColor, 0.8);
+		background-color: rgba($primaryColor, 1);
 		position: relative;
+		top: $tiny;
+		bottom: $tiny;
 
 		&::before {
 			content: '';
@@ -148,7 +147,7 @@
 			background: linear-gradient(
 				222.92deg,
 				rgba(255, 255, 255, 0.16) 0%,
-				rgba(248, 248, 248, 0) 100%
+				rgba(248, 248, 248, 0.1) 100%
 			);
 			box-shadow: -15px 17px 27px 1px rgba(13, 13, 13, 0.15);
 			transition: all ease-in-out 0.2s;
@@ -174,9 +173,9 @@
 
 	// ================= MEDIA QUERIES =================
 	@media screen and (max-width: 650px) {
-		height: 80vh;
-		height: 80svh;
-		top: unset;
+		// height: 80vh;
+		// height: 80svh;
+		// top: unset;
 
 		.donation__container {
 			height: auto;

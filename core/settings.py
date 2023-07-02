@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import environ
+env=environ.Env()
+environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1tlmx@6*0t2zq7d2z6(2#d&&(gid(9m#_%jq%(2az_kg)11wio'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'events',
     'compressor',
@@ -43,11 +50,14 @@ INSTALLED_APPS = [
     'django_libsass',
     'shop',
     'partners',
+    'contact',
     "django_browser_reload",
+    'rigx'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,6 +68,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
+CSRF_TRUSTED_ORIGINS=['https://']
 
 TEMPLATES = [
     {
@@ -89,6 +101,14 @@ DATABASES = {
 }
 
 
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER=''
+EMAIL_HOST_PASSWORD=''
+EMAIL_USE_TLS=True
+EMAIL_USE_SSL=False
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -119,7 +139,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+# CLODINARY CONFIGS
+cloudinary.config(
+  cloud_name = env('C_NAME'),
+  api_key = env('C_KEY'),
+  api_secret = env('C_SECRET')
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -145,6 +170,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder'
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 COMPRESS_ENABLED = True
 MEDIA_URL = 'media/'

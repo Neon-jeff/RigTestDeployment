@@ -85,3 +85,12 @@ html.sr .load-hidden {
 		scale: 1;
 	}
 }
+
+@keyframes pulse {
+	0% {
+		scale: 0.8;
+	}
+	100% {
+		scale: 1.02;
+	}
+}

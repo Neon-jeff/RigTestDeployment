@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import uuid
 from datetime import date,timedelta
+from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
@@ -18,7 +19,7 @@ class Partner(models.Model):
     account_type=models.CharField(choices=Type,blank=True,max_length=300,null=True)
     donation_amount=models.IntegerField(blank=True)
     registered_at=models.DateField(auto_now_add=True)
-    profile_image=models.ImageField(blank=True,null=True,upload_to='profile-pictures')
+    profile_image=CloudinaryField('image',blank=True,null=True)
 
     def save(self,*args,**kwargs):
         if self.account_type=='VIP':

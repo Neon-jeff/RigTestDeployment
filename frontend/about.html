@@ -1,3 +1,6 @@
+{% load static %}
+{% load compress %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -5,43 +8,50 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>RIG Africa | About Us</title>
-		<link rel="stylesheet" href="assets/sass/main.scss" />
-		<script src="/assets/js/app.js" defer></script>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+		{% endcompress %}
+		<script src="{% static '/assets/js/app.js' %}" defer></script>
 	</head>
 	<body class="about-page">
 		<header class="header">
 			<section class="header__wrapper">
 				<!-- ----------------- NAVBAR----------------------------- -->
 				<nav class="navbar">
-					<a href="/index.html" class="navbar__logo">
-						<img src="/assets/icons/rig-nav-logo.png" alt="" class="logo" />
-					</a>
-					<section class="navigation main-nav hide-nav">
-						<a href="#" class="navigation__link">about us</a>
-						<a href="/partners.html" class="navigation__link">partner</a>
-						<a href="#" class="navigation__link">RIGX</a>
-						<a href="#" class="navigation__link">RIG school</a>
-						<a href="#" class="navigation__link">events</a>
-						<a href="#" class="navigation__link">shops</a>
-						<a href="#" class="navigation__link">affiliate</a>
-					</section>
-					<button class="btn btn-primary">donate</button>
-					<img
-						src="/assets/icons/search-icon.png"
-						alt="search"
-						title="Search"
-						class="icon search-icon"
-					/>
-					<img
-						src="/assets/icons/icon-hamburger.svg"
-						alt=""
-						class="icon nav-toggle hidden"
-					/>
-				</nav>
+				<a href="{% url 'site-home' %}" class="navbar__logo">
+					<img src="{% static 'assets/icons/rig-nav-logo.png' %}" alt="" class="logo" />
+				</a>
+				<section class="navigation main-nav hide-nav">
+					<a href="{% url 'about' %}" class="navigation__link">about us</a>
+					<a href="{% url 'contact' %}" class="navigation__link">contact us</a>
+					<a href="{% url 'landing' %}" class="navigation__link">partner</a>
+					<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+					<a href="rig-school.html" class="navigation__link">RIG school</a>
+					<a href="{% url 'events' %}" class="navigation__link">events</a>
+					<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+					<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
+					<span class="navigation__link show-modal"><a href="{% url 'create-invoice' %}">donation</a></span>
+				</section>
+				<button class="btn btn-primary">
+
+					{% if request.user.is_authenticated  %}
+					<a href="{% url 'logout' %}">logout</a>
+					{% else %}
+					<a href="{% url 'login' %}">login</a>
+					{% endif %}
+
+
+				</button>
+				<img
+					src="{% static '/assets/icons/icon-hamburger.svg' %}"
+					alt=""
+					class="icon nav-toggle"
+				/>
+			</nav>
 				<!-- ------------------------ HERO SECTION -------------------- -->
 				<section class="hero">
 					<img
-						src="/assets/icons/rig-about-logo.png"
+						src="{% static '/assets/icons/rig-about-logo.png' %}"
 						alt=""
 						class="header__img main-img"
 					/>
@@ -70,7 +80,7 @@
 			</article>
 			<div class="welcome__img split-2__img">
 				<img
-					src="/assets/images/Rig Africa map 1.png"
+					src="{% static '/assets/images/Rig Africa map 1.png' %}"
 					alt="Welcome to RIG Africa"
 					class="main-img"
 				/>
@@ -84,7 +94,7 @@
 				<div class="grid col-3">
 					<div class="card partners__card">
 						<div class="partners__card--logo">
-							<img src="/assets/icons/donate.svg" alt="donate" class="icon" />
+							<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
 						</div>
 						<h4 class="secondary-heading partners__card--heading">
 							online donation
@@ -93,7 +103,7 @@
 					</div>
 					<div class="card partners__card">
 						<div class="partners__card--logo">
-							<img src="/assets/icons/donate.svg" alt="donate" class="icon" />
+							<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
 						</div>
 						<h4 class="secondary-heading partners__card--heading">
 							become a partner
@@ -104,7 +114,7 @@
 					</div>
 					<div class="card partners__card">
 						<div class="partners__card--logo">
-							<img src="/assets/icons/donate.svg" alt="donate" class="icon" />
+							<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
 						</div>
 						<h4 class="secondary-heading partners__card--heading">
 							sponsor a project
@@ -127,21 +137,21 @@
 			<div class="grid col-3 events__wrapper">
 				<div class="card event__card">
 					<img
-						src="assets/images/event-img.png"
+						src="{% static 'assets/images/event-img.png' %}"
 						alt="upcoming event"
 						class="event"
 					/>
 				</div>
 				<div class="card event__card">
 					<img
-						src="assets/images/event-img.png"
+						src="{% static 'assets/images/event-img.png' %}"
 						alt="upcoming event"
 						class="event"
 					/>
 				</div>
 				<div class="card event__card">
 					<img
-						src="assets/images/event-img.png"
+						src="{% static 'assets/images/event-img.png' %}"
 						alt="upcoming event"
 						class="event"
 					/>
@@ -152,7 +162,7 @@
 		<section class="prophecy-section split-2">
 			<div class="prophecy-section__img split-2__img">
 				<img
-					src="/assets/images/prophet.png"
+					src="{% static '/assets/images/prophet.png' %}"
 					alt="the father's blessing"
 					class="main-img"
 				/>
@@ -187,7 +197,7 @@
 				</p>
 			</div>
 			<div class="about__img split-2__img">
-				<img src="/assets/images/about-img.png" alt="" class="main-img" />
+				<img src="{% static '/assets/images/about-img.png' %}" alt="" class="main-img" />
 			</div>
 		</section>
 		<!-- ------- TESTIMONIES -------------->
@@ -196,7 +206,7 @@
 			<article class="grid col-3 testimonies__main">
 				<div class="testimonies__card">
 					<img
-						src="/assets/images/Avatar Image.png"
+						src="{% static '/assets/images/Avatar Image.png' %}"
 						alt=""
 						class="testimonies__card--img"
 					/>
@@ -214,7 +224,7 @@
 				</div>
 				<div class="testimonies__card">
 					<img
-						src="/assets/images/Avatar Image (1).png"
+						src="{% static '/assets/images/Avatar Image (1).png' %}"
 						alt=""
 						class="testimonies__card--img"
 					/>
@@ -230,7 +240,7 @@
 				</div>
 				<div class="testimonies__card">
 					<img
-						src="/assets/images/Avatar Image (2).png"
+						src="{% static '/assets/images/Avatar Image (2).png' %}"
 						alt=""
 						class="testimonies__card--img"
 					/>
@@ -269,63 +279,92 @@
 							placeholder="Email Address"
 						/>
 						<button class="btn form-btn cta__form--btn">
-							<img src="assets/icons/send-white.png" alt="" class="icon" />
+							<img src="{% static 'assets/icons/send-white.png' %}" alt="" class="icon" />
 						</button>
 					</form>
 				</div>
 				<div class="cta__img">
-					<img src="assets/images/mobile-mockup.png" class="main-img" alt="" />
+					<img src="{% static 'assets/images/mobile-mockup.png' %}" class="main-img" alt="" />
 				</div>
 			</div>
 		</section>
 		<!-- </main> -->
 		<!-- -------------- FOOTER --------------->
-		<footer class="footer">
-			<div class="footer__logo">
-				<img src="assets/icons/rig-logo-with-txt.png" alt="" class="logo" />
+<footer class="footer">
+			<div class="footer__logo display-on-desktop">
+				<img src="{%static 'assets/icons/rig-white.png'%}" alt="" class="logo rig-logo" />
+				<img src="{%static 'assets/icons/rig-text.png'%}" alt="" class="logo rig-txt" />
 			</div>
 			<div class="footer__main">
 				<div class="footer__links">
 					<section class="navigation">
 						<div class="nav-group">
-							<a href="/about.html" class="navigation__link">about us</a>
-							<a href="#" class="navigation__link">partner</a>
-							<a href="#" class="navigation__link">RIGX</a>
+							<a href="contact.html" class="navigation__link">contact us</a>
+							<a href="{% url 'about' %}" class="navigation__link">about us</a>
+
+							<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
 							<a href="#" class="navigation__link">RIG school</a>
 						</div>
 						<div class="nav-group">
-							<a href="#" class="navigation__link">events</a>
-							<a href="#" class="navigation__link">shops</a>
-							<a href="#" class="navigation__link">affiliate</a>
+							<a href="{% url 'logout' %}" class="navigation__link">partner</a>
+							<a href="{% url 'events' %}" class="navigation__link">events</a>
+							<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+							<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
 						</div>
 					</section>
-					<button class="btn btn-primary">donate</button>
+					<div class="footer__btn-group">
+						<div class="footer__logo display-on-mobile">
+							<img
+								src="{%static 'assets/icons/rig-white.png'%}"
+								alt=""
+								class="logo rig-logo"
+							/>
+							<img
+								src="{%static 'assets/icons/rig-text.png'%}"
+								alt=""
+								class="logo rig-txt"
+							/>
+						</div>
+						<button class="btn btn-secondary show-modal"><a href="{% url 'create-invoice' %}">donate</a></button>
+						<button class="btn btn-primary">
+							{% if request.user.is_authenticated %}
+							  <a href="{% url 'dashboard' %}">dashboard</a>
+							  {% else %}
+							  <a href="{% url 'login' %}">login</a>
+							{% endif %}
+						</button>
+					</div>
 				</div>
 				<section class="footer__socials">
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
-							src="/assets/icons/twitter-white.png"
-							alt="follow us on twitter"
-							class="icon socail-icon"
-						/>
-					</a>
-					<a href="#" class="footer__socials--link">
-						<img
-							src="/assets/icons/youtube-white.png"
+							src="{%static '/assets/icons/youtube-white.png'%}"
 							alt="subscribe to our channel"
 							class="icon social-icon"
 						/>
 					</a>
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.instagram.com/rignationafrica/"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
-							src="/assets/icons/instagram-white.png"
-							alt="twitter"
+							src="{%static '/assets/icons/instagram-white.png'%}"
+							alt="foolow us on instagram"
 							class="icon social-icon"
 						/>
 					</a>
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
-							src="/assets/icons/facebook-white.png"
+							src="{%static '/assets/icons/facebook-white.png'%}"
 							alt="follow with us on facebook"
 							class="icon social-icon"
 						/>

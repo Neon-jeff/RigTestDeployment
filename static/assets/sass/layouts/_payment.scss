@@ -1,7 +1,13 @@
 .main-cont{
     display: flex;
     height: 100vh;
+            @media screen and (max-width:500px){
+            display: block;
+        }
     .image-cont{
+        @media screen and (max-width:500px){
+            display: none;
+        }
         width: 50%;
         display: flex;
         flex-direction: column;
@@ -22,7 +28,11 @@
         }
     }
     .form-cont{
-
+        @media screen and (max-width:500px) {
+            width: 90%;
+            margin: auto;
+            padding-top: 100px;
+        }
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -31,13 +41,16 @@
         width: 50%;
         form{
             small{
-                color: darkorange;
+                color: green;
             }
             display: flex;
             flex-direction: column;
             gap: 20px;
             align-items: center;
             width: 50%;
+            @media screen and (max-width:500px) {
+                width: 90%;
+            }
             label{
                 width: 100%;
                 display: flex;

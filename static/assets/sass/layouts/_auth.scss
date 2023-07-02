@@ -2,41 +2,47 @@
 @use '../abstracts/variables' as *;
 
 .auth-page {
-	background-image: url('/static/assets/images/auth-bg.png');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 	.container {
 		min-height: 90vh;
 		width: 100%;
 		background-image: url('/static/assets/images/auth-bg.png');
-		background-size: contain;
-		background-repeat: no-repeat;
 		background-position: center;
 		position: relative;
+
+		&::after {
+			display: block;
+			content: '';
+			width: 100%;
+			height: 100%;
+			inset: 0;
+			z-index: -1;
+			position: absolute;
+			background-color: rgba($accentColor, 0.1);
+		}
+	}
+
+	.navbar {
+		top: 0;
 	}
 
 	.header {
-
 		width: 100%;
-		height: fit-content;
-		display: block;
-		background-image: url('/static/assets/images/auth-bg.png');
+		height: 6rem;
+		background: unset;
 		position: relative;
 	}
 
 	.main {
-
 		width: 45%;
-		margin: auto;
+		margin: $tiny auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		padding-block: $medium;
+		// padding-block: $medium;
 
 		&__img {
-			width: 100%;
+			width: 80%;
 			display: inline-block;
 			margin-block: $big $small;
 		}

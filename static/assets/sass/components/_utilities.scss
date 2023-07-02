@@ -6,17 +6,17 @@
 }
 
 .primary-color {
-	color: #ec992f;
+	color: hsl(34, 83%, 55%);
 }
 
 .primary-bg {
-	background-color: #ec992f;
+	background-color: hsl(34, 83%, 55%);
 }
 
 // navbar styles on scroll
 .header-bg {
-	background-color: rgba(72, 84, 97, 0.8);
-	color: #e0dfdf;
+	background-color: hsl(211, 15%, 33%);
+	color: hsl(0, 0%, 100%);
 }
 
 .hidden {
@@ -24,5 +24,5 @@
 }
 
 .active {
-	border-bottom: 2px solid #ec992f;
+	border-bottom: 2px solid hsl(34, 83%, 55%);
 }

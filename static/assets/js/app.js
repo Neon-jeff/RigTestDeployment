@@ -1,11 +1,6 @@
 //================ SCROLLREVEAL ================
-import {ScrollReveal} from 'scrollreveal'
-
-// import scrollreveal from "https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/+esm";
-
-
+import ScrollReveal from 'scrollreveal';
 ScrollReveal.debug = true;
-// window.ScrollReveal=ScrollReveal();
 
 // ========== NAVIGATION TOGGLE =============
 const navBar = document.querySelector('.main-nav');
@@ -137,13 +132,17 @@ ScrollReveal().reveal(rigXCard, {
 });
 
 // ==================== TOGGLE DONATION MODAL =================
-const showDonation = document.querySelector('.show-modal');
+const showDonationBTN = document.querySelectorAll('.show-modal');
 const closeDonation = document.querySelector('.close-donation');
 const donationWrapper = document.querySelector('.donation__wrapper');
 
 // show modal
-showDonation.addEventListener('click', () => {
-	donationWrapper.classList.toggle('hidden');
+showDonationBTN.forEach((showDonation) => {
+	showDonation.addEventListener('click', () => {
+		donationWrapper.classList.toggle('hidden');
+		// also hide navbar when modal is open
+		hideNavbar();
+	});
 });
 
 // hide modal

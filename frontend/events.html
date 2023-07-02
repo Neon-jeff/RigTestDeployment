@@ -49,32 +49,37 @@
 	</head>
 	<body class="events-page">
 		<!-- ----------------- NAVBAR----------------------------- -->
-		<nav class="navbar">
-			<a href="/index.html" class="navbar__logo">
-				<img src="{% static 'assets/icons/rig-nav-logo.png'%}" alt="" class="logo" />
-			</a>
-			<section class="navigation main-nav hide-nav">
-				<a href="contact.html" class="navigation__link">about us</a>
-				<a href="partners.html" class="navigation__link">partner</a>
-				<a href="#" class="navigation__link">RIGX</a>
-				<a href="#" class="navigation__link">RIG school</a>
-				<a href="events.html" class="navigation__link active">events</a>
-				<a href="shop-books.html" class="navigation__link">shops</a>
-				<a href="#" class="navigation__link">affiliate</a>
-			</section>
-			<button class="btn btn-primary">donate</button>
-			<img
-				src="{% static '/assets/icons/search-icon.png'%}"
-				alt="search"
-				title="Search"
-				class="icon search-icon"
-			/>
-			<img
-				src="{% static '/assets/icons/icon-hamburger.svg' %}"
-				alt=""
-				class="icon nav-toggle hidden"
-			/>
-		</nav>
+							<nav class="navbar">
+				<a href="{% url 'site-home' %}" class="navbar__logo">
+					<img src="{% static 'assets/icons/rig-nav-logo.png' %}" alt="" class="logo" />
+				</a>
+				<section class="navigation main-nav hide-nav">
+					<a href="{% url 'about' %}" class="navigation__link">about us</a>
+					<a href="{% url 'contact' %}" class="navigation__link">contact us</a>
+					<a href="{% url 'landing' %}" class="navigation__link">partner</a>
+					<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+					<a href="rig-school.html" class="navigation__link">RIG school</a>
+					<a href="{% url 'events' %}" class="navigation__link">events</a>
+					<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+					<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
+					<span class="navigation__link show-modal"><a href="{% url 'create-invoice' %}">donation</a></span>
+				</section>
+				<button class="btn btn-primary">
+
+					{% if request.user.is_authenticated  %}
+					<a href="{% url 'logout' %}">logout</a>
+					{% else %}
+					<a href="{% url 'login' %}">login</a>
+					{% endif %}
+
+
+				</button>
+				<img
+					src="{% static '/assets/icons/icon-hamburger.svg' %}"
+					alt=""
+					class="icon nav-toggle"
+				/>
+			</nav>
 		<main class="main">
 			<!-- ---------------- TOP BAR SECTION -------------- -->
 			<section class="top-bar">
@@ -217,53 +222,81 @@
 			</section>
 		</main>
 		<!-- -------------- FOOTER --------------->
-		<footer class="footer">
-			<div class="footer__logo">
-				<img src="{%static '/assets/icons/rig-white.png'%}" alt="" class="logo rig-logo" />
-				<img src="{% static '/assets/icons/rig-text.png'%}" alt="" class="logo rig-txt" />
+<footer class="footer">
+			<div class="footer__logo display-on-desktop">
+				<img src="{%static 'assets/icons/rig-white.png'%}" alt="" class="logo rig-logo" />
+				<img src="{%static 'assets/icons/rig-text.png'%}" alt="" class="logo rig-txt" />
 			</div>
 			<div class="footer__main">
 				<div class="footer__links">
 					<section class="navigation">
 						<div class="nav-group">
-							<a href="/about.html" class="navigation__link">about us</a>
-							<a href="#" class="navigation__link">partner</a>
-							<a href="#" class="navigation__link">RIGX</a>
+							<a href="contact.html" class="navigation__link">contact us</a>
+							<a href="{% url 'about' %}" class="navigation__link">about us</a>
+
+							<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
 							<a href="#" class="navigation__link">RIG school</a>
 						</div>
 						<div class="nav-group">
-							<a href="#" class="navigation__link">events</a>
-							<a href="#" class="navigation__link">shops</a>
-							<a href="#" class="navigation__link">affiliate</a>
+							<a href="{% url 'logout' %}" class="navigation__link">partner</a>
+							<a href="{% url 'events' %}" class="navigation__link">events</a>
+							<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+							<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
 						</div>
 					</section>
-					<button class="btn btn-primary">donate</button>
+					<div class="footer__btn-group">
+						<div class="footer__logo display-on-mobile">
+							<img
+								src="{%static 'assets/icons/rig-white.png'%}"
+								alt=""
+								class="logo rig-logo"
+							/>
+							<img
+								src="{%static 'assets/icons/rig-text.png'%}"
+								alt=""
+								class="logo rig-txt"
+							/>
+						</div>
+						<button class="btn btn-secondary show-modal"><a href="{% url 'create-invoice' %}">donate</a></button>
+						<button class="btn btn-primary">
+							{% if request.user.is_authenticated %}
+							  <a href="{% url 'dashboard' %}">dashboard</a>
+							  {% else %}
+							  <a href="{% url 'login' %}">login</a>
+							{% endif %}
+						</button>
+					</div>
 				</div>
 				<section class="footer__socials">
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
-							src="{%static '/assets/icons/twitter-white.png'%}"
-							alt="follow us on twitter"
-							class="icon socail-icon"
-						/>
-					</a>
-					<a href="#" class="footer__socials--link">
-						<img
-							src="{% static '/assets/icons/youtube-white.png'%}"
+							src="{%static '/assets/icons/youtube-white.png'%}"
 							alt="subscribe to our channel"
 							class="icon social-icon"
 						/>
 					</a>
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.instagram.com/rignationafrica/"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
 							src="{%static '/assets/icons/instagram-white.png'%}"
-							alt="twitter"
+							alt="foolow us on instagram"
 							class="icon social-icon"
 						/>
 					</a>
-					<a href="#" class="footer__socials--link">
+					<a
+						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+						target="_blank"
+						class="footer__socials--link"
+					>
 						<img
-							src="{%static '/assets/icons/facebook-white.png' %}"
+							src="{%static '/assets/icons/facebook-white.png'%}"
 							alt="follow with us on facebook"
 							class="icon social-icon"
 						/>

@@ -26,7 +26,8 @@
 		position: absolute;
 		z-index: 5;
 		top: 50%;
-		transform: translate(50%, -50%);
+		left: 50%;
+		transform: translate(-50%, -50%);
 
 		.paragraph {
 			font-size: 1.2rem;
@@ -53,6 +54,11 @@
 		.btn {
 			text-transform: uppercase;
 			padding: 1rem $tiny;
+			transition: all cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+		}
+
+		.btn:hover {
+			color: rgba($primaryColor, 1);
 		}
 	}
 }
@@ -172,7 +178,7 @@
 }
 
 .mini-card-section {
-	grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
 	.shop__card {
 		padding: 1.5rem;
@@ -199,11 +205,6 @@
 
 // =============== MEDIA QUERIES ========================
 @media screen and (max-width: 800px) {
-	.secondary-heading,
-	.primary-heading {
-		margin: 0;
-	}
-
 	.top-bar {
 		padding: 0;
 	}
@@ -225,6 +226,10 @@
 	}
 
 	.shop-page {
+		.secondary-heading,
+		.primary-heading {
+			margin: 0;
+		}
 		.shop {
 			padding: 0;
 			margin-top: $tiny;

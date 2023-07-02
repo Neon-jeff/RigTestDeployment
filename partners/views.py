@@ -5,13 +5,16 @@ from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from datetime import date, timedelta,datetime
+from django.core.mail import send_mail
+from core.settings import EMAIL_HOST_USER
 # Create your views here.
 
 User=get_user_model()
 
 def RegisterPartner(request,acc):
     print(acc)
-
+    if request.user.is_authenticated:
+        return redirect('dashboard')
     if request.method=='POST':
         if User.objects.filter(email=request.POST['email']):
             messages.error(request,'Account with email already exists')
@@ -45,6 +48,10 @@ def RegisterPartner(request,acc):
                 account_type='AMBASSADOR'
                 )
                 new_partner.save()
+            # subject=f'Welcome to RigAfrica'
+            # message=f'Hello {new_user.first_name}, \n Welcome to Rig Africa Outreach Ministries, Your account was successfully Created'
+            # recipient_list=[new_user.email]
+            # send_mail(subject,message,EMAIL_HOST_USER,recipient_list,fail_silently=False)
         messages.success(request,"Account creation successful")
         return redirect('login')
     return render(request,'register.html',{"type":acc})
@@ -76,7 +83,9 @@ def PartnerLanding(request):
 @login_required(login_url='login')
 def DashBoard (request):
     donations=Donation.objects.filter(partner=request.user).order_by('-id')
-    return render(request,'dashboard.html',{"donations":donations})
+    latest_donation=Donation.objects.filter(partner=request.user).order_by('-id').first()
+
+    return render(request,'dashboard.html',{"donations":donations,'latest':latest_donation})
 @login_required(login_url='login')
 def ProfilePage(request):
     if request.method=='POST':
@@ -117,3 +126,8 @@ def GenerateInvoice(request):
         messages.success(request, "Invoice created successfully")
         return redirect('dashboard')
     return render(request,'generate-payment.html')
+def Logout(request):
+    logout(request)
+    return redirect('login')
+
+
