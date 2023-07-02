@@ -43,12 +43,17 @@
 		/>
 		<link rel="manifest" href="{% static 'assets/icons/favicon/site.webmanifest'%}" />
 		<!-- js -->
-		<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-		<script>
+		    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
 
-		</script>
-		<script src="{%static '/assets/js/dashboard.js'%}" type="module" defer></script>
-		<script src="{%static '/assets/js/app.js'%}" type="module" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+		{% compress js %}
+		<script src="{%static '/assets/js/app.js'%}"  defer></script>
+		<script src="{%static '/assets/js/dashboard.js'%}"  defer></script>
+		{% endcompress %}
 	</head>
 	<body class="dashboard-page">
 		<!-- ----------------- NAVBAR----------------------------- -->

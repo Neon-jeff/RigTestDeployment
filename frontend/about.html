@@ -11,7 +11,16 @@
 		{% compress css %}
 		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
 		{% endcompress %}
+		    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+		{% compress js %}
 		<script src="{% static '/assets/js/app.js' %}" defer></script>
+		{% endcompress %}
 	</head>
 	<body class="about-page">
 		<header class="header">

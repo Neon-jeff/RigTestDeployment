@@ -42,8 +42,10 @@
 		/>
 		<link rel="manifest" href="{% static 'assets/icons/favicon/site.webmanifest'%}" />
 		<!-- js -->
+		{% compress js%}
 		<script src="{%static '/assets/js/app.js'%}" defer></script>
-	<script src="{%static '/assets/js/auth.js'%}" defer></script>
+		<script src="{%static '/assets/js/auth.js'%}" defer></script>
+		{%endcompress%}
 		<!-- SCROLLREVEAL -->
 		<script src="https://unpkg.com/scrollreveal"></script>
 	</head>

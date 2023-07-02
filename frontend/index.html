@@ -1,682 +1,738 @@
-{% load static %}
-{% load compress %}
+{% load static %} {% load compress %}
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>RIG Africa</title>
-		{% compress css %}
-		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
-		{% endcompress %}
-		<!-- favicon -->
-<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="{%static 'assets/icons/favicon/apple-touch-icon.png'%}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="512x512"
-			href="{%static 'assets/icons/favicon/android-chrome-512x512.png'%}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="192x192"
-			href="{% static 'assets/icons/favicon/android-chrome-192x192.png'%}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="32x32"
-			href="{%static 'assets/icons/favicon/favicon-32x32.png'%}"
-		/>
-		<link
-			rel="icon"
-			type="image/png"
-			sizes="16x16"
-			href="{% static 'assets/icons/favicon/favicon-16x16.png'%}"
-		/>
-		<link rel="manifest" href="{% static 'assets/icons/favicon/site.webmanifest'%}" />
-		<!-- js -->
-		<!-- <script src="/assets/js/eve
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIG Africa</title>
+    {% compress css %}
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/sass/main.scss' %}"
+      type="text/x-scss"
+    />
+    {% endcompress %}
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{%static 'assets/icons/favicon/apple-touch-icon.png'%}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="{%static 'assets/icons/favicon/android-chrome-512x512.png'%}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="{% static 'assets/icons/favicon/android-chrome-192x192.png'%}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{%static 'assets/icons/favicon/favicon-32x32.png'%}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'assets/icons/favicon/favicon-16x16.png'%}"
+    />
+    <link
+      rel="manifest"
+      href="{% static 'assets/icons/favicon/site.webmanifest'%}"
+    />
+    <!-- js -->
+    <!-- <script src="/assets/js/eve
 			nt.js" defer></script> -->
-		{% compress js %}
-		<script src="{%static '/assets/js/app.js'%}"  defer></script>
-		<script src="{%static '/assets/js/observer.js'%}" defer></script>
-		{% endcompress %}
-	</head>
-		<body class="home-page">
-		<header class="header">
-			<!-- ---------------- TOP NEWSLINE ---------------- -->
-			<aside class="newsline">
-				<div class="newsline__txt">
-					<div>
-						<span class="newsline__txt--heading">online service:</span>
-						<span class="newsline__txt--info">
-							watch our live and previous services on YouTube
-						</span>
-						<a
-							href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
-							target="_blank"
-							class="newsline__txt--link"
-							>click here</a
-						>
-					</div>
-				</div>
-				<div class="newsline__link--group">
-					<a
-						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
-						target="_blank"
-						class="newsline__link"
-					>
-						<img
-							src="{% static '/assets/icons/youtube.png' %}"
-							alt="subscribe to our channel"
-							class="icon newsline-icon"
-						/>
-					</a>
-					<a
-						href="https://www.instagram.com/rignationafrica/"
-						target="_blank"
-						class="newsline__link"
-					>
-						<img
-							src="{% static '/assets/icons/instagram.png' %}"
-							alt="twitter"
-							class="icon newsline-icon"
-						/>
-					</a>
-					<a
-						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
-						target="_blank"
-						class="newsline__link"
-					>
-						<img
-							src="{% static '/assets/icons/facebook-color.png' %}"
-							alt="follow with us on facebook"
-							class="icon newsline-icon"
-						/>
-					</a>
-				</div>
-			</aside>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
 
-			<!-- ----------------- NAVBAR----------------------------- -->
-			<nav class="navbar">
-				<a href="{% url 'site-home' %}" class="navbar__logo">
-					<img src="{% static 'assets/icons/rig-nav-logo.png' %}" alt="" class="logo" />
-				</a>
-				<section class="navigation main-nav hide-nav">
-					<a href="{% url 'about' %}" class="navigation__link">about us</a>
-					<a href="{% url 'contact' %}" class="navigation__link">contact us</a>
-					<a href="{% url 'landing' %}" class="navigation__link">partner</a>
-					<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
-					<a href="rig-school.html" class="navigation__link">RIG school</a>
-					<a href="{% url 'events' %}" class="navigation__link">events</a>
-					<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
-					<a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
-					<span class="navigation__link show-modal">donation</span>
-				</section>
-				<button class="btn btn-primary">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    {% compress js %}
+    <script src="{%static '/assets/js/app.js'%}" defer></script>
+    <script src="{%static '/assets/js/observer.js'%}" defer></script>
+	<script src="{%static 'assets/js/swiper.js'%} " defer></script>
+    {% endcompress %}
+  </head>
+  <body class="home-page">
+    <header class="header">
+      <!-- ---------------- TOP NEWSLINE ---------------- -->
+      <aside class="newsline">
+        <div class="newsline__txt">
+          <div>
+            <span class="newsline__txt--heading">online service:</span>
+            <span class="newsline__txt--info">
+              watch our live and previous services on YouTube
+            </span>
+            <a
+              href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+              target="_blank"
+              class="newsline__txt--link"
+              >click here</a
+            >
+          </div>
+        </div>
+        <div class="newsline__link--group">
+          <a
+            href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+            target="_blank"
+            class="newsline__link"
+          >
+            <img
+              src="{% static '/assets/icons/youtube.png' %}"
+              alt="subscribe to our channel"
+              class="icon newsline-icon"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/rignationafrica/"
+            target="_blank"
+            class="newsline__link"
+          >
+            <img
+              src="{% static '/assets/icons/instagram.png' %}"
+              alt="twitter"
+              class="icon newsline-icon"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+            target="_blank"
+            class="newsline__link"
+          >
+            <img
+              src="{% static '/assets/icons/facebook-color.png' %}"
+              alt="follow with us on facebook"
+              class="icon newsline-icon"
+            />
+          </a>
+        </div>
+      </aside>
 
-					{% if request.user.is_authenticated  %}
-					<a href="{% url 'dashboard' %}">dashboard</a>
-					{% else %}
-					<a href="{% url 'login' %}">login</a>
-					{% endif %}
+      <!-- ----------------- NAVBAR----------------------------- -->
+      <nav class="navbar">
+        <a href="{% url 'site-home' %}" class="navbar__logo">
+          <img
+            src="{% static 'assets/icons/rig-nav-logo.png' %}"
+            alt=""
+            class="logo"
+          />
+        </a>
+        <section class="navigation main-nav hide-nav">
+          <a href="{% url 'about' %}" class="navigation__link">about us</a>
+          <a href="{% url 'contact' %}" class="navigation__link">contact us</a>
+          <a href="{% url 'landing' %}" class="navigation__link">partner</a>
+          <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+          <a href="rig-school.html" class="navigation__link">RIG school</a>
+          <a href="{% url 'events' %}" class="navigation__link">events</a>
+          <a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+          <a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
+          <span class="navigation__link show-modal">donation</span>
+        </section>
+        <button class="btn btn-primary">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'dashboard' %}">dashboard</a>
+          {% else %}
+          <a href="{% url 'login' %}">login</a>
+          {% endif %}
+        </button>
+        <img
+          src="{% static '/assets/icons/icon-hamburger.svg' %}"
+          alt=""
+          class="icon nav-toggle"
+        />
+      </nav>
+      <section class="header__wrapper">
+        <!-- --------------------- HERO SECTION -------------------- -->
+        <section class="hero">
+          <article class="hero__txt">
+            <h2 class="hero__txt--heading primary-heading">
+              restoring issachar's generation
+            </h2>
+            <p class="hero__txt--info paragraph">
+              Of the sons of Issachar who had an understanding of the times to
+              know what Israel ought to do... <span>~ Chronicles 12:32</span>
+            </p>
+            <button class="btn btn-primary">
+              <a href="partners.html">join us. become a partner</a>
+            </button>
+          </article>
+          <!-- -------------------- HERO STATS SECTION ----------- -->
+          <article class="hero__info">
+            <div class="hero__info--stats">
+              <div class="stat">
+                <h2 class="stat__number secondary-heading">7000+</h2>
+                <p class="stat__info">Apostles and prophets</p>
+              </div>
+              <div class="stat">
+                <h2 class="stat__number secondary-heading">6</h2>
+                <p class="stat__info">Continents</p>
+              </div>
+              <div class="stat">
+                <h2 class="stat__number secondary-heading">2000+</h2>
+                <p class="stat__info">Partners</p>
+              </div>
+            </div>
+            <div class="hero__logo">
+              <img
+                src="{% static '/assets/icons/rig logo color.png' %}"
+                alt=""
+                class="logo rig-logo"
+              />
+              <img
+                src="{% static '/assets/icons/rig-text.png' %}"
+                alt=""
+                class="logo rig-txt"
+              />
+            </div>
+          </article>
+        </section>
+      </section>
+    </header>
+    <main class="main">
+      <!-- ---------------- WELCOME SECTION -------------- -->
+      <section class="welcome">
+        <h3 class="welcome__txt--title">welcome</h3>
+        <h4 class="welcome__txt--heading secondary-heading">
+          Rig Africa - a place where prophets a built
+        </h4>
+        <div class="welcome__main split-2">
+          <article class="welcome__txt split-2__txt load-hidden">
+            <p class="paragraph welcome__txt-paragraph">
+              Rig Africa is a sub-organization under the Rig Nation umbrella, a
+              faith-based organization that seeks to spread the message of
+              Christianity globally. Rig Africa focuses specifically on
+              evangelism and support for Christians in Africa. Through training
+              and development programs, mission trips, and outreach events, Rig
+              Africa aims to equip Christians in Africa to become effective
+              ministers of the gospel. The organization is committed to serving
+              the people of Africa and making a positive impact in their
+              communities, in line with the broader mission of Rig Nation.
+            </p>
+          </article>
+          <div class="welcome__img split-2__img load-hidden">
+            <img
+              src="{% static '/assets/images/Rig Africa map 1.png' %}"
+              alt="Welcome to RIG Africa"
+              class="main-img"
+            />
+          </div>
+        </div>
+      </section>
 
+      <!-- -------------- PARTNERS SECTION ------------ -->
+      <section class="partners__wrapper">
+        <div class="partners">
+          <h2 class="secondary-heading partners__heading">partner with us</h2>
+          <!-- -------- PARTNERS CARDS -------------- -->
+          <div class="grid col-3">
+            <a href="#" class="card partners__card load-hidden">
+              <div class="partners__card--logo">
+                <img
+                  src="{% static '/assets/icons/donate.svg' %}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading partners__card--heading">
+                online donation
+              </h4>
+              <p class="paragraph">Tithes, offerings or random giving.</p>
+            </a>
+            <a
+              href="{% url 'landing' %}"
+              class="card partners__card load-hidden"
+            >
+              <div class="partners__card--logo">
+                <img
+                  src="{% static '/assets/icons/donate.svg' %}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading partners__card--heading">
+                become a partner
+              </h4>
+              <p class="paragraph">
+                Join our vision to raise 4000 active prophets.
+              </p>
+            </a>
+            <a href="#" class="card partners__card load-hidden">
+              <div class="partners__card--logo">
+                <img
+                  src="{% static '/assets/icons/donate.svg' %}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading partners__card--heading">
+                sponsor a project
+              </h4>
+              <p class="paragraph">
+                Give to any of our projects or programs we are working on.
+              </p>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ------------ UPCOMING EVENTS --------- -->
+      <section class="events">
+        <div class="events__txt">
+          <h4 class="tertiary-heading events__heading">upcoming events</h4>
+          <button class="btn btn-primary display-on-desktop">
+            <a href="{% url 'events' %}">view upcoming events</a>
+          </button>
+        </div>
+        <div class="grid col-3 events__wrapper">
+          <div class="card event load-hidden">
+            <img
+              src="{% static 'assets/images/event-img.png' %}"
+              alt="upcoming event"
+              class="event__img"
+            />
+            <div class="event__txt">
+              <h3 class="secondary-heading event-title">
+                rig nation - abuja lauch
+              </h3>
+              <small class="event__date">
+                <span class="date">
+                  <img
+                    src="{% static 'assets/icons/calendar-color.svg' %}"
+                    alt=""
+                    class="icon"
+                  />
+                  8th - 12th June, 2023 </span
+                >|
+                <span class="time">6pm</span>
+              </small>
+            </div>
+          </div>
+          <div class="card event load-hidden">
+            <img
+              src="{% static 'assets/images/event-img.png' %}"
+              alt="upcoming event"
+              class="event__img"
+            />
+            <div class="event__txt">
+              <h3 class="secondary-heading event-title">
+                rig nation - abuja lauch
+              </h3>
+              <small class="event__date">
+                <span class="date">
+                  <img
+                    src="{% static 'assets/icons/calendar-color.svg' %}"
+                    alt=""
+                    class="icon"
+                  />
+                  8th - 12th June, 2023 </span
+                >|
+                <span class="time">6pm</span>
+              </small>
+            </div>
+          </div>
+          <div class="card event load-hidden">
+            <img
+              src="{% static 'assets/images/event-img.png' %}"
+              alt="upcoming event"
+              class="event__img"
+            />
+            <div class="event__txt">
+              <h3 class="secondary-heading event-title">
+                rig nation - abuja lauch
+              </h3>
+              <small class="event__date">
+                <span class="date">
+                  <img
+                    src="{% static 'assets/icons/calendar-color.svg' %}"
+                    alt=""
+                    class="icon"
+                  />
+                  8th - 12th June, 2023 </span
+                >|
+                <span class="time">6pm</span>
+              </small>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-primary display-on-mobile events__btn">
+          <a href="#">view upcoming events</a>
+        </button>
+      </section>
+      <!------------- FATHER BLESSINGS (PROPHECY) ----------->
+      <section class="prophecy-section split-2">
+        <div class="prophecy-section__img split-2__img">
+          <img
+            src="{% static '/assets/images/prophet.png' %}"
+            alt="the father's blessing"
+            class="main-img"
+          />
+        </div>
+        <div class="prophecy-section__txt split-2__txt">
+          <h4 class="secondary-heading">father's blessing</h4>
+          <p class="paragraph">
+            Whether you're seeking to deepen your faith, find meaning in your
+            life, or simply gain a new perspective on the world around you, the
+            teachings of Prophet Tomi Arayom are a must-listen. Tune in today
+            and experience the transformative power of his wisdom and guidance.
+          </p>
+          <button class="btn btn-primary"><a href="#">watch sermons</a></button>
+        </div>
+      </section>
+      <!-- ------------ ABOUT -------------- -->
+      <section class="about">
+        <h5 class="tertiary-heading">
+          Training People to be prophets and prophets to be people
+        </h5>
+        <div class="about__main split-2">
+          <div class="about__txt split-2__txt">
+            <p class="paragraph">
+              RIG Nation was founded in 2007 by Tomi Arayomi with the vision to
+              restore the apostolic and prophetic ministry back into the Body of
+              Christ and to equip this generation to be in a position and
+              condition for use by God. RIG stands for Restoring Issachar’s
+              Generation, a mission formed by the scriptural Chronicles 12:32:
+              “Of the sons of Issachar who had an understanding of the times to
+              know what Israel ought to do…” RIG Nation is headquartered in
+              London, United Kingdom and has a growing presence in Africa
+              (Nigeria), Asia (Philippines), North America (USA) and Europe
+              (United Kingdom).
+            </p>
+          </div>
+          <div class="about__img split-2__img">
+            <img
+              src="{% static '/assets/images/about-img.jpg' %}"
+              alt=""
+              class="main-img"
+            />
+          </div>
+        </div>
+      </section>
+      <!-- ------- TESTIMONIES -------------->
+      <section class="testimonies">
+        <h4 class="secondary-heading testimonies__heading">testimonies</h4>
+        <div class="swiper">
+          <div class="slide-content">
+            <article class="testimonies__main swiper-wrapper">
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image.png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  mathew akoki
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Nairobi, Kenya
+                </p>
 
-				</button>
-				<img
-					src="{% static '/assets/icons/icon-hamburger.svg' %}"
-					alt=""
-					class="icon nav-toggle"
-				/>
-			</nav>
-			<section class="header__wrapper">
-				<!-- --------------------- HERO SECTION -------------------- -->
-				<section class="hero">
-					<article class="hero__txt">
-						<h2 class="hero__txt--heading primary-heading">
-							restoring issachar's generation
-						</h2>
-						<p class="hero__txt--info paragraph">
-							Of the sons of Issachar who had an understanding of the times to
-							know what Israel ought to do... <span>~ Chronicles 12:32</span>
-						</p>
-						<button class="btn btn-primary">
-							<a href="partners.html">join us. become a partner</a>
-						</button>
-					</article>
-					<!-- -------------------- HERO STATS SECTION ----------- -->
-					<article class="hero__info">
-						<div class="hero__info--stats">
-							<div class="stat">
-								<h2 class="stat__number secondary-heading">7000+</h2>
-								<p class="stat__info">Apostles and prophets</p>
-							</div>
-							<div class="stat">
-								<h2 class="stat__number secondary-heading">6</h2>
-								<p class="stat__info">Continents</p>
-							</div>
-							<div class="stat">
-								<h2 class="stat__number secondary-heading">2000+</h2>
-								<p class="stat__info">Partners</p>
-							</div>
-						</div>
-						<div class="hero__logo">
-							<img
-								src="{% static '/assets/icons/rig logo color.png' %}"
-								alt=""
-								class="logo rig-logo"
-							/>
-							<img
-								src="{% static '/assets/icons/rig-text.png' %}"
-								alt=""
-								class="logo rig-txt"
-							/>
-						</div>
-					</article>
-				</section>
-			</section>
-		</header>
-		<main class="main">
-			<!-- ---------------- WELCOME SECTION -------------- -->
-			<section class="welcome">
-				<h3 class="welcome__txt--title">welcome</h3>
-				<h4 class="welcome__txt--heading secondary-heading">
-					Rig Africa - a place where prophets a built
-				</h4>
-				<div class="welcome__main split-2">
-					<article class="welcome__txt split-2__txt load-hidden">
-						<p class="paragraph welcome__txt-paragraph">
-							Rig Africa is a sub-organization under the Rig Nation umbrella, a
-							faith-based organization that seeks to spread the message of
-							Christianity globally. Rig Africa focuses specifically on
-							evangelism and support for Christians in Africa. Through training
-							and development programs, mission trips, and outreach events, Rig
-							Africa aims to equip Christians in Africa to become effective
-							ministers of the gospel. The organization is committed to serving
-							the people of Africa and making a positive impact in their
-							communities, in line with the broader mission of Rig Nation.
-						</p>
-					</article>
-					<div class="welcome__img split-2__img load-hidden">
-						<img
-							src="{% static '/assets/images/Rig Africa map 1.png' %}"
-							alt="Welcome to RIG Africa"
-							class="main-img"
-						/>
-					</div>
-				</div>
-			</section>
+                <p class="paragraph testimonies__card--info">
+                  Growing up, I felt like something was missing in my life. But
+                  when I walked through the doors of the church, I finally found
+                  the missing piece - a relationship with God
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
+              <!--  -->
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image (1).png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  anabel joy
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Lagos, Nigeria
+                </p>
 
-			<!-- -------------- PARTNERS SECTION ------------ -->
-			<section class="partners__wrapper">
-				<div class="partners">
-					<h2 class="secondary-heading partners__heading">partner with us</h2>
-					<!-- -------- PARTNERS CARDS -------------- -->
-					<div class="grid col-3">
-						<a href="#" class="card partners__card load-hidden">
-							<div class="partners__card--logo">
-								<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
-							</div>
-							<h4 class="secondary-heading partners__card--heading">
-								online donation
-							</h4>
-							<p class="paragraph">Tithes, offerings or random giving.</p>
-						</a>
-						<a href="{% url 'landing' %}" class="card partners__card load-hidden">
-							<div class="partners__card--logo">
-								<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
-							</div>
-							<h4 class="secondary-heading partners__card--heading">
-								become a partner
-							</h4>
-							<p class="paragraph">
-								Join our vision to raise 4000 active prophets.
-							</p>
-						</a>
-						<a href="#" class="card partners__card load-hidden">
-							<div class="partners__card--logo">
-								<img src="{% static '/assets/icons/donate.svg' %}" alt="donate" class="icon" />
-							</div>
-							<h4 class="secondary-heading partners__card--heading">
-								sponsor a project
-							</h4>
-							<p class="paragraph">
-								Give to any of our projects or programs we are working on.
-							</p>
-						</a>
-					</div>
-				</div>
-			</section>
-			<!-- ------------ UPCOMING EVENTS --------- -->
-			<section class="events">
-				<div class="events__txt">
-					<h4 class="tertiary-heading events__heading">upcoming events</h4>
-					<button class="btn btn-primary display-on-desktop">
-						<a href="{% url 'events' %}">view upcoming events</a>
-					</button>
-				</div>
-				<div class="grid col-3 events__wrapper">
-					<div class="card event load-hidden">
-						<img
-							src="{% static 'assets/images/event-img.png' %}"
-							alt="upcoming event"
-							class="event__img"
-						/>
-						<div class="event__txt">
-							<h3 class="secondary-heading event-title">
-								rig nation - abuja lauch
-							</h3>
-							<small class="event__date">
-								<span class="date">
-									<img
-										src="{% static 'assets/icons/calendar-color.svg' %}"
-										alt=""
-										class="icon"
-									/>
-									8th - 12th June, 2023 </span
-								>|
-								<span class="time">6pm</span>
-							</small>
-						</div>
-					</div>
-					<div class="card event load-hidden">
-						<img
-							src="{% static 'assets/images/event-img.png' %}"
-							alt="upcoming event"
-							class="event__img"
-						/>
-						<div class="event__txt">
-							<h3 class="secondary-heading event-title">
-								rig nation - abuja lauch
-							</h3>
-							<small class="event__date">
-								<span class="date">
-									<img
-										src="{% static 'assets/icons/calendar-color.svg' %}"
-										alt=""
-										class="icon"
-									/>
-									8th - 12th June, 2023 </span
-								>|
-								<span class="time">6pm</span>
-							</small>
-						</div>
-					</div>
-					<div class="card event load-hidden">
-						<img
-							src="{% static 'assets/images/event-img.png' %}"
-							alt="upcoming event"
-							class="event__img"
-						/>
-						<div class="event__txt">
-							<h3 class="secondary-heading event-title">
-								rig nation - abuja lauch
-							</h3>
-							<small class="event__date">
-								<span class="date">
-									<img
-										src="{% static 'assets/icons/calendar-color.svg' %}"
-										alt=""
-										class="icon"
-									/>
-									8th - 12th June, 2023 </span
-								>|
-								<span class="time">6pm</span>
-							</small>
-						</div>
-					</div>
-				</div>
-				<button class="btn btn-primary display-on-mobile events__btn">
-					<a href="#">view upcoming events</a>
-				</button>
-			</section>
-			<!------------- FATHER BLESSINGS (PROPHECY) ----------->
-			<section class="prophecy-section split-2">
-				<div class="prophecy-section__img split-2__img">
-					<img
-						src="{% static '/assets/images/prophet.png' %}"
-						alt="the father's blessing"
-						class="main-img"
-					/>
-				</div>
-				<div class="prophecy-section__txt split-2__txt">
-					<h4 class="secondary-heading">father's blessing</h4>
-					<p class="paragraph">
-						Whether you're seeking to deepen your faith, find meaning in your
-						life, or simply gain a new perspective on the world around you, the
-						teachings of Prophet Tomi Arayom are a must-listen. Tune in today
-						and experience the transformative power of his wisdom and guidance.
-					</p>
-					<button class="btn btn-primary"><a href="#">watch sermons</a></button>
-				</div>
-			</section>
-			<!-- ------------ ABOUT -------------- -->
-			<section class="about">
-				<h5 class="tertiary-heading">
-					Training People to be prophets and prophets to be people
-				</h5>
-				<div class="about__main split-2">
-					<div class="about__txt split-2__txt">
-						<p class="paragraph">
-							RIG Nation was founded in 2007 by Tomi Arayomi with the vision to
-							restore the apostolic and prophetic ministry back into the Body of
-							Christ and to equip this generation to be in a position and
-							condition for use by God. RIG stands for Restoring Issachar’s
-							Generation, a mission formed by the scriptural Chronicles 12:32:
-							“Of the sons of Issachar who had an understanding of the times to
-							know what Israel ought to do…” RIG Nation is headquartered in
-							London, United Kingdom and has a growing presence in Africa
-							(Nigeria), Asia (Philippines), North America (USA) and Europe
-							(United Kingdom).
-						</p>
-					</div>
-					<div class="about__img split-2__img">
-						<img src="{% static '/assets/images/about-img.jpg' %}" alt="" class="main-img" />
-					</div>
-				</div>
-			</section>
-			<!-- ------- TESTIMONIES -------------->
-			<section class="testimonies">
-				<h4 class="secondary-heading testimonies__heading">testimonies</h4>
-				<div class="swiper">
-					<div class="slide-content">
-						<article class="testimonies__main swiper-wrapper">
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image.png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									mathew akoki
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Nairobi, Kenya
-								</p>
+                <p class="paragraph testimonies__card--info">
+                  I had hit rock bottom, but through prayer and the support of
+                  my church family, I found the strength to turn my life around
+                  and start fresh.
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image (2).png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  jasmine okafor
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Abuja, Nigeria
+                </p>
 
-								<p class="paragraph testimonies__card--info">
-									Growing up, I felt like something was missing in my life. But
-									when I walked through the doors of the church, I finally found
-									the missing piece - a relationship with God
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
-							<!--  -->
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image (1).png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									anabel joy
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Lagos, Nigeria
-								</p>
+                <p class="paragraph testimonies__card--info">
+                  I used to feel so alone in the world, but now I know that I am
+                  never truly alone. God is always with me, and the church
+                  community is always there to offer support and encouragement.
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
 
-								<p class="paragraph testimonies__card--info">
-									I had hit rock bottom, but through prayer and the support of
-									my church family, I found the strength to turn my life around
-									and start fresh.
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image (2).png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									jasmine okafor
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Abuja, Nigeria
-								</p>
+              <!-- EXTRA SLIDES (to make slides more responsive on large screens) -->
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image.png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  mathew akoki
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Nairobi, Kenya
+                </p>
 
-								<p class="paragraph testimonies__card--info">
-									I used to feel so alone in the world, but now I know that I am
-									never truly alone. God is always with me, and the church
-									community is always there to offer support and encouragement.
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
+                <p class="paragraph testimonies__card--info">
+                  Growing up, I felt like something was missing in my life. But
+                  when I walked through the doors of the church, I finally found
+                  the missing piece - a relationship with God
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image (1).png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  anabel joy
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Lagos, Nigeria
+                </p>
 
-							<!-- EXTRA SLIDES (to make slides more responsive on large screens) -->
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image.png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									mathew akoki
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Nairobi, Kenya
-								</p>
+                <p class="paragraph testimonies__card--info">
+                  I had hit rock bottom, but through prayer and the support of
+                  my church family, I found the strength to turn my life around
+                  and start fresh.
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
+              <div class="testimonies__card swiper-slide">
+                <img
+                  src="{% static '/assets/images/Avatar Image (2).png' %}"
+                  alt=""
+                  class="testimonies__card--img"
+                />
+                <h5 class="secondary-heading testimonies__card--name">
+                  jasmine okafor
+                </h5>
+                <p class="paragraph testimonies__card--location">
+                  Abuja, Nigeria
+                </p>
 
-								<p class="paragraph testimonies__card--info">
-									Growing up, I felt like something was missing in my life. But
-									when I walked through the doors of the church, I finally found
-									the missing piece - a relationship with God
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image (1).png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									anabel joy
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Lagos, Nigeria
-								</p>
+                <p class="paragraph testimonies__card--info">
+                  I used to feel so alone in the world, but now I know that I am
+                  never truly alone. God is always with me, and the church
+                  community is always there to offer support and encouragement.
+                </p>
+                <p class="paragraph testimonies__card--date">11th June, 2022</p>
+              </div>
+              <!-- END OF EXTRA SLIDES -->
+            </article>
+          </div>
+          <!--  pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
 
-								<p class="paragraph testimonies__card--info">
-									I had hit rock bottom, but through prayer and the support of
-									my church family, I found the strength to turn my life around
-									and start fresh.
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
-							<div class="testimonies__card swiper-slide">
-								<img
-									src="{% static '/assets/images/Avatar Image (2).png' %}"
-									alt=""
-									class="testimonies__card--img"
-								/>
-								<h5 class="secondary-heading testimonies__card--name">
-									jasmine okafor
-								</h5>
-								<p class="paragraph testimonies__card--location">
-									Abuja, Nigeria
-								</p>
+      <!-- ----------- CALL-TO-ACTION ------------ -->
+      <section class="cta__wrapper">
+        <div class="cta">
+          <div class="cta__txt">
+            <h6 class="tertiary-heading cta__txt--heading">
+              Subscribe to our newsletter
+            </h6>
+            <p class="paragraph cta__txt--info">
+              Stay up-to-date with our latest events, offers and launches.
+            </p>
+            <form action="#" class="cta__form">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                title="Enter Your Email Here"
+                class="cta__form--input"
+                placeholder="Email Address"
+              />
+              <button class="btn form-btn cta__form--btn">
+                <img
+                  src="{% static 'assets/icons/send-white.png' %}"
+                  alt=""
+                  class="icon"
+                />
+              </button>
+            </form>
+          </div>
+          <div class="cta__img">
+            <img
+              src="{% static 'assets/images/mobile-mockup.png' %}"
+              class="main-img"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- -------------- FOOTER --------------->
+    <footer class="footer">
+      <div class="footer__logo display-on-desktop">
+        <img
+          src="{% static 'assets/icons/rig-white.png' %}"
+          alt=""
+          class="logo rig-logo"
+        />
+        <img
+          src="{% static 'assets/icons/rig-text.png' %}"
+          alt=""
+          class="logo rig-txt"
+        />
+      </div>
+      <div class="footer__main">
+        <div class="footer__links">
+          <section class="navigation">
+            <div class="nav-group">
+              <a href="contact.html" class="navigation__link">contact us</a>
+              <a href="{% url 'about' %}" class="navigation__link">about us</a>
 
-								<p class="paragraph testimonies__card--info">
-									I used to feel so alone in the world, but now I know that I am
-									never truly alone. God is always with me, and the church
-									community is always there to offer support and encouragement.
-								</p>
-								<p class="paragraph testimonies__card--date">11th June, 2022</p>
-							</div>
-							<!-- END OF EXTRA SLIDES -->
-						</article>
-					</div>
-					<!--  pagination -->
-					<div class="swiper-pagination"></div>
-				</div>
-			</section>
-
-			<!-- ----------- CALL-TO-ACTION ------------ -->
-			<section class="cta__wrapper">
-				<div class="cta">
-					<div class="cta__txt">
-						<h6 class="tertiary-heading cta__txt--heading">
-							Subscribe to our newsletter
-						</h6>
-						<p class="paragraph cta__txt--info">
-							Stay up-to-date with our latest events, offers and launches.
-						</p>
-						<form action="#" class="cta__form">
-							<input
-								type="email"
-								name="email"
-								id="email"
-								title="Enter Your Email Here"
-								class="cta__form--input"
-								placeholder="Email Address"
-							/>
-							<button class="btn form-btn cta__form--btn">
-								<img src="{% static 'assets/icons/send-white.png' %}" alt="" class="icon" />
-							</button>
-						</form>
-					</div>
-					<div class="cta__img">
-						<img
-							src="{% static 'assets/images/mobile-mockup.png' %}"
-							class="main-img"
-							alt=""
-						/>
-					</div>
-				</div>
-			</section>
-		</main>
-		<!-- -------------- FOOTER --------------->
-		<footer class="footer">
-			<div class="footer__logo display-on-desktop">
-				<img src="{% static 'assets/icons/rig-white.png' %}" alt="" class="logo rig-logo" />
-				<img src="{% static 'assets/icons/rig-text.png' %}" alt="" class="logo rig-txt" />
-			</div>
-			<div class="footer__main">
-				<div class="footer__links">
-					<section class="navigation">
-						<div class="nav-group">
-							<a href="contact.html" class="navigation__link">contact us</a>
-							<a href="{% url 'about' %}" class="navigation__link">about us</a>
-
-							<a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
-							<a href="rig-school.html" class="navigation__link">RIG school</a>
-						</div>
-						<div class="nav-group">
-							<a href="{% url 'login' %}" class="navigation__link">partner</a>
-							<a href="{% url 'events' %}" class="navigation__link">events</a>
-							<a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
-							<a href="#" class="navigation__link">affiliate</a>
-						</div>
-					</section>
-					<div class="footer__btn-group">
-						<div class="footer__logo display-on-mobile">
-							<img
-								src="{% static 'assets/icons/rig-white.png' %}"
-								alt=""
-								class="logo rig-logo"
-							/>
-							<img
-								src="{% static 'assets/icons/rig-text.png' %}"
-								alt=""
-								class="logo rig-txt"
-							/>
-						</div>
-						<button class="btn btn-secondary show-modal">donate</button>
-						<button class="btn btn-primary">
-							<a href="sign-in.html">login</a>
-						</button>
-					</div>
-				</div>
-				<section class="footer__socials">
-					<!-- <a href="#" class="footer__socials--link">
+              <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+              <a href="rig-school.html" class="navigation__link">RIG school</a>
+            </div>
+            <div class="nav-group">
+              <a href="{% url 'login' %}" class="navigation__link">partner</a>
+              <a href="{% url 'events' %}" class="navigation__link">events</a>
+              <a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+              <a href="#" class="navigation__link">affiliate</a>
+            </div>
+          </section>
+          <div class="footer__btn-group">
+            <div class="footer__logo display-on-mobile">
+              <img
+                src="{% static 'assets/icons/rig-white.png' %}"
+                alt=""
+                class="logo rig-logo"
+              />
+              <img
+                src="{% static 'assets/icons/rig-text.png' %}"
+                alt=""
+                class="logo rig-txt"
+              />
+            </div>
+            <button class="btn btn-secondary show-modal">donate</button>
+            <button class="btn btn-primary">
+              <a href="sign-in.html">login</a>
+            </button>
+          </div>
+        </div>
+        <section class="footer__socials">
+          <!-- <a href="#" class="footer__socials--link">
 						<img
 							src="/assets/icons/twitter-white.png"
 							alt="follow us on twitter"
 							class="icon socail-icon"
 						/>
 					</a> -->
-					<a
-						href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
-						target="_blank"
-						class="footer__socials--link"
-					>
-						<img
-							src="{% static '/assets/icons/youtube-white.png' %}"
-							alt="subscribe to our channel"
-							class="icon social-icon"
-						/>
-					</a>
-					<a
-						href="https://www.instagram.com/rignationafrica/"
-						target="_blank"
-						class="footer__socials--link"
-					>
-						<img
-							src="{% static '/assets/icons/instagram-white.png' %}"
-							alt="foolow us on instagram"
-							class="icon social-icon"
-						/>
-					</a>
-					<a
-						href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
-						target="_blank"
-						class="footer__socials--link"
-					>
-						<img
-							src="{% static '/assets/icons/facebook-white.png' %}"
-							alt="follow with us on facebook"
-							class="icon social-icon"
-						/>
-					</a>
-				</section>
-				<p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
-			</div>
-		</footer>
-		<!-- --------------------- DONATE MODAL ---------------- -->
-		<dialog class="backdrop donation__wrapper hidden">
-			<div class="donation__container">
-				<div class="modal donation">
-					<span class="modal__close close-donation">
-						<img src="{% static 'assets/icons/close-circle.png'%}" alt="" class="icon" />
-					</span>
-					<h4 class="secondary-heading">donate to rig africa</h4>
-					<div class="donation__group">
-						<a href="#" target="_blank" class="card donation__card">
-							<div class="donation__card--logo">
-								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
-							</div>
-							<h4 class="secondary-heading donation__card--heading">
-								online donation
-							</h4>
-							<p class="paragraph">Tithes, offerings or random giving.</p>
-						</a>
-						<a href="{% url 'login' %}" class="card donation__card">
-							<div class="donation__card--logo">
-								<img src="{%static '/assets/icons/donate.svg'%}" alt="donate" class="icon" />
-							</div>
-							<h4 class="secondary-heading donation__card--heading">
-								become a partner
-							</h4>
-							<p class="paragraph">
-								Join our vision to raise 4000 active prophets.
-							</p>
-						</a>
-					</div>
-				</div>
-			</div>
-		</dialog>
-	</body>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-	{%compress js%}
-	<script src="{%static 'assets/js/swiper.js'%}"></script>
-	{%endcompress%}
+          <a
+            href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/youtube-white.png' %}"
+              alt="subscribe to our channel"
+              class="icon social-icon"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/rignationafrica/"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/instagram-white.png' %}"
+              alt="foolow us on instagram"
+              class="icon social-icon"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/facebook-white.png' %}"
+              alt="follow with us on facebook"
+              class="icon social-icon"
+            />
+          </a>
+        </section>
+        <p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+      </div>
+    </footer>
+    <!-- --------------------- DONATE MODAL ---------------- -->
+    <dialog class="backdrop donation__wrapper hidden">
+      <div class="donation__container">
+        <div class="modal donation">
+          <span class="modal__close close-donation">
+            <img
+              src="{% static 'assets/icons/close-circle.png'%}"
+              alt=""
+              class="icon"
+            />
+          </span>
+          <h4 class="secondary-heading">donate to rig africa</h4>
+          <div class="donation__group">
+            <a href="#" target="_blank" class="card donation__card">
+              <div class="donation__card--logo">
+                <img
+                  src="{%static '/assets/icons/donate.svg'%}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading donation__card--heading">
+                online donation
+              </h4>
+              <p class="paragraph">Tithes, offerings or random giving.</p>
+            </a>
+            <a href="{% url 'login' %}" class="card donation__card">
+              <div class="donation__card--logo">
+                <img
+                  src="{%static '/assets/icons/donate.svg'%}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading donation__card--heading">
+                become a partner
+              </h4>
+              <p class="paragraph">
+                Join our vision to raise 4000 active prophets.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+  </body>
+
+
 </html>

@@ -1,5 +1,6 @@
 //================ SCROLLREVEAL ================
-import ScrollReveal from 'scrollreveal';
+// ScrollReveal= require('scrollreveal')
+// import ScrollReveal from 'scrollreveal';
 ScrollReveal.debug = true;
 
 // ========== NAVIGATION TOGGLE =============
