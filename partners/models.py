@@ -14,7 +14,6 @@ class Partner(models.Model):
         ('AMBASSADOR','AMBASSADOR')
 
     )
-    id=models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     user=models.OneToOneField(User,on_delete=models.CASCADE,related_name='user_ref')
     account_type=models.CharField(choices=Type,blank=True,max_length=300,null=True)
     donation_amount=models.IntegerField(blank=True)
