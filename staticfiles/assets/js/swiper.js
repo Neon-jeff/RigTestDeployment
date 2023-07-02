@@ -31,4 +31,3 @@ const swiper = new Swiper('.slide-content', {
 		dynamicBullets: true,
 	},
 });
-

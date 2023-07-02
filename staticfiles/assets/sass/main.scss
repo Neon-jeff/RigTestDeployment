@@ -1,8 +1,12 @@
 // THIS PAGE BRINGS EVERYTHING TOGETHER
 
+// MIXINS
 
-// Listing the Variables
+@import 'abstracts/mixins' ;
+@import 'abstracts/variables' ;
 
+
+// VARIABLES
 
 $primaryColor: #ec992f;
 $secondaryColor: #2f1f09;
@@ -20,7 +24,6 @@ $small: 4rem;
 $medium: 6rem;
 $big: 8rem;
 $large: 10rem;
-
 
 // base
 @import 'base/base' ;
@@ -41,6 +44,7 @@ $large: 10rem;
 @import 'layouts/footer.scss' ;
 @import 'layouts/about' ;
 @import 'layouts/auth' ;
+@import 'layouts/coming-soon' ;
 @import 'layouts/contact' ;
 @import 'layouts/dashboard' ;
 @import 'layouts/events' ;

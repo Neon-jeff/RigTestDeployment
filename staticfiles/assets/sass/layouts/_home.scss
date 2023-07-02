@@ -1,22 +1,30 @@
 // =============== LANDING PAGE STYLES =========
-@import '../abstracts/variables' ;
-@import '../abstracts/mixins' ;
+@use '../abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+.home-page {
+	.navbar {
+		color: $backgroundColor;
+	}
+}
 
 // ================ WELCOME SECTION ==============
 .welcome {
 	margin-top: $medium;
+	margin-inline: auto;
+	max-width: 90%;
+	overflow-x: hidden;
 
 	&__txt--title {
 		font-family: 'Sacramento', cursive;
 		color: $primaryColor;
-		margin-left: $big;
 		font-size: 8rem;
 		font-weight: 400;
 	}
 
 	&__txt--heading {
 		margin-block: 0 $tiny;
-		margin-left: $big;
+		// margin-left: $medium;
 	}
 
 	&__main {
@@ -29,7 +37,11 @@
 	}
 
 	&__img {
-		margin-top: -$large;
+		margin-top: -$big;
+	}
+
+	.main-img {
+		max-height: 21rem;
 	}
 }
 
@@ -43,12 +55,14 @@
 	&__wrapper {
 		height: calc($large * 4);
 		background-image: url('/assets/images/partners-bg.svg');
+		clip-path: polygon(0 43%, 100% 0, 100% 100%, 0% 100%);
 		background-size: cover;
 		background-repeat: no-repeat;
 		display: flex;
 		align-items: flex-end;
 		justify-content: center;
 		position: relative;
+		overflow-x: hidden;
 
 		&::after {
 			content: '';
@@ -78,10 +92,15 @@
 			rgba(248, 248, 248, 0) 100%
 		);
 		box-shadow: -15px 17px 27px 1px rgba(13, 13, 13, 0.15);
+		transition: all ease-in-out 0.2s;
 
 		&--heading {
 			color: $backgroundColor;
 		}
+	}
+
+	&__card:hover {
+		scale: 1.05;
 	}
 
 	.icon {
@@ -147,6 +166,8 @@
 	background-color: $secondaryColor;
 	color: $backgroundColor;
 	margin: $big 0;
+	height: 40rem;
+	padding-right: $small;
 	width: 100%;
 	position: relative;
 
@@ -161,9 +182,12 @@
 // ==================== ABOUT ============
 .about {
 	margin-bottom: $medium;
+	align-items: center;
+	margin-inline: auto;
+	max-width: 90%;
 
 	.tertiary-heading {
-		margin-left: $big;
+		margin-bottom: -$tiny;
 		width: 50%;
 	}
 
@@ -173,13 +197,12 @@
 	}
 
 	&__txt {
-		align-self: flex-start;
+		width: 70%;
 	}
 
 	&__img {
-		box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-		-webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+		width: 25%;
+		box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
 	}
 }
 
@@ -189,6 +212,7 @@
 	text-align: center;
 	padding: $small;
 	margin-bottom: $medium;
+	margin-inline: auto;
 	position: relative;
 	overflow: hidden;
 
@@ -196,7 +220,8 @@
 		display: block;
 		content: url('/assets/images/map-bg.png');
 		width: 100%;
-		top: $tiny;
+		height: 100%;
+		top: $big;
 		bottom: $tiny;
 		position: absolute;
 		z-index: -1;
@@ -211,6 +236,7 @@
 	// MAIN SWIPER CONTENT WRAPPER
 	.slide-content {
 		max-width: 112rem;
+		margin-inline: auto;
 		width: 100%;
 		padding: $small 0;
 		overflow: hidden;
@@ -264,14 +290,12 @@
 		font-family: 'Gabriela', serif;
 		font-size: 5rem;
 		color: transparent;
-		-webkit-text-stroke: 2px rgba($backgroundColor, 0.4);
-		width: 100%;
+		-webkit-text-stroke: 2px rgba($backgroundColor, 0.3);
 		top: $big;
 		left: $tiny;
-		right: $tiny;
 		position: absolute;
 		z-index: 1;
-		animation: loopHorizontal 15s linear infinite;
+		// animation: loopHorizontal 15s linear infinite;
 	}
 
 	// CTA CONTAINER
@@ -323,8 +347,7 @@
 	}
 
 	&__img {
-		width: 30%;
-		// position: absolute;
+		width: 25%;
 		right: $small;
 		align-self: flex-end;
 		z-index: 2;
@@ -336,9 +359,22 @@
 }
 
 // ==================== MEDIA QUERIES ==================
+@media screen and (max-width: 1024px) {
+	.prophecy-section.split-2 {
+		height: 25rem;
+	}
+
+	.about {
+		.tertiary-heading {
+			margin-bottom: 0;
+		}
+	}
+}
+
 @media screen and (max-width: 800px) {
 	.welcome__img {
 		width: 60%;
+		max-height: unset;
 		order: -1;
 		margin-top: 0;
 	}
@@ -356,7 +392,9 @@
 
 	.about {
 		.tertiary-heading {
-			width: fit-content;
+			text-align: center;
+			margin-bottom: $tiny;
+			width: 100%;
 		}
 
 		&__txt,
@@ -377,6 +415,7 @@
 		&__wrapper {
 			height: auto;
 			padding-block: $small;
+			clip-path: none;
 
 			&::after {
 				clip-path: none;
@@ -387,6 +426,7 @@
 	// =============== FATHER'S BLESSING ==============
 	.prophecy-section.split-2 {
 		flex-direction: column;
+		height: unset;
 
 		.main-img {
 			margin-top: -12rem;
@@ -395,7 +435,7 @@
 		}
 
 		.prophecy-section__txt {
-			padding: $tiny;
+			padding: 0 $tiny;
 		}
 	}
 
@@ -412,7 +452,7 @@
 		justify-content: space-between;
 
 		&__txt {
-			width: 60%;
+			width: 70%;
 
 			&--info {
 				margin-block: 1rem;
@@ -439,6 +479,11 @@
 
 		&__img {
 			display: none;
+		}
+
+		&::after {
+			right: 0;
+			top: $small;
 		}
 	}
 }
@@ -472,7 +517,7 @@
 	}
 
 	.cta::after {
-		display: none;
+		font-size: 4rem;
 	}
 
 	.cta__txt {

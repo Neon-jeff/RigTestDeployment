@@ -36,7 +36,7 @@
 
 .navigation {
 	display: flex;
-	gap: 1rem;
+	gap: 1.5rem;
 	text-transform: capitalize;
 	font-size: 1.5rem;
 	margin-inline: $tiny;
@@ -44,7 +44,11 @@
 
 	&__link {
 		cursor: pointer;
-		transition: cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+		transition: all cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+	}
+
+	&__link:hover {
+		color: $primaryColor;
 	}
 }
 

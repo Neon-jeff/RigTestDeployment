@@ -1,16 +1,22 @@
 // STYLES FOR THE PARTNERS DASHBOARD PAGE
-@import '../abstracts/variables' ;
-@import '../abstracts/mixins';
+@use '../abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
 
 .dashboard-page {
 	background-color: #f7f8fa;
 	@include desktop-display;
-	.profile-card-small{
+
+	.navbar {
+		top: 0;
+		background-color: hsl(220, 12%, 95%);
+	}
+
+		.profile-card-small{
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
-		background-color: rgb(235, 231, 231);
+		background-color: hsl(220, 12%, 95%);
 		padding-top: 10px ;
 		// gap: 10px;
 		.user-info{
@@ -36,36 +42,24 @@
 	}
 		}
 }
+
 	.profile-card {
 		display: flex;
 		flex-direction: column;
 		padding-block: 1rem;
-		align-items: center;
 
 		.user-info {
 			display: flex;
 			gap: 0.5rem;
 		}
-		.image-cont{
-			width: 70px;
-			height: 70px;
-			border-radius: 200px;
 
-			.user-info__avatar {
-			// max-width: 6rem;
-			height: 100%;
-			min-width: 100%;
-			border-radius: 200px;
-			object-fit: cover;
-
+		.user-info__avatar {
+			max-width: 6rem;
+			border-radius: 50%;
 		}
-
-		}
-
 
 		&--email {
 			font-size: 1.2rem;
-			padding-left: 25px;
 		}
 	}
 
@@ -173,6 +167,26 @@
 						margin: 0;
 					}
 				}
+			}
+
+			.btn {
+				width: fit-content;
+
+				&:hover {
+					scale: unset;
+				}
+			}
+
+			form {
+				width: fit-content;
+				margin-left: auto;
+			}
+
+			// hide image input
+			input[type='file'] {
+				visibility: hidden;
+				width: 1rem;
+				height: 1rem;
 			}
 		}
 

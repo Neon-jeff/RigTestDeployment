@@ -1,41 +1,25 @@
 // STYLES FOR THE PARTNERS PAGE
-@import '../abstracts/variables' ;
+@use '../abstracts/variables' as *;
 
 .partners-page {
-	.header {
-		background-image: url('/static/assets/images/partner-page-bg.png');
-		background-color: rgb(255, 255, 255);
+	background-color: rgba($accentColor, 0.2);
 
-		&__wrapper {
-			padding-top: 0;
-			// background-image: unset;
-			background-color: rgb(236, 153, 47);
-			background-image: url('/static/assets/images/partner-page-bg.png');
-			background-size: cover;
-			color: black;
-			// background-blend-mode: screen;
-		}
+	.navbar {
+		background-color: hsl(207, 7%, 75%);
+		top: 0;
+	}
 
-		.hero {
-
-			// height: 100vh;
-			// width: 100vw;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			// width: 80%;
-			margin: auto;
-			height: 100%;
-		}
+	.main {
+		margin-block: 16rem $small;
 	}
 
 	.description {
-		margin: $small;
+		margin: $small auto 0;
+		width: 60%;
 		text-align: center;
 	}
 
 	.partners__container {
-		background-color: #1e293b;
 		padding-block: $small;
 		width: 100%;
 		margin: 0;
@@ -44,19 +28,36 @@
 	.partners {
 		width: 80%;
 		margin: $small auto;
-		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		// grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 		gap: $small;
 
+		// Partners image (top image)
 		&__logo {
-			width: 80%;
+			width: 60%;
+			display: block;
+			margin: $big auto $small;
 		}
 
-		&__heading {
-			font-family: 'Gabriela', serif;
-			font-size: 6rem;
-			font-weight: normal;
-			color: transparent;
-			-webkit-text-stroke: 2px rgba($backgroundColor, 0.8);
+		// &__heading {
+		// 	font-family: 'Gabriela', serif;
+		// 	font-size: 6rem;
+		// 	font-weight: normal;
+		// 	color: transparent;
+		// 	-webkit-text-stroke: 2px rgba($backgroundColor, 0.8);
+		// }
+
+		&__type {
+			font-family: 'Gabriela', sans-serif;
+			font-size: unquote("clamp(2rem, 1.5vw + 0.5rem, 3rem)");
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 1rem;
+			margin-bottom: $tiny;
+
+			&--img {
+				width: $small;
+			}
 		}
 
 		&__card {
@@ -67,12 +68,17 @@
 			);
 			height: fit-content;
 			border-radius: 1rem;
-			border-top: 2px solid $backgroundColor;
 			padding: $tiny;
 
 			&--amount {
 				color: $backgroundColor;
-				margin-block: $tiny;
+				margin-top: $small;
+				text-align: center;
+			}
+
+			&--info {
+				text-align: center;
+				font-size: 1rem;
 			}
 
 			&--feature {
@@ -80,6 +86,12 @@
 				width: 100%;
 				display: flex;
 				align-items: center;
+
+				.icon {
+					width: 1.6rem;
+					margin-right: 1rem;
+					filter: invert(80%);
+				}
 			}
 
 			&--feature:not(:last-of-type) {
@@ -87,22 +99,85 @@
 				margin-bottom: 1rem;
 			}
 
-			.icon {
-				width: 1.6rem;
-				margin-right: 1rem;
+			.btn {
+				min-width: 60%;
+				margin-inline: auto;
+				margin-top: $small;
+				transition: all ease-in-out 0.2s;
+			}
+
+			.btn:hover {
+				scale: 1.05;
 			}
 
 			.signup-link {
-				color: $primaryColor;
 				text-transform: capitalize;
 				font-size: 2rem;
 				display: inline-block;
-				margin-top: $tiny;
 			}
 		}
 
-		&__card:nth-child(2) {
-			border: 2px solid $backgroundColor;
+		// ============ MEMBERSHIP TYPES ===============
+		.vip {
+			border: 1px solid hsl(0, 0%, 41%);
+
+			.partners__card--amount,
+			.partners__type {
+				color: $textColor;
+			}
+
+			.btn {
+				background-color: hsl(0, 0%, 82%);
+				color: $textColor;
+			}
+
+			.btn:hover {
+				background-color: hsl(0, 1%, 62%);
+			}
+		}
+
+		.executive {
+			border: 1px solid $primaryColor;
+
+			.partners__card--amount,
+			.partners__type {
+				color: $primaryColor;
+			}
+
+			.btn {
+				background-color: hsl(35, 100%, 94%);
+				color: $primaryColor;
+			}
+
+			.btn:hover {
+				background-color: hsl(36, 94%, 87%);
+			}
+		}
+
+		.ambassador {
+			border: 1px solid hsl(214, 100%, 21%);
+
+			.partners__card--amount,
+			.partners__type {
+				color: hsl(214, 100%, 21%);
+			}
+
+			.btn {
+				background-color: hsl(206, 14%, 69%);
+				color: hsl(214, 100%, 21%);
+			}
+
+			.btn:hover {
+				background-color: hsl(207, 25%, 67%);
+			}
+		}
+	}
+
+	// ==================== MEDIA QUERIES ==========================
+	@media screen and (max-width: 650px) {
+		.partners__logo,
+		.description {
+			width: 80%;
 		}
 	}
 }

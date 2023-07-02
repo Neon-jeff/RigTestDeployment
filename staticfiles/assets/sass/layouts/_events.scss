@@ -75,6 +75,7 @@
 
 .events-page {
 	background-color: rgba($accentColor, 0.2);
+	@include desktop-display;
 
 	.navbar {
 		background-color: rgba($accentColor, 0.6);
@@ -279,11 +280,6 @@
 	.cta__wrapper {
 		width: 100%;
 	}
-
-	// hide moving text in the CTA
-	.cta::after {
-		display: none;
-	}
 }
 
 // ================ MEDIA QUERIES ====================
@@ -339,7 +335,8 @@
 		}
 	}
 
-	.past-events-page {
+	.past-events-page,
+	.events-page {
 		@include mobile-display;
 	}
 }

@@ -21,53 +21,6 @@
 		position: relative;
 	}
 
-	// .search-form {
-	// 	display: flex;
-	// 	align-items: center;
-	// 	margin-left: auto;
-	// 	position: absolute;
-	// 	right: $medium;
-	// 	// top: 0;
-
-	// 	&__label {
-	// 		display: flex;
-	// 		align-items: center;
-	// 		height: 100%;
-	// 		background-color: rgba($accentColor, 0.2);
-	// 		outline: 2px solid $accentColor;
-	// 		border-radius: 0.5rem;
-	// 		margin-left: 1rem;
-	// 	}
-
-	// 	&__input,
-	// 	&__input:focus {
-	// 		background-color: transparent;
-	// 		border: unset;
-	// 		outline: unset;
-	// 		height: 100%;
-	// 		padding: 1rem;
-	// 	}
-
-	// 	&__close {
-	// 		display: inline-block;
-	// 		color: $backgroundColor;
-	// 		padding-inline: 1rem;
-	// 		cursor: pointer;
-	// 	}
-
-	// 	.toggle-form {
-	// 		cursor: pointer;
-	// 		filter: invert(80%);
-	// 	}
-	// }
-
-	// .events__nav {
-	// 	display: flex;
-	// 	align-items: center;
-	// 	justify-content: space-between;
-	// 	margin-block: $small;
-	// }
-
 	.top-bar {
 		margin: 0;
 		padding: 1rem;
@@ -83,7 +36,6 @@
 		.social-icon:hover {
 			scale: 1.1;
 			rotate: 10deg;
-			// filter: drop-shadow(0 0 1rem $primaryColor);
 		}
 
 		.social-icon:active {
@@ -92,11 +44,14 @@
 		}
 	}
 
+	// main content wrapper
 	.contact-main {
 		margin-block: $tiny;
 		display: flex;
+		justify-content: space-around;
 		gap: $small;
 
+		// contact form
 		.form {
 			display: flex;
 			flex-direction: column;
@@ -123,22 +78,21 @@
 		}
 
 		.btn {
-			max-width: 40%;
-			margin: $tiny $medium;
+			width: 40%;
+			margin: $tiny auto;
 		}
 
 		textarea {
 			height: 12rem;
 		}
-
-		option {
-			width: inherit;
-		}
 	}
 
+	// image group wrapper
 	.contact__img--group {
 		width: fit-content;
-		margin: $medium auto;
+		height: 27rem;
+		margin-block: $medium;
+		margin-inline: $medium 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -147,25 +101,25 @@
 	}
 
 	.pattern {
-		width: 25rem;
+		width: 26rem;
 	}
 
 	.center-img {
-		width: 20rem;
+		width: 21rem;
 		z-index: 2;
 		left: -1rem;
 		bottom: 1rem;
 	}
 
 	.top-img {
-		width: $large;
+		width: 12rem;
 		z-index: 3;
 		top: 0;
 		left: -1rem;
 	}
 
 	.bottom-img {
-		width: $large;
+		width: 12rem;
 		z-index: 3;
 		bottom: -1rem;
 		left: 8rem;
@@ -178,6 +132,7 @@
 		position: absolute;
 	}
 
+	// RIG branch cards section
 	.rig-branch__group {
 		width: 100%;
 		display: grid;

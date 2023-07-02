@@ -1,0 +1,155 @@
+// ============ RIG SCHOOL PAGE STYLE =====================
+@use '../abstracts/variables' as *;
+
+@use 'abstracts/mixins' as *;
+
+.rig-school-page {
+	background-color: rgba($accentColor, 0.2);
+
+	.navbar {
+		top: 0;
+	}
+
+	.main {
+		width: 80%;
+		margin-inline: auto;
+		margin-block: 14rem $small;
+
+		@include desktop-display(block);
+	}
+
+	.academy-bg {
+		height: 75vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(255, 255, 255, 0.44);
+		margin-top: auto;
+		padding: $small;
+		position: relative;
+
+		&__img {
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			inset: 0 0 0 auto;
+			object-fit: fill;
+			z-index: -1;
+		}
+	}
+
+	.overlay {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: $small;
+		background-color: rgba(217, 217, 217, 0.5);
+		border: 0.4rem solid #f2f2f2;
+		box-shadow: 0 0.4rem 2.5rem rgba(0, 0, 0, 0.25);
+		z-index: 1;
+	}
+
+	.primary-heading {
+		font-size: unquote("clamp(2rem, 4vw + 1rem, 4rem)");
+		text-align: center;
+	}
+
+	// coming soon text
+	.coming-soon {
+		font-style: normal;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 6rem;
+		line-height: 7.2rem;
+		letter-spacing: -0.04em;
+		color: $primaryColor;
+		-webkit-text-stroke: 2px rgba($backgroundColor, 0.6);
+		animation: pulse 2s alternate infinite;
+	}
+
+	// form wrapper
+	.coming-soon__form--wrapper {
+		margin-top: $tiny;
+		width: 80%;
+
+		.paragraph {
+			font-weight: bold;
+		}
+	}
+
+	.coming-soon__form {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		border-radius: 1rem;
+		background-color: rgba($backgroundColor, 1);
+
+		.form__item {
+			width: 100%;
+			display: flex;
+			padding-inline: 1rem;
+			gap: 0.5rem;
+			align-items: center;
+			border-radius: 0.5rem;
+		}
+
+		.form__input,
+		.form__input:focus {
+			width: 100%;
+			height: 100%;
+			border: unset;
+			outline: unset;
+			background-color: transparent;
+		}
+
+		.btn {
+			border-radius: 0 1rem 1rem 0;
+			height: 100%;
+			transform: none;
+		}
+	}
+
+	// MEDIA QUERIES
+	@media screen and (max-width: 800px) {
+		.academy-bg {
+			padding: $tiny;
+		}
+
+		.overlay {
+			width: 100%;
+		}
+	}
+
+	@media screen and (max-width: 650px) {
+		.main {
+			@include mobile-display(block);
+		}
+
+		.academy-bg {
+			height: auto;
+			padding: 0;
+		}
+
+		.coming-soon {
+			font-size: 3rem;
+			text-align: center;
+		}
+
+		.coming-soon-details {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-top: $small;
+
+			.coming-soon__form--wrapper {
+				width: 100%;
+				margin-bottom: $small;
+			}
+		}
+	}
+}
