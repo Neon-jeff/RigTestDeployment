@@ -61,7 +61,7 @@
     {% compress js %}
     <script src="{%static '/assets/js/app.js'%}" defer></script>
     <script src="{%static '/assets/js/observer.js'%}" defer></script>
-	  <!-- <script src="{%static '/assets/js/swiper.js'%} " defer></script> -->
+	  <script src="{%static '/assets/js/swiper.js'%} " defer></script>
     {% endcompress %}
   </head>
   <body class="home-page">
@@ -133,7 +133,7 @@
           <a href="{% url 'contact' %}" class="navigation__link">contact us</a>
           <a href="{% url 'landing' %}" class="navigation__link">partner</a>
           <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
-          <a href="rig-school.html" class="navigation__link">RIG school</a>
+          <a href="{% url 'school' %}" class="navigation__link">RIG school</a>
           <a href="{% url 'events' %}" class="navigation__link">events</a>
           <a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
           <a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
@@ -164,7 +164,7 @@
               know what Israel ought to do... <span>~ Chronicles 12:32</span>
             </p>
             <button class="btn btn-primary">
-              <a href="partners.html">join us. become a partner</a>
+              <a href="{% url 'landing' %}">join us. become a partner</a>
             </button>
           </article>
           <!-- -------------------- HERO STATS SECTION ----------- -->
@@ -614,7 +614,7 @@
               <a href="{% url 'about' %}" class="navigation__link">about us</a>
 
               <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
-              <a href="rig-school.html" class="navigation__link">RIG school</a>
+              <a href="{% url 'school' %}" class="navigation__link">RIG school</a>
             </div>
             <div class="nav-group">
               <a href="{% url 'login' %}" class="navigation__link">partner</a>

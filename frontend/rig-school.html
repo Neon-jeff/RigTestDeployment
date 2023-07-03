@@ -1,0 +1,302 @@
+{% load static %}
+{% load compress %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RIG School | Coming Soon</title>
+		{% compress css %}
+		<link rel="stylesheet" href="{% static 'assets/sass/main.scss' %}" type="text/x-scss"  />
+		{% endcompress %}
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="assets/icons/favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="512x512"
+			href="assets/icons/favicon/android-chrome-512x512.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="assets/icons/favicon/android-chrome-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="assets/icons/favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="assets/icons/favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="assets/icons/favicon/site.webmanifest" />
+		<!-- js -->
+		{% compress js%}
+		<script src="{% static '/assets/js/app.js' %}" defer></script>
+		{%endcompress%}
+		<!-- SCROLLREVEAL -->
+		<script src="https://unpkg.com/scrollreveal"></script>
+	</head>
+	<body class="rig-school-page">
+		<!-- ----------------- NAVBAR----------------------------- -->
+		 <nav class="navbar">
+        <a href="{% url 'site-home' %}" class="navbar__logo">
+          <img
+            src="{% static 'assets/icons/rig-nav-logo.png' %}"
+            alt=""
+            class="logo"
+          />
+        </a>
+        <section class="navigation main-nav hide-nav">
+          <a href="{% url 'about' %}" class="navigation__link">about us</a>
+          <a href="{% url 'contact' %}" class="navigation__link">contact us</a>
+          <a href="{% url 'landing' %}" class="navigation__link">partner</a>
+          <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+          <a href="{% url 'school' %}" class="navigation__link">RIG school</a>
+          <a href="{% url 'events' %}" class="navigation__link">events</a>
+          <a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+          <a href="{% url 'dashboard' %}" class="navigation__link">affiliate</a>
+          <span class="navigation__link show-modal">donation</span>
+        </section>
+        <button class="btn btn-primary">
+          {% if request.user.is_authenticated %}
+          <a href="{% url 'dashboard' %}">dashboard</a>
+          {% else %}
+          <a href="{% url 'login' %}">login</a>
+          {% endif %}
+        </button>
+        <img
+          src="{% static '/assets/icons/icon-hamburger.svg' %}"
+          alt=""
+          class="icon nav-toggle"
+        />
+      </nav>
+
+		<main class="main">
+			<section class="academy-bg">
+				<!-- overlay background image -->
+				<img
+					src="{% static 'assets/images/prophetic-academy 1.jpg' %}"
+					alt=""
+					aria-hidden="true"
+					class="academy-bg__img"
+				/>
+				<article class="overlay card">
+					<!-- heading and text to be displayed on desktop -->
+					<h1 class="primary-heading display-on-desktop">RIG School</h1>
+					<p class="paragraph display-on-desktop">
+						RIG School is an advanced school aimed at helping you find your
+						prophetic apostolic assignment. The school is structured around a
+						series of courses that strengthen the believer in the prophetic,
+						ministry, and leadership.
+					</p>
+
+					<h2 class="coming-soon">coming soon</h2>
+					<!-- form will be shown on desktop -->
+					<div class="coming-soon__form--wrapper display-on-desktop">
+						<p class="paragraph">Get notified when we launch</p>
+						<form action="" class="coming-soon__form">
+							<label class="form__item">
+								<img
+									src="{% static 'assets/icons/sms.svg' %}"
+									aria-hidden="true"
+									alt=""
+									class="icon form__icon"
+								/>
+								<input
+									type="email"
+									required
+									placeholder="Email address"
+									class="form__input"
+								/>
+							</label>
+							<button class="btn btn-primary form-btn">subscribe</button>
+						</form>
+					</div>
+				</article>
+			</section>
+			<!-- this section will only show on mobile -->
+			<section class="coming-soon-details display-on-mobile">
+				<h2 class="primary-heading">RIG School</h2>
+				<p class="paragraph">
+					RIG School is an advanced school aimed at helping you find your
+					prophetic apostolic assignment. The school is structured around a
+					series of courses that strengthen the believer in the prophetic,
+					ministry, and leadership.
+				</p>
+				<div class="coming-soon__form--wrapper">
+					<p class="paragraph">Get notified when we launch</p>
+					<form action="" class="coming-soon__form">
+						<label class="form__item">
+							<img
+								src="{% static 'assets/icons/sms.svg' %}"
+								aria-hidden="true"
+								alt=""
+								class="icon form__icon"
+							/>
+							<input
+								type="email"
+								required
+								placeholder="Email address"
+								class="form__input"
+							/>
+						</label>
+						<button class="btn btn-primary form-btn">subscribe</button>
+					</form>
+				</div>
+			</section>
+		</main>
+		<!-- -------------- FOOTER --------------->
+    <footer class="footer">
+      <div class="footer__logo display-on-desktop">
+        <img
+          src="{% static 'assets/icons/rig-white.png' %}"
+          alt=""
+          class="logo rig-logo"
+        />
+        <img
+          src="{% static 'assets/icons/rig-text.png' %}"
+          alt=""
+          class="logo rig-txt"
+        />
+      </div>
+      <div class="footer__main">
+        <div class="footer__links">
+          <section class="navigation">
+            <div class="nav-group">
+              <a href="contact.html" class="navigation__link">contact us</a>
+              <a href="{% url 'about' %}" class="navigation__link">about us</a>
+
+              <a href="{% url 'rigx' %}" class="navigation__link">RIGX</a>
+              <a href="{% url 'school' %}" class="navigation__link">RIG school</a>
+            </div>
+            <div class="nav-group">
+              <a href="{% url 'login' %}" class="navigation__link">partner</a>
+              <a href="{% url 'events' %}" class="navigation__link">events</a>
+              <a href="{% url 'book-shop' %}" class="navigation__link">shops</a>
+              <a href="#" class="navigation__link">affiliate</a>
+            </div>
+          </section>
+          <div class="footer__btn-group">
+            <div class="footer__logo display-on-mobile">
+              <img
+                src="{% static 'assets/icons/rig-white.png' %}"
+                alt=""
+                class="logo rig-logo"
+              />
+              <img
+                src="{% static 'assets/icons/rig-text.png' %}"
+                alt=""
+                class="logo rig-txt"
+              />
+            </div>
+            <button class="btn btn-secondary show-modal">donate</button>
+            <button class="btn btn-primary">
+              <a href="sign-in.html">login</a>
+            </button>
+          </div>
+        </div>
+        <section class="footer__socials">
+          <!-- <a href="#" class="footer__socials--link">
+						<img
+							src="/assets/icons/twitter-white.png"
+							alt="follow us on twitter"
+							class="icon socail-icon"
+						/>
+					</a> -->
+          <a
+            href="https://www.youtube.com/channel/UCHSYRA0DZMOglkhKXxUBFHQ"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/youtube-white.png' %}"
+              alt="subscribe to our channel"
+              class="icon social-icon"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/rignationafrica/"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/instagram-white.png' %}"
+              alt="foolow us on instagram"
+              class="icon social-icon"
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/rigafrica1/?_rdc=1&_rdr"
+            target="_blank"
+            class="footer__socials--link"
+          >
+            <img
+              src="{% static '/assets/icons/facebook-white.png' %}"
+              alt="follow with us on facebook"
+              class="icon social-icon"
+            />
+          </a>
+        </section>
+        <p class="paragraph copyright">&copy; Copyright 2023 - RIG Africa</p>
+      </div>
+    </footer>
+    <!-- --------------------- DONATE MODAL ---------------- -->
+    <dialog class="backdrop donation__wrapper hidden">
+      <div class="donation__container">
+        <div class="modal donation">
+          <span class="modal__close close-donation">
+            <img
+              src="{% static 'assets/icons/close-circle.png'%}"
+              alt=""
+              class="icon"
+            />
+          </span>
+          <h4 class="secondary-heading">donate to rig africa</h4>
+          <div class="donation__group">
+            <a href="#" target="_blank" class="card donation__card">
+              <div class="donation__card--logo">
+                <img
+                  src="{%static '/assets/icons/donate.svg'%}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading donation__card--heading">
+                online donation
+              </h4>
+              <p class="paragraph">Tithes, offerings or random giving.</p>
+            </a>
+            <a href="{% url 'login' %}" class="card donation__card">
+              <div class="donation__card--logo">
+                <img
+                  src="{%static '/assets/icons/donate.svg'%}"
+                  alt="donate"
+                  class="icon"
+                />
+              </div>
+              <h4 class="secondary-heading donation__card--heading">
+                become a partner
+              </h4>
+              <p class="paragraph">
+                Join our vision to raise 4000 active prophets.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </dialog>
+	</body>
+</html>

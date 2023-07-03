@@ -28,6 +28,7 @@ urlpatterns = [
     path("rigx/", include('rigx.urls')),
     path("about/", TemplateView.as_view(template_name='about.html'), name="about"),
     path("contact-us/", TemplateView.as_view(template_name='contact.html'), name="contact"),
+    path("rig-school/", TemplateView.as_view(template_name='rig-school.html'), name="school"),
     path("__reload__/", include("django_browser_reload.urls"))
 ]
 
